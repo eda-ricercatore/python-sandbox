@@ -64,6 +64,7 @@
 + [Miscellaneous](https://github.com/eda-ricercatore/gulyas-scripts/blob/master/notes/computer-languages/python.md#miscellaneous)
 	- [Regular Expressions](https://github.com/eda-ricercatore/gulyas-scripts/blob/master/notes/computer-languages/python.md#regular-expressions)
 	- [Generic Programming](https://github.com/eda-ricercatore/gulyas-scripts/blob/master/notes/computer-languages/python.md#generic-programming)
+	
 + [References](https://github.com/eda-ricercatore/gulyas-scripts/blob/master/notes/computer-languages/python.md#references)
 	- [Object-Oriented *Python* Programming](https://github.com/eda-ricercatore/gulyas-scripts/blob/master/notes/computer-languages/python.md#object-oriented-python-programming)
 	- [Domain Applications of *Python* Programming](https://github.com/eda-ricercatore/gulyas-scripts/blob/master/notes/computer-languages/python.md#domain-applications-of-python-programming)
@@ -4203,7 +4204,36 @@ To use *Python* to interface with a *Git*-based repository, I can try the
 
 
 
+### ⚠️ Caution!!!
 
+
+####	Warnings about Naming Packages and Modules
+
+Do not name them with the same name in packages and modules of
+	The Python Standard Library and other Python libraries.
+Else, the naming conflict will cause packages and modules not to be
+	detected/recognized. 
+
+Similarly, we should avoid naming packages and modules based on
+	commands in UNIX-like operating systems.
+	This also caused problems with C++ classes and packages/modules.
+
+####	Avoiding Certain Text Patterns In *Python* Scripts and *Jupyter* Notebooks  
+
+
+Text patterns to avoid in *Python* scripts and *Jupyter* notebooks.
++ backslash "c"
+	- The backslash character and the letter "c" are concatenated;
+		the "c" is appended to the backslash character. 
+	- For an example, check out the script *fix_order_of_names.py* in the subsubdirectory, "x-dump -> examples".
+	- It will cause a syntax error.
+	- `SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 5615-5616: truncated \uXXXX escape`
++ backslash "u"
+	- The backslash character and the letter "u" are concatenated;
+		the "u" is appended to the backslash character. 
+	- For an example, check out the script *fix_order_of_names.py* in the subsubdirectory, "x-dump -> examples".
+	- It will cause a syntax error.
+	- `SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 5615-5616: truncated \uXXXX escape`
 
 
 
