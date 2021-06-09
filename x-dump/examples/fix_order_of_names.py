@@ -60,10 +60,12 @@
 			* Carter, Nicholas P.
 	+ "$\b"
 		- This is because Python treats the backslash as an escape character, and '\b' translates to the backslash character.
-		- This results in deleting the previous character, a '{' (open curly braces).
+		- This results in deleting the previous character, a '$' (dollar sign).
 		- This bug is demonstrated in processing the following string of names.
 		- "Wille, Robert and Gro{$\beta$}e, Daniel and Haedicke, Finn and Drechsler, Rolf"
- 
+ 	+ When a mixed-case name (first name, last name, or a middle name) or a double-barrelled name (or hyphenated surname) is wrapped in curly braces, the captialization of the name is incorrect.
+ 		- If the first alphabetical letter of the name is not the first character of the first, middle, or last name, it would not be characterized correctly.
+ 		- The first letter of the appending name in a double-barrelled name would not be capitalized either.
 
 
 
@@ -274,7 +276,7 @@ names_last_first__middle_format = "Keating, Michael and Flynn, David and Aitken,
 names_last_first__middle_format = "Kent, Jim and Barber, Galt and Casper, Jonathan and Clawson, Hiram and Diekhans, Mark and Fujita, Pauline and Guruvadoo, Luvina and Harte, Rachel and Heitner, Steve and Hinrichs, Angie and Karolchik, Donna and Kuhn, Robert and Learned, Katrina and Lee, Brian and Pringle, Thomas and Raney, Brian and Rosenbloom, Kate and Speir, Matthew and Zweig, Ann"
 names_last_first__middle_format = "Kent, Jim and Barber, Galt and Casper, Jonathan and Clawson, Hiram and Diekhans, Mark and Fujita, Pauline and Guruvadoo, Luvina and Harte, Rachel and Heitner, Steve and Hinrichs, Angie and Karolchik, Donna and Kuhn, Robert and Learned, Katrina and Lee, Brian and Pringle, Thomas and Raney, Brian and Rosenbloom, Kate and Speir, Matthew and Zweig, Ann"
 names_last_first__middle_format = "Martin, Milo M. K. and Sorin, Daniel J. and Ailamaki, Anastassia and Alameldeen, Alaa R. and Dickson, Ross M. and Mauer, Carl J. and Moore, Kevin E. and Plakal, Manoj and Hill, Mark D. and Wood, David A."
-
+names_last_first__middle_format = "Smith, J{\"{o}}hn Gro{$\beta$}e"
 
 
 
