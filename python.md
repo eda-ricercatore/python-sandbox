@@ -9,9 +9,12 @@
 >		commands in UNIX-like operating systems.
 >		This caused problems with C++ classes and packages/modules.
 >
+
+>	## ⚠️ Reminders!!!
+
 >	Remember to place the UNIX/Linux shebang, so that I can run it as an
 >		executable script from the command line (via the "Terminal" application).
-
+>	Fix the URLs in this script, especially for the Table of Contents.
 
 
 
