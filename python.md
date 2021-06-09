@@ -4222,7 +4222,7 @@ Similarly, we should avoid naming packages and modules based on
 	commands in UNIX-like operating systems.
 	This also caused problems with C++ classes and packages/modules.
 
-####	Avoiding Certain Text Patterns In *Python* Scripts and *Jupyter* Notebooks  
+####	Avoiding Certain Text Patterns In *Python* Scripts and *Jupyter* Notebooks 
 
 
 Text patterns to avoid in *Python* scripts and *Jupyter* notebooks.
@@ -4241,7 +4241,14 @@ Text patterns to avoid in *Python* scripts and *Jupyter* notebooks.
 
 
 
+####	Processing Certain Text Patterns In *Python* Scripts and *Jupyter* Notebooks
 
+The following text patterns would not be processed as it appears (or, verbatim):
++ `{\`
+	- The backslash character disappears, since it and the subsequent character are not valid escape characters in Python.
++ `$\b`
+	- This is because Python treats the backslash as an escape character, and `\b` translates to the backslash character.
+	- This results in deleting the previous character, a `$` (open curly brace).
 
 
 
