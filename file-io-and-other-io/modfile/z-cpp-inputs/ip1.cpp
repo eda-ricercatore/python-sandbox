@@ -103,11 +103,11 @@ using namespace std;
 
 // Start of main function...
 int main(int argc, char *argv[]) {
-	// cout << "===============================================================" << endl;
-	// cout << "		- START OF TEST SUITE -"<<endl;
-	// cout << "===============================================================" << endl;
-	// cout << "Run the automated regression test suite..."<<endl;
-	// cout <<endl;
+	cout << "===============================================================" << endl;
+	cout << "		- START OF TEST SUITE -"<<endl;
+	cout << "===============================================================" << endl;
+	cout << "Run the automated regression test suite..."<<endl;
+	cout <<endl;
 
 	
 	
@@ -118,18 +118,18 @@ int main(int argc, char *argv[]) {
 	 * request for the user to rerun the program and exit.
 	 */
 	if((argv[1] == NULL) || (argv[2] == NULL)) {
-		// cout << "To run this program, lamiera-per-caldaie (test-boilerplate-code)," << endl;
-		// cout << "do the following:" << endl;
-		// cout << "./test-boilerplate-code [benchmark] [output-filename]" << endl;
-		// cout << endl;
-		// cout << "E.g., ./test-boilerplate-code stack stack-op.txt" << endl;
+		cout << "To run this program, lamiera-per-caldaie (test-boilerplate-code)," << endl;
+		cout << "do the following:" << endl;
+		cout << "./test-boilerplate-code [benchmark] [output-filename]" << endl;
+		cout << endl;
+		cout << "E.g., ./test-boilerplate-code stack stack-op.txt" << endl;
 		return 0;
 	}
 
-	// cout << "Benchmark is located at:" << endl;
-	// cout << argv[1] << endl;
-	// cout << "Output filename to store test results is:" << endl;
-	// cout << argv[2] << endl;
+	cout << "Benchmark is located at:" << endl;
+	cout << argv[1] << endl;
+	cout << "Output filename to store test results is:" << endl;
+	cout << argv[2] << endl;
 	
 /*
 	// Check if the benchmark is valid.
@@ -167,8 +167,8 @@ int main(int argc, char *argv[]) {
 	// Start testing my code here!
 	
 	// Testing the utilities package
-	// cout << "--------------------------------------------------------" << endl;
-	// cout << "		TESTING the Utilities package" << endl << endl << endl;
+	cout << "--------------------------------------------------------" << endl;
+	cout << "		TESTING the Utilities package" << endl << endl << endl;
 	// Test the class violated_assertion
 	violated_assertion_ut::test_violated_assertion();
 	// Test the class violated_precondition
@@ -184,8 +184,8 @@ int main(int argc, char *argv[]) {
 	
 	
 	// Testing the graph package
-	// cout << "--------------------------------------------------------" << endl;
-	// cout << "		TESTING the Graph package" << endl << endl;
+	cout << "--------------------------------------------------------" << endl;
+	cout << "		TESTING the Graph package" << endl << endl;
 	// Test the class node
 
 
@@ -194,20 +194,20 @@ int main(int argc, char *argv[]) {
 	//file_io::open_io_streams();
 	
 	// Tally up the software testing score.
-	// cout << "--------------------------------------------------------" << endl;
-	// cout << "		Summary of Automated Regression Testing";
-	// cout << endl << endl;
-	// cout << "Number of test cases: "<<printer::get_num_test_cases()<<endl;
-	// cout << "Number of passed test cases: ";
-	// cout << printer::get_num_passed_test_cases()<<endl;
+	cout << "--------------------------------------------------------" << endl;
+	cout << "		Summary of Automated Regression Testing";
+	cout << endl << endl;
+	cout << "Number of test cases: "<<printer::get_num_test_cases()<<endl;
+	cout << "Number of passed test cases: ";
+	cout << printer::get_num_passed_test_cases()<<endl;
 	double results = (double) printer::get_num_passed_test_cases() / printer::get_num_test_cases();
 	results = results * 100;
-	// cout << "	Success Rate: " << results << "%" << endl << endl;
+	cout << "	Success Rate: " << results << "%" << endl << endl;
 	
 
-	// cout << "===============================================================" << endl;
-	// cout << "		- END OF TEST SUITE -"<<endl;
-	// cout << "===============================================================" << endl;
+	cout << "===============================================================" << endl;
+	cout << "		- END OF TEST SUITE -"<<endl;
+	cout << "===============================================================" << endl;
 	
 	// End of main function...
 	return 0;

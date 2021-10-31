@@ -54,7 +54,7 @@ clean:
 cpp:
 	@echo === Comment out print statements in C++.
 	cp z-cpp-inputs/*.cpp .
-	
+	./get-expr-version.py
 
 
 
