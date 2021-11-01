@@ -111,8 +111,66 @@ This is a sandbox, for trying out different concepts with "throwaway" scripts, f
 
 
 
+## DevOps, System Administration, and Network Administration
 
 
+Ways to upgrade Python interpreters, and Python Virtual Machine (PVM), and [Python 3 Runtime Environment](https://cloud.google.com/appengine/docs/standard/python3/runtime):
++ CPython reference implementations [Python Software Foundation contributors 2021]:
+	- PSF Python, via Python.org
+	- ActivePython
+	- Intel Distribution for Python
++ Automatic upgrade via cloud provider [Python Software Foundation contributors 2021]
++ OS-provided Python (via apt-get, yum, homebrew, etc.) [Python Software Foundation contributors 2021]
++ pythonz [Python Software Foundation contributors 2021]
++ Docker containers [Python Software Foundation contributors 2021]
++ Build from source [Python Software Foundation contributors 2021]
++ Anaconda [Python Software Foundation contributors 2021]
++ pyenv [Python Software Foundation contributors 2021]
++ other implementations [Wikipedia contributors 2021]:
+	- Stackless Python.
+	- MicroPython.
+	- CLPython.
+	- Cython.
+	- IronPython.
+	- Jython.
+	- Pyjs.
+	- PyPy.
+	- Numba.
+	- Shed Skin.
+	- Nuitka.
++ Kubernetes
++ cloud-based services:
+	- Google Cloud
+	- Google Colab
+	- AWS
+
+
+
+
+
+
+Software applications/tools to isolate Python environments:
++ Poetry
++ Docker
++ Pipenv
++ Conda
++ Virtualenv
++ Vagrant / virtual machines
++ Kubernetes
+
+
+
+
+
+
+
+
+### References
+
++ [Python Software Foundation contributors 2021]
+	- Python Software Foundation contributors and JetBrains staff, "Python Developers Survey 2021", JetBrains s.r.o. and Python Software Foundation, Prague, Czech Republic and Beaverton, OR, 2021. Available online at: https://surveys.jetbrains.com/s3/c1-python-developers-survey-2021; November 1, 2021 was the last accessed date. 
++ [Wikipedia contributors 2021]
+	- Wikipedia contributors, "List of Python software," in Wikipedia, The Free Encyclopedia: Python (programming language) software, Wikimedia Foundation, San Francisco, CA, October 24, 2021.
 
 
 

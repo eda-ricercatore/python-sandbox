@@ -5,15 +5,15 @@
 
 
 """
-	This Python script is written by Zhiyang Ong to experiment with
-		file read operations.
+	This Python script is written by Zhiyang Ong to experiment with writing
+		to output files.
 
 
 	Synopsis:
-	Automatically test file read operations for multiple file streams.
+	Automatically test file write operations.
 
 	This script can be executed as follows:
-	./multiple_file_input_streams.py
+	./output_file_generator.py
 
 
 
@@ -78,19 +78,34 @@ import time
 
 # Generate the test data set.
 
+# Generate the data.
+#list_1 = [range(35,50)]
+
+list_1 = range(10,20)
+list_2 = [x+1 if x >= 15 else x+2 for x in list_1]
+# Turn a 
+list_3 = [x for x in list_1]
+print("list 1 is:",list_1,"=")
+print("list 2 is:",list_2,"=")
+print("list 3 is:",list_3,"=")
+
+
+list_1 = range(35,50)
+list_2 = [x+1 if x >= 45 else x+5 for x in list_1]
+list_3 = [x^2 if x >= 45 else x+2 for x in list_1]
+list_4 = [x for x in list_1]
+print("list 1 is:",list_1,"=")
+print("list 2 is:",list_2,"=")
+print("list 3 is:",list_3,"=")
+print("list 4 is:",list_4,"=")
 
 
 
 
 
 
-# ===================================================================
+with open("test-cases/output-files/op-file-1.md", "w") as op_file_1:
+	op_file_1.write("")
 
 
-"""
-
-	References:
-	+ John "johntellsall" Mitchell, 
-
-"""
 

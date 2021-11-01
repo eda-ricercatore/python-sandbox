@@ -6,14 +6,14 @@
 
 """
 	This Python script is written by Zhiyang Ong to experiment with
-		file read operations.
+		random number generation.
 
 
 	Synopsis:
-	Automatically test file read operations for multiple file streams.
+	Automatically random number generation.
 
 	This script can be executed as follows:
-	./multiple_file_input_streams.py
+	./random_num_generator.py
 
 
 
@@ -68,6 +68,8 @@ import warnings
 import re
 import datetime
 import time
+# For random number generation.
+import random
 
 
 
@@ -76,21 +78,17 @@ import time
 
 # ===================================================================
 
-# Generate the test data set.
+# Set the seed for random number generation.
+
+random.seed(a=None, version=2)
+
+#list_of_random_bytes = random.randbits(10)
+##list_of_random_bytes = randbits(10)
+##print("list_of_random_bytes",list_of_random_bytes,"=")
+
+#list_of_random_bytes = random.randbytes(10)
+list_of_random_bytes = randbytes(10)
+print("list_of_random_bytes",list_of_random_bytes,"=")
 
 
-
-
-
-
-
-# ===================================================================
-
-
-"""
-
-	References:
-	+ John "johntellsall" Mitchell, 
-
-"""
 

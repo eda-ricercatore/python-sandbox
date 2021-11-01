@@ -1,19 +1,21 @@
-#!/Users/zhiyang/anaconda3/bin/python3
+#!/usr/local/bin/python3
 
-###	#!/usr/local/bin/python3
+###	#!/Users/zhiyang/anaconda3/bin/python3
+
+
 
 
 
 """
 	This Python script is written by Zhiyang Ong to experiment with
-		file read operations.
+		calling Linux/UNIX commands.
 
 
 	Synopsis:
-	Automatically test file read operations for multiple file streams.
+	Call Linux/UNIX commands from this Python script.
 
 	This script can be executed as follows:
-	./multiple_file_input_streams.py
+	./check_python_version.py
 
 
 
@@ -68,6 +70,8 @@ import warnings
 import re
 import datetime
 import time
+# For random number generation.
+import random
 
 
 
@@ -76,7 +80,20 @@ import time
 
 # ===================================================================
 
-# Generate the test data set.
+"""
+	Run Linux/UNIX commands from the command line, via the
+		Terminal application.
+"""
+print("===================================================================")
+print("Find the version of the Python interpreter.")
+print("")
+print("= Method 1: os.system()")
+os.system("/usr/local/bin/python3 -V")
+
+
+
+
+
 
 
 
@@ -85,12 +102,3 @@ import time
 
 
 # ===================================================================
-
-
-"""
-
-	References:
-	+ John "johntellsall" Mitchell, 
-
-"""
-
