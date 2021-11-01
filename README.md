@@ -414,7 +414,7 @@ tools to isolate Python environments between projects [Python Software Foundatio
 
 
 
-Considerations for improving software development environments:
+***Considerations for improving software development environments***:
 + virtual environment (e.g. virtualenv) in containers (e.g. Docker) [Python Software Foundation contributors 2021]
 + usage of the standard library (Python 3.3+) module venv [Python Software Foundation contributors 2021]
 	- use venv directly
@@ -429,13 +429,18 @@ Considerations for improving software development environments:
 	- poetry.lock
 	- Conda environment.yml
 	- pip constraints.txt
-+ [Python Software Foundation contributors 2021]
-+ [Python Software Foundation contributors 2021]
-+ [Python Software Foundation contributors 2021]
-+ [Python Software Foundation contributors 2021]
-+ [Python Software Foundation contributors 2021]
-+ [Python Software Foundation contributors 2021]
-+ [Python Software Foundation contributors 2021]
++ packaged and published a Python application that you developed to a package repository [Python Software Foundation contributors 2021]
+	- PyPI
+	- Private Python Package Index
+	- Internal mirror of PyPI
+	- conda-forge
++ develop and package Python libraries [Python Software Foundation contributors 2021]
++ packaged and published a Python library to a package repository [Python Software Foundation contributors 2021]:
+	- PyPI
+	- Private Python Package Index
+	- Internal mirror of PyPI
+	- conda-forge
+
 
 
 
@@ -548,10 +553,41 @@ Sources to install packages from [Python Software Foundation contributors 2021]:
 
 
 
+tools for developing Python applications [Python Software Foundation contributors 2021]: 
++ Setuptools
++ build
++ Wheel
++ Enscons
++ pex
++ Flit
++ Poetry
++ conda-build
++ maturin
++ PDM-PEP517
 
 
 
-[Python Software Foundation contributors 2021]
+
+
+
+
+
+
+
+
+
+
+tools for creating packages of Python libraries [Python Software Foundation contributors 2021]:
++ Setuptools
++ build
++ Wheel
++ Enscons
++ pex
++ Flit
++ Poetry
++ conda-build
++ maturin
++ PDM-PEP517
 
 
 
