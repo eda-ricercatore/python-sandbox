@@ -149,7 +149,7 @@ Ways to upgrade Python interpreters, and Python Virtual Machine (PVM), and [Pyth
 
 
 
-Software applications/tools to isolate Python environments:
+Software applications/tools to isolate Python environments [Python Software Foundation contributors 2021]:
 + Poetry
 + Docker
 + Pipenv
@@ -157,6 +157,412 @@ Software applications/tools to isolate Python environments:
 + Virtualenv
 + Vagrant / virtual machines
 + Kubernetes
+
+
+
+
+
+Web frameworks and libraries [Python Software Foundation contributors 2021]:
++ Bottle
++ CherryPy 
++ Django
++ Falcon
++ FastAPI
++ Flask 
++ Hug
++ Pyramid 
++ Tornado
++ web2py
+
+
+
+
+Data science frameworks [Python Software Foundation contributors 2021]:
++ Gensim
++ Keras
++ Matplotlib
++ MXNet
++ NumPy
++ Pandas
++ PyTorch
++ SciKit-Learn
++ SciPy
++ Seaborn
++ NLTK
++ TensorFlow
++ Theano
+
+
+
+Frameworks and libraries [Python Software Foundation contributors 2021]:
++ aiohttp
++ Asyncio
++ httpx
++ Pillow
++ Pygame
++ PyGTK
++ PyQT
++ Requests
++ Six
++ Tkinter
++ Twisted
++ Kivy
++ wxPython
++ Scrapy
+
+
+
+Cloud platforms:
++ Linode [Python Software Foundation contributors 2021]
++ Google Cloud Platform [Python Software Foundation contributors 2021]
++ AWS [Python Software Foundation contributors 2021]
++ DigitalOcean [Python Software Foundation contributors 2021]
++ OpenShift [Python Software Foundation contributors 2021]
++ OpenStack [Python Software Foundation contributors 2021]
++ Rackspace [Python Software Foundation contributors 2021]
++ PythonAnywhere [Python Software Foundation contributors 2021]
++ Microsoft Azure [Python Software Foundation contributors 2021]
++ Heroku [Python Software Foundation contributors 2021]
++ Google Colab
+
+
+
+
+
+
+
+Ways to run code in the cloud (in the production environment) [Python Software Foundation contributors 2021]:
++ Within containers
++ Serverless (such as AWS Lambda or Cloud Functions)
++ In virtual machines
++ On a Platform-as-a-Service (such as Heroku or Google App Engine)
+
+
+
+
+Ways to develop for the cloud [Python Software Foundation contributors 2021]:
++ In Docker containers
++ Locally with virtualenv (or similar)
++ Directly in the production environment
++ With local system interpreter
++ In virtual machines
++ In remote development environments
+
+
+Python unit-testing frameworks [Python Software Foundation contributors 2021]:
++ pytest
++ nose
++ unittest
++ doctest
++ tox
++ Hypothesis
++ mock
+
+
+
+
+
+ORMs [Python Software Foundation contributors 2021]:
++ Peewee
++ Dejavu
++ SQLAlchemy
++ Django ORM
++ PonyORM
++ Raw SQL
++ Tortoise ORM
++ SQLObject
+
+
+
+
+
+databases:
++ Amazon Redshift [Python Software Foundation contributors 2021]
++ MySQL [Python Software Foundation contributors 2021]
++ h2 [Python Software Foundation contributors 2021]
++ Couchbase [Python Software Foundation contributors 2021]
++ SQLite [Python Software Foundation contributors 2021]
++ MongoDB [Python Software Foundation contributors 2021]
++ Neo4j [Python Software Foundation contributors 2021]
++ HBase [Python Software Foundation contributors 2021]
++ PostgreSQL [Python Software Foundation contributors 2021]
++ MS SQL Server [Python Software Foundation contributors 2021]
++ Redis [Python Software Foundation contributors 2021]
++ Cassandra [Python Software Foundation contributors 2021]
++ DB2 [Python Software Foundation contributors 2021]
++ Oracle Database [Python Software Foundation contributors 2021]
++ CouchDB
++ Db2
++ InfinityDB
++ LMDB
++ MemcacheDB
+
+
+
+
+
+
+Big Data tools [Python Software Foundation contributors 2021]:
++ Apache Hive
++ Apache Tez
++ Apache Flink
++ Apache Beam
++ Dask
++ Apache Hadoop/MapReduce
++ Apache Samza
++ Apache Kafka
++ ClickHouse
++ Apache Spark
+
+
+
+
+
+
+Continuous Integration (CI) systems [Python Software Foundation contributors 2021]:
++ GitHub Actions
++ Gitlab CI
++ AppVeyor
++ CruiseControl
++ Jenkins / Hudson
++ Travis CI
++ Bamboo
++ TeamCity
++ Bitbucket Pipelines
++ CircleCI
+
+
+
+
+
+
+configuration management tools [Python Software Foundation contributors 2021]
++ Salt
++ Chef
++ Custom solution
++ Ansible
++ Puppet
+
+
+
+
+
+documentation tool [Python Software Foundation contributors 2021]:
++ Sphinx
++ MKDocs
++ Doxygen
+
+
+
+
+
+main text editor or IDE:
++ Atom [Python Software Foundation contributors 2021]
++ Eclipse + Pydev [Python Software Foundation contributors 2021]
++ Emacs [Python Software Foundation contributors 2021]
++ IDLE [Python Software Foundation contributors 2021]
++ IntelliJ IDEA [Python Software Foundation contributors 2021]
++ JupyterLab [Python Software Foundation contributors 2021]
++ Jupyter Notebook [Python Software Foundation contributors 2021]
++ NotePad++ [Python Software Foundation contributors 2021]
++ PyCharm Community Edition [Python Software Foundation contributors 2021]
++ PyCharm Professional Edition [Python Software Foundation contributors 2021]
++ Python Tools for Visual Studio (PTVS) [Python Software Foundation contributors 2021]
++ Spyder [Python Software Foundation contributors 2021]
++ Sublime Text [Python Software Foundation contributors 2021]
++ Vim [Python Software Foundation contributors 2021]
++ VS Code [Python Software Foundation contributors 2021]
++ Xcode
++ text editors with Kite
+
+
+
+
+
+
+
+software development practices:
++ use code linting (programs that analyze code for potential errors) [Python Software Foundation contributors 2021]
++ use Version Control Systems [Python Software Foundation contributors 2021]
++ use a debugger [Python Software Foundation contributors 2021]
++ use NoSQL databases [Python Software Foundation contributors 2021]
++ use code coverage [Python Software Foundation contributors 2021]
++ run / debug or edit code on remote machines (remote hosts, VMs, etc.) [Python Software Foundation contributors 2021]
++ use a Python profiler [Python Software Foundation contributors 2021]
++ use Issue Trackers [Python Software Foundation contributors 2021]
++ write tests for your code [Python Software Foundation contributors 2021]
++ use autocompletion in your editor [Python Software Foundation contributors 2021]
++ use optional type hinting [Python Software Foundation contributors 2021]
++ use Continuous Integration tools [Python Software Foundation contributors 2021]
++ use SQL databases [Python Software Foundation contributors 2021]
++ use Python virtual environments for your projects [Python Software Foundation contributors 2021]
++ refactor your code [Python Software Foundation contributors 2021]
+
+
+
+
+tools to isolate Python environments between projects [Python Software Foundation contributors 2021]:
++ virtualenv
++ venv
++ virtualenvwrapper
++ hatch
++ Poetry
++ pipenv
++ Conda
+
+
+
+
+
+Considerations for improving software development environments:
++ virtual environment (e.g. virtualenv) in containers (e.g. Docker) [Python Software Foundation contributors 2021]
++ usage of the standard library (Python 3.3+) module venv [Python Software Foundation contributors 2021]
+	- use venv directly
+	- use it via Poetry
+	- use it via Pipenv
+	- use it via virtualenv
+	- use it via tox
++ tools for managing precise/exact versions (version pinning) of application dependencies [Python Software Foundation contributors 2021]:
+	- requirements.txt
+	- pyproject.toml
+	- pipfile.lock
+	- poetry.lock
+	- Conda environment.yml
+	- pip constraints.txt
++ [Python Software Foundation contributors 2021]
++ [Python Software Foundation contributors 2021]
++ [Python Software Foundation contributors 2021]
++ [Python Software Foundation contributors 2021]
++ [Python Software Foundation contributors 2021]
++ [Python Software Foundation contributors 2021]
++ [Python Software Foundation contributors 2021]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tools related to Python packaging [Python Software Foundation contributors 2021]:
++ pip
++ Conda
++ pipenv
++ Poetry
++ venv (standard library)
++ virtualenv
++ flit
++ tox
++ PDM
++ twine
++ Containers (eg: via Docker)
++ Virtual machines
++ Workplace specific proprietary solution
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tools for application dependency management [Python Software Foundation contributors 2021]:
++ pipenv
++ poetry
++ pip-tools
+
+
+
+
+
+
+
+automated services to update the versions of application dependencies [Python Software Foundation contributors 2021]:
++ Dependabot
++ PyUp
++ Custom tools, e.g. a cron job or scheduled CI task
+
+
+
+
+
+
+
+
+
+
+tools for installing packages [Python Software Foundation contributors 2021]:
++ pip
++ easy_install
++ Conda
++ Poetry
++ pip-sync
++ pipx
+
+
+
+
+
+
+Sources to install packages from [Python Software Foundation contributors 2021]:
++ PyPI
++ Local source
++ Internal mirror of PyPI
++ Private Python Package Index
++ Anaconda
++ Default Conda channel
++ conda-forge Conda channel
++ Other Conda channel
++ GitHub
++ Artifactory
++ GitLab
++ From Linux distribution
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[Python Software Foundation contributors 2021]
+
+
+
+
+
+
+
+
+
+
+
 
 
 
