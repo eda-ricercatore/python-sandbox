@@ -7,20 +7,23 @@
 
 
 """
-	This Python script is written by Zhiyang Ong to check the version
-		of Python interpreter/compiler.
+	This Python script is written by Zhiyang Ong to experiment with
+		calling Linux/UNIX commands.
 
 
 	Synopsis:
-	Check the version of Python interpreter/compiler.
+	Call Linux/UNIX commands from this Python script.
 
 	This script can be executed as follows:
-	./check_python_version.py
+	./run_unix_linux_commands.py
 
 
 
 	References from my BibTeX database.
-	+ [Loreto2019]
+	+ For running UNIX/Linux commands:
+		- [Loreto2019]
+	+ For string processing for the output of running UNIX/Linux commands:
+		- [Roman2010]
 
 
 
@@ -82,6 +85,10 @@ import random
 from subprocess import call
 # [DrakeJr2016b]
 from subprocess import run
+# [DrakeJr2016b]
+from subprocess import Popen
+# [DrakeJr2016b]
+from subprocess import PIPE
 
 
 
@@ -94,7 +101,7 @@ from subprocess import run
 		Terminal application.
 """
 print("===================================================================")
-print("Find the version of the Python interpreter.")
+print("Run UNIX/Linux commands from the command line, via the Terminal application.")
 print("")
 
 
@@ -106,6 +113,11 @@ print("= Method 1: os.system()")
 """
 os.system("/usr/local/bin/python3 -V")
 #os.system("/Frameworks/Python.framework/Versions/3.10/bin/python3 -V")
+
+
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 print("= Method 2: subprocess.call()")
@@ -121,14 +133,81 @@ print("= Method 2: subprocess.call()")
 #call("/Frameworks/Python.framework/Versions/3.10/bin/python3 -V", shell=True, check=True, capture_output=True)
 
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
 print("= Method 3: subprocess.run()")
 """
 	Reference:
 	+ [DrakeJr2016b]
 """
-#run(["/Frameworks/Python.framework/Versions/3.10/bin/python3", "-V"], shell=True, check=True)
-run(["/Frameworks/Python.framework/Versions/3.10/bin/python3", "-V"], capture_output=True)
-#subprocess.run(["/Frameworks/Python.framework/Versions/3.10/bin/python3", "-V"], shell=True, check=True, capture_output=True)
+#run(["/Frameworks/Python.framework/Versions/3.10/bin/python3", "-V"], shell=True, check=True, capture_output=True)
+#std_output = run(["/usr/local/bin/python3", "-V"], shell=True, check=True, capture_output=True)
+#std_output = run(["/usr/local/bin/python3", "-V"], shell=True, check=True)
+#run(["/usr/local/bin/python3", "-V"], shell=True, check=True)
+run(["/usr/local/bin/python3", "-V"])
+#run("exit()", shell=True, check=True)
+run("exit", shell=True, check=True)
+#run(["/usr/local/bin/python3", "-V"], capture_output=True)
+#print("std_output:",std_output,"=")
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+print("= Method 4: subprocess.Popen()")
+"""
+	Reference:
+	+ [DrakeJr2016b]
+"""
+Popen(["/usr/local/bin/python3", "-V"])
+proc_obj = Popen(["/usr/local/bin/python3", "-V"])
+#print("Popen.stdout",Popen.stdout,"=")
+#print("Popen.stdout",proc_obj.stdout.read(),"=")
+#####print("Popen.stdout",proc_obj.stdout,"=")
+
+#run("exit", shell=True, check=True)
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+print("= Method 5: subprocess.Popen() with stdout=PIPE")
+"""
+	Reference:
+	+ [DrakeJr2016b]
+"""
+with Popen(["/usr/local/bin/python3", "-V"], stdout=PIPE) as proc:
+#with Popen(["/usr/local/bin/python3", "-V"], stdout=subprocess.PIPE) as proc:
+	#print(proc.stdout.read())
+	#	b'Python 3.10.0\n'
+	python_version = proc.stdout.read()
+	python_version_copy_1 = str(python_version)
+	"""
+		Reference:
+		+ [Roman2010]
+			- Roman, Answer to ``Extract string from between quotations,'' Stack Exchange Inc., New York, NY, January 16, 2010. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/2076399/1531728 and https://stackoverflow.com/questions/2076343/extract-string-from-between-quotations/2076399#2076399; November 5, 2021 was the last accessed date.
+
+	"""
+	print("	> Method 5a: get Python version between quotes via string.split().")
+	python_version = str(python_version).split("'")
+	python_version = python_version[1][:-2]
+	print("	python_version is:",python_version,"=")
+	print("	Stored Python version as a string.")
+	python_version = python_version_copy_1
+	#print("	python_version is:",python_version,"=")
+	"""
+		Reference:
+		+ 
+			- akhilmd, Answer to "Stripping string in python between quotes", Stack Exchange Inc., New York, NY, July 2, 2016. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/38161072/1531728 and ; November 5, 2021 was the last accessed date.
+	"""
+	print("	> Method 5b: get Python version between quotes via re.findall().")
+	python_version = re.findall("\'(.*?)\'",str(python_version))
+	#python_version = re.findall('"\'([^"]*)\'"',str(python_version))
+	#python_version = re.findall('"([^"]*)"',str(python_version))
+	python_version = python_version[0][:-2]
+	#python_version = python_version[1]
+	print("	python_version is:",python_version,"=")
 
 
 
