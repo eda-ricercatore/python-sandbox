@@ -204,3 +204,36 @@ print("	my_substrings are:",my_substrings,"=")
 my_string = ' 	 "um" 		    		 "dois"  		  "tres"   			 	  '
 my_substrings = re.findall('"([^"]*)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
+
+
+"""
+	Reference:
+	+ [Martelli2013]
+		- Alex Martelli and Sumit Singh, Answer to "Extract string from between quotations", Stack Exchange Inc., New York, NY, March 14, 2014. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/2076356/1531728 and https://stackoverflow.com/questions/2076343/extract-string-from-between-quotations/2076356#2076356; November 6, 2021 was the last accessed date.
+"""
+#print("= Method 2a: Get substring with ... re.findall(\'\"([^\"]*)\"\', string).")
+print("= Method 2a: Get substring with ...")
+print("	re.findall(\'\"([^\"]*)\"\', string).")
+my_string = 'SetVariables "a" "b" "c" '
+my_substrings = re.findall('"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in English): one, two, three.
+my_string = 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew'
+my_substrings = re.findall('"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Italian): one, two, three.
+my_string = '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	fre f'
+my_substrings = re.findall('"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Spanish): one, two, three.
+my_string = '		"uno""dos"		"tres"'
+my_substrings = re.findall('"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Romanian): one, two, three.
+my_string = '"unu""doua""trei"'
+my_substrings = re.findall('"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Portuguese): one, two, three.
+my_string = ' 	 "um" 		    		 "dois"  		  "tres"   			 	  '
+my_substrings = re.findall('"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
