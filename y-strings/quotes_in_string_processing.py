@@ -173,6 +173,11 @@ with Popen(["/usr/local/bin/python3", "-V"], stdout=PIPE) as proc:
 """
 print("Obtain substring(s) within double quotes.")
 
+"""
+	Reference:
+	+ [jspcal2014]
+		- jspcal, Answer to "Extract string from between quotations", Stack Exchange Inc., New York, NY, March 14, 2014. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/2076356/1531728 and https://stackoverflow.com/questions/2076343/extract-string-from-between-quotations/2076356#2076356; November 6, 2021 was the last accessed date.
+"""
 #print("= Method 2a: Get substring with ... re.findall(\'\"([^\"]*)\"\', string).")
 print("= Method 2a: Get substring with ...")
 print("	re.findall(\'\"([^\"]*)\"\', string).")
