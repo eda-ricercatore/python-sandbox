@@ -163,7 +163,39 @@ with Popen(["/usr/local/bin/python3", "-V"], stdout=PIPE) as proc:
 	print("		python_version is:",python_version,"=")
 
 
-
-
-
 # ===================================================================
+
+
+"""
+	Obtain substring(s) within double quotes.
+
+	Test with different strings.
+"""
+print("Obtain substring(s) within double quotes.")
+
+#print("= Method 2a: Get substring with ... re.findall(\'\"([^\"]*)\"\', string).")
+print("= Method 2a: Get substring with ...")
+print("	re.findall(\'\"([^\"]*)\"\', string).")
+my_string = 'SetVariables "a" "b" "c" '
+my_substrings = re.findall('"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in English): one, two, three.
+my_string = 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew'
+my_substrings = re.findall('"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Italian): one, two, three.
+my_string = '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	fre f'
+my_substrings = re.findall('"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Spanish): one, two, three.
+my_string = '		"uno""dos"		"tres"'
+my_substrings = re.findall('"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Romanian): one, two, three.
+my_string = '"unu""doua""trei"'
+my_substrings = re.findall('"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Portuguese): one, two, three.
+my_string = ' 	 "um" 		    		 "dois"  		  "tres"   			 	  '
+my_substrings = re.findall('"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
