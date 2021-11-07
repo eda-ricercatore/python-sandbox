@@ -417,6 +417,7 @@ for current_test_string in my_strings:
 		#print("values are:",values,"=")
 	print("	my_substrings are:",my_substrings,"=")
 	my_substrings = []
+# Replace ".+" (one or more empty strings) wit ".*" (zero or more empty strings)
 print("= Method 2h(ii): Get substring with ...")
 print("	re.findall(r'\\\"(.*?)\\\"', string).")
 # Enumerate all the test strings.
@@ -433,9 +434,9 @@ for current_test_string in my_strings:
 
 
 """
-	References: FIX THIS!!!
-	+ [Muthupandi2019]
-		- Daniel Muthupandi and trotta, Answer to ``Python Regex to find a string in double quotes within a string'', Stack Exchange, Inc., New York, NY, August 3, 2019. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/57337020/1531728 and https://stackoverflow.com/questions/9519734/python-regex-to-find-a-string-in-double-quotes-within-a-string/63707053#63707053; November 6, 2021 was the last accessed date.
+	References:
+	+ [Shelvington2020]
+		- Iain Shelvington, Answer to ``Extracting only words out of a mixed string in Python [duplicate]'', Stack Exchange, Inc., New York, NY, January 5, 2020. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/59598630/1531728 and https://stackoverflow.com/questions/59598565/extracting-only-words-out-of-a-mixed-string-in-python/59598630#59598630; November 6, 2021 was the last accessed date.
 """
 print("= Method 2i: Get substring with ...")
 print("	re.findall('\"(.*?)\"', string).")
@@ -451,6 +452,20 @@ for current_test_string in my_strings:
 
 
 
+"""
+	References:
+	+ [Shelvington2020]
+		- Iain Shelvington, Answer to ``Extracting only words out of a mixed string in Python [duplicate]'', Stack Exchange, Inc., New York, NY, January 5, 2020. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/59598630/1531728 and https://stackoverflow.com/questions/59598565/extracting-only-words-out-of-a-mixed-string-in-python/59598630#59598630; November 6, 2021 was the last accessed date.
+"""
+print("= Method 2i: Get substring with ...")
+print("	re.findall('\"(.*?)\"', string).")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	for values in re.findall('"(.+?)"', current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
 
 
 
