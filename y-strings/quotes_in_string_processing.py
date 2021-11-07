@@ -337,12 +337,12 @@ print("	my_substrings are:",my_substrings,"=")
 
 
 """
-	Reference: FIX THIS!!!
-	+ [Pieters2014]
-		- Martijn Pieters, Answer to ``Extract a string between double quotes'', Stack Exchange, Inc., New York, NY, March 29, 2014. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/22735466/1531728 and https://stackoverflow.com/questions/22735440/extract-a-string-between-double-quotes/22735466#22735466; November 6, 2021 was the last accessed date.
+	Reference:
+	+ [Booboo2020]
+		- Booboo, Answer to ``Python Regex to find a string in double quotes within a string'', Stack Exchange, Inc., New York, NY, March 29, 2014. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/63707053/1531728 and https://stackoverflow.com/questions/9519734/python-regex-to-find-a-string-in-double-quotes-within-a-string/63707053#63707053; November 6, 2021 was the last accessed date.
 """
 print("= Method 2e: Get substring with ...")
-print("	re.findall(r\'\"([^\"]*)\"\', string).")
+print("	re.findall(r'\"(?:(?:(?!(?<!\\)\").)*)\"\', string).")
 """
 	Test strings with substrings embedded within quotation marks,
 		which are double quotes in this case.
@@ -356,12 +356,96 @@ print("	re.findall(r\'\"([^\"]*)\"\', string).")
 	+ Portuguese
 """
 my_strings = ['SetVariables "a" "b" "c" ', 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew', '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	fre f', '		"uno""dos"		"tres"', '"unu""doua""trei"', ' 	 "um" 		    		 "dois"  		  "tres"   			 	  ']
-my_reg_ex = re.compile("(?<=')[^']+(?=')")
 my_substrings = []
+# Enumerate all the test strings.
 for current_test_string in my_strings:
-	for value in my_reg_ex.findall(current_test_string):
-		my_substrings.append(value)
-print("my_substrings are:",my_substrings,"=")
+	for values in re.findall(r'"(?:(?:(?!(?<!\\)").)*)"', current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+print("	!!! Fails to extract the substrings without the")
+print("		quotation marks (double quotes)!!!")
+
+
+"""
+	Combine the approaches from [Booboo2020] and [Pieters2014] to
+		extract the substrings without the double quotes.
+
+	References:
+	+ [Booboo2020]
+	+ [Pieters2014]
+"""
+print("= Method 2f: Get substring with ...")
+print("	re.findall(r\'\"([^\"]*)\"\', string).")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	for values in re.findall(r'"([^"]*)"', current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+
+
+"""
+	References:
+	+ [Muthupandi2019]
+		- Daniel Muthupandi and trotta, Answer to ``Python Regex to find a string in double quotes within a string'', Stack Exchange, Inc., New York, NY, August 3, 2019. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/57337020/1531728 and https://stackoverflow.com/questions/9519734/python-regex-to-find-a-string-in-double-quotes-within-a-string/63707053#63707053; November 6, 2021 was the last accessed date.
+"""
+print("= Method 2g: Get substring with ...")
+print("	re.findall(r'[\"](.*?)[\"]', string).")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	for values in re.findall(r'["](.*?)["]', current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+
+
+"""
+	References:
+	+ [Lundberg2012]
+		- Johan Lundberg, Answer to ``Python Regex to find a string in double quotes within a string'', Stack Exchange, Inc., New York, NY, March 1, 2012. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/9519934/1531728 and https://stackoverflow.com/questions/9519734/python-regex-to-find-a-string-in-double-quotes-within-a-string/9519934#9519934; November 6, 2021 was the last accessed date.
+"""
+print("= Method 2h(i): Get substring with ...")
+print("	re.findall(r'\\\"(.+?)\\\"', string).")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	for values in re.findall(r'\"(.+?)\"', current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+print("= Method 2h(ii): Get substring with ...")
+print("	re.findall(r'\\\"(.*?)\\\"', string).")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	for values in re.findall(r'\"(.*?)\"', current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+
+
+
+
+
+
+"""
+	References: FIX THIS!!!
+	+ [Muthupandi2019]
+		- Daniel Muthupandi and trotta, Answer to ``Python Regex to find a string in double quotes within a string'', Stack Exchange, Inc., New York, NY, August 3, 2019. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/57337020/1531728 and https://stackoverflow.com/questions/9519734/python-regex-to-find-a-string-in-double-quotes-within-a-string/63707053#63707053; November 6, 2021 was the last accessed date.
+"""
+print("= Method 2i: Get substring with ...")
+print("	re.findall('\"(.*?)\"', string).")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	for values in re.findall('"(.*?)"', current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
 
 
 
@@ -380,24 +464,33 @@ print("my_substrings are:",my_substrings,"=")
 
 
 
+"""
+	The follow are failed implementations of suggested solutions.
+	The suggestions are either incorrect or poor implementations.
 
 
 
+	Try the techniques suggested in answers to the question [WEshruth2013] in Stack Overflow.
+
+	Reference:
+	+ [WEshruth2013]
+		- WEshruth, ``how to extract string inside single quotes using python script,'' Stack Exchange Inc., New York, NY, October 18, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/q/19449709/1531728 and https://stackoverflow.com/questions/19449709/how-to-extract-string-inside-single-quotes-using-python-script; November 6, 2021 was the last accessed date.
+	
 
 
+	my_reg_ex = re.compile("(?<=')[^']+(?=')")
+	for current_test_string in my_strings:
+		for value in my_reg_ex.findall(current_test_string):
+			my_substrings.append(value)
 
 
-
-
-
-
-
-
-
-
-
-
-
+	for current_test_string in my_strings:
+		#for values in re.findall(r"'(.*?)'", current_test_string, re.DOTALL):
+		for values in re.findall(r"'(.*?)'", current_test_string):
+			my_substrings.append(values)
+			print("values are:",values,"=")
+	print("my_substrings are:",my_substrings,"=")
+"""
 
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
