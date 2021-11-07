@@ -130,7 +130,8 @@ with Popen(["/usr/local/bin/python3", "-V"], stdout=PIPE) as proc:
 		Reference:
 		+ [Roman2010]
 			- Roman, Answer to ``Extract string from between quotations,'' Stack Exchange Inc., New York, NY, January 16, 2010. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/2076399/1531728 and https://stackoverflow.com/questions/2076343/extract-string-from-between-quotations/2076399#2076399; November 5, 2021 was the last accessed date.
-
+		+ [Koledoye2016]
+			- Moses Koledoye, Answer to ``Stripping string in python between quotes'', Stack Exchange, Inc., New York, NY, July 2, 2016. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/38160543/1531728 and https://stackoverflow.com/questions/38160518/stripping-string-in-python-between-quotes/38160543#38160543; November 6, 2021 was the last accessed date.
 	"""
 	#print("	> Method 1a: get substring between quotes via string.split().")
 	print("	> Method 1a: get substring between quotes...")
@@ -149,7 +150,7 @@ with Popen(["/usr/local/bin/python3", "-V"], stdout=PIPE) as proc:
 			using re.findall("\'(.*?)\'",string).
 
 		Reference:
-		+ 
+		+ [akhilmd2016]
 			- akhilmd, Answer to "Stripping string in python between quotes", Stack Exchange Inc., New York, NY, July 2, 2016. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/38161072/1531728 and ; November 5, 2021 was the last accessed date.
 	"""
 	#print("	> Method 1b: get substring between quotes via re.findall(\"\'(.*?)\'\", my_string).")
@@ -157,7 +158,6 @@ with Popen(["/usr/local/bin/python3", "-V"], stdout=PIPE) as proc:
 	print("		via re.findall(\"\'(.*?)\'\", my_string).")
 	python_version = re.findall("\'(.*?)\'",str(python_version))
 	#python_version = re.findall('"\'([^"]*)\'"',str(python_version))
-	#python_version = re.findall('"([^"]*)"',str(python_version))
 	python_version = python_version[0][:-2]
 	#python_version = python_version[1]
 	print("		python_version is:",python_version,"=")
@@ -171,6 +171,7 @@ with Popen(["/usr/local/bin/python3", "-V"], stdout=PIPE) as proc:
 
 	Test with different strings.
 """
+print("")
 print("Obtain substring(s) within double quotes.")
 
 """
@@ -206,34 +207,197 @@ my_substrings = re.findall('"([^"]*)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 
 
+
+
+
+
+
+
+
 """
 	Reference:
 	+ [Martelli2013]
-		- Alex Martelli and Sumit Singh, Answer to "Extract string from between quotations", Stack Exchange Inc., New York, NY, March 14, 2014. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/2076356/1531728 and https://stackoverflow.com/questions/2076343/extract-string-from-between-quotations/2076356#2076356; November 6, 2021 was the last accessed date.
+		- Alex Martelli and Sumit Singh, Answer to "Extract string from between quotations", Stack Exchange Inc., New York, NY, March 14, 2014. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/2076357/1531728 and https://stackoverflow.com/questions/2076343/extract-string-from-between-quotations/2076357#2076357; November 6, 2021 was the last accessed date.
 """
-#print("= Method 2a: Get substring with ... re.findall(\'\"([^\"]*)\"\', string).")
-print("= Method 2a: Get substring with ...")
-print("	re.findall(\'\"([^\"]*)\"\', string).")
+print("= Method 2b: Get substring with ...")
+print("	re.findall(\'\"[^\"]*\"\', string).")
 my_string = 'SetVariables "a" "b" "c" '
-my_substrings = re.findall('"([^"]*)"', my_string)
+my_substrings = re.findall('"[^"]*"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in English): one, two, three.
 my_string = 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew'
-my_substrings = re.findall('"([^"]*)"', my_string)
+my_substrings = re.findall('"[^"]*"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Italian): one, two, three.
 my_string = '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	fre f'
-my_substrings = re.findall('"([^"]*)"', my_string)
+my_substrings = re.findall('"[^"]*"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Spanish): one, two, three.
 my_string = '		"uno""dos"		"tres"'
-my_substrings = re.findall('"([^"]*)"', my_string)
+my_substrings = re.findall('"[^"]*"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Romanian): one, two, three.
 my_string = '"unu""doua""trei"'
-my_substrings = re.findall('"([^"]*)"', my_string)
+my_substrings = re.findall('"[^"]*"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Portuguese): one, two, three.
 my_string = ' 	 "um" 		    		 "dois"  		  "tres"   			 	  '
-my_substrings = re.findall('"([^"]*)"', my_string)
+my_substrings = re.findall('"[^"]*"', my_string)
 print("	my_substrings are:",my_substrings,"=")
+print("	!!! Fails to extract the substrings without the")
+print("		quotation marks (double quotes)!!!")
+
+
+
+
+
+
+
+
+"""
+	Reference:
+	+ [Hassan2014]
+		- Sabuj Hassan, Answer to ``Extract a string between double quotes'', Stack Exchange, Inc., New York, NY, March 29, 2014.
+	Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/22735480/1531728 and https://stackoverflow.com/questions/22735440/extract-a-string-between-double-quotes/22735480#22735480; November 6, 2021 was the last accessed date.
+"""
+print("= Method 2c: Get substring with ...")
+print("	re.findall(r\'\"(.*?)(?<!\\)\"\', string).")
+my_string = 'SetVariables "a" "b" "c" '
+my_substrings = re.findall(r'"(.*?)(?<!\\)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in English): one, two, three.
+my_string = 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew'
+my_substrings = re.findall(r'"(.*?)(?<!\\)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Italian): one, two, three.
+my_string = '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	fre f'
+my_substrings = re.findall(r'"(.*?)(?<!\\)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Spanish): one, two, three.
+my_string = '		"uno""dos"		"tres"'
+my_substrings = re.findall(r'"(.*?)(?<!\\)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Romanian): one, two, three.
+my_string = '"unu""doua""trei"'
+my_substrings = re.findall(r'"(.*?)(?<!\\)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Portuguese): one, two, three.
+my_string = ' 	 "um" 		    		 "dois"  		  "tres"   			 	  '
+my_substrings = re.findall(r'"(.*?)(?<!\\)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+
+
+
+
+
+
+
+
+
+
+
+"""
+	Reference:
+	+ [Pieters2014]
+		- Martijn Pieters, Answer to ``Extract a string between double quotes'', Stack Exchange, Inc., New York, NY, March 29, 2014. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/22735466/1531728 and https://stackoverflow.com/questions/22735440/extract-a-string-between-double-quotes/22735466#22735466; November 6, 2021 was the last accessed date.
+"""
+print("= Method 2d: Get substring with ...")
+print("	re.findall(r\'\"([^\"]*)\"\', string).")
+my_string = 'SetVariables "a" "b" "c" '
+my_substrings = re.findall(r'"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in English): one, two, three.
+my_string = 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew'
+my_substrings = re.findall(r'"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Italian): one, two, three.
+my_string = '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	fre f'
+my_substrings = re.findall(r'"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Spanish): one, two, three.
+my_string = '		"uno""dos"		"tres"'
+my_substrings = re.findall(r'"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Romanian): one, two, three.
+my_string = '"unu""doua""trei"'
+my_substrings = re.findall(r'"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in Portuguese): one, two, three.
+my_string = ' 	 "um" 		    		 "dois"  		  "tres"   			 	  '
+my_substrings = re.findall(r'"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+
+
+
+
+
+
+
+
+
+
+"""
+	Reference: FIX THIS!!!
+	+ [Pieters2014]
+		- Martijn Pieters, Answer to ``Extract a string between double quotes'', Stack Exchange, Inc., New York, NY, March 29, 2014. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/22735466/1531728 and https://stackoverflow.com/questions/22735440/extract-a-string-between-double-quotes/22735466#22735466; November 6, 2021 was the last accessed date.
+"""
+print("= Method 2e: Get substring with ...")
+print("	re.findall(r\'\"([^\"]*)\"\', string).")
+"""
+	Test strings with substrings embedded within quotation marks,
+		which are double quotes in this case.
+	After the first test string of single character substrings,
+		we use strings containing one, two, three in the
+		following languages.
+	+ English
+	+ Italian
+	+ Spanish
+	+ Romanian
+	+ Portuguese
+"""
+my_strings = ['SetVariables "a" "b" "c" ', 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew', '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	fre f', '		"uno""dos"		"tres"', '"unu""doua""trei"', ' 	 "um" 		    		 "dois"  		  "tres"   			 	  ']
+my_reg_ex = re.compile("(?<=')[^']+(?=')")
+my_substrings = []
+for current_test_string in my_strings:
+	for value in my_reg_ex.findall(current_test_string):
+		my_substrings.append(value)
+print("my_substrings are:",my_substrings,"=")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
