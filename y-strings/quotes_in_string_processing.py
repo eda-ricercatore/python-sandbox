@@ -138,7 +138,13 @@ with Popen(["/usr/local/bin/python3", "-V"], stdout=PIPE) as proc:
 	print("		via string.split().")
 	print("		Assign result to a variable.")
 	python_version = str(python_version).split("'")
+	#print("		python_version is:",python_version,"=")
+	"""
+		Remove the last two characters of the second of three tokens obtained
+			from delimiting the string with a single quote
+	"""
 	python_version = python_version[1][:-2]
+	#python_version = python_version[1][:-1]
 	print("		python_version is:",python_version,"=")
 	#print("	Stored Python version as a string.")
 	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -372,6 +378,10 @@ print("		quotation marks (double quotes)!!!")
 	Combine the approaches from [Booboo2020] and [Pieters2014] to
 		extract the substrings without the double quotes.
 
+	[Booboo2020] uses the loop/enumeration approach to test the
+		method, while [Pieters2014] has a good regular expression
+		that is more understandable than others.
+
 	References:
 	+ [Booboo2020]
 	+ [Pieters2014]
@@ -407,6 +417,8 @@ for current_test_string in my_strings:
 	References:
 	+ [Lundberg2012]
 		- Johan Lundberg, Answer to ``Python Regex to find a string in double quotes within a string'', Stack Exchange, Inc., New York, NY, March 1, 2012. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/9519934/1531728 and https://stackoverflow.com/questions/9519734/python-regex-to-find-a-string-in-double-quotes-within-a-string/9519934#9519934; November 6, 2021 was the last accessed date.
+	+ [Avinash2021]
+		- Arvind Kumar Avinash, Answer to ``Extract text between quotation using regex python'', Stack Exchange, Inc., New York, NY, October 12, 2021. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/69543129/1531728 and https://stackoverflow.com/questions/69542978/extract-text-between-quotation-using-regex-python/69543129#69543129; November 8, 2021 was the last accessed date.
 """
 print("= Method 2h(i): Get substring with ...")
 print("	re.findall(r'\\\"(.+?)\\\"', string).")
@@ -511,20 +523,28 @@ for current_test_string in my_strings:
 
 
 """
+	Combining the my_string.split() method [Roman2010][Koledoye2016]
+		with the loop/enumeration approach [Booboo2020].
+
 	References:
-	+ [Avinash2021]
-		- Arvind Kumar Avinash, Answer to ``Extract text between quotation using regex python'', Stack Exchange, Inc., New York, NY, October 12, 2021. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/69543129/1531728 and https://stackoverflow.com/questions/69542978/extract-text-between-quotation-using-regex-python/69543129#69543129; November 8, 2021 was the last accessed date.
+	+ [Roman2010]
+	+ [Koledoye2016]
+
 """
 print("= Method 2k: Get substring with ...")
-print("	re.findall(r'\\\"(.+?)\\\"', string).")
+print("	my_string.split() method.")
 # Enumerate all the test strings.
 for current_test_string in my_strings:
-	for values in re.findall(r'\"(.+?)\"', current_test_string):
-		my_substrings.append(values)
-		#print("values are:",values,"=")
+	#values = current_test_string.split("'")
+	#for x in values:
+	for x in current_test_string.split("\""):
+		if x.strip():
+			my_substrings.append(x)
+			#print("x is:",x,"=")
 	print("	my_substrings are:",my_substrings,"=")
 	my_substrings = []
-
+print("	!!!Approach works for strings with targeted")
+print("		substrings embedded in patterns!!!")
 
 
 
