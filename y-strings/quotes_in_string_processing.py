@@ -471,6 +471,8 @@ for current_test_string in my_strings:
 	References:
 	+ [Avinash2021]
 		- Arvind Kumar Avinash, Answer to ``Extract text between quotation using regex python'', Stack Exchange, Inc., New York, NY, October 12, 2021. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/69543129/1531728 and https://stackoverflow.com/questions/69542978/extract-text-between-quotation-using-regex-python/69543129#69543129; November 8, 2021 was the last accessed date.
+	+ [user17405772021]
+		- user1740577, Answer to ``Extract text between quotation using regex python'', Stack Exchange, Inc., New York, NY, October 12, 2021. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/69543030/1531728 and https://stackoverflow.com/questions/69542978/extract-text-between-quotation-using-regex-python/69543030#69543030; November 8, 2021 was the last accessed date.
 """
 print("= Method 2j: Get substring with ...")
 print("	re.findall('\"(.+?)\"', string).")
@@ -529,7 +531,6 @@ for current_test_string in my_strings:
 	References:
 	+ [Roman2010]
 	+ [Koledoye2016]
-
 """
 print("= Method 2k: Get substring with ...")
 print("	my_string.split() method.")
