@@ -453,12 +453,15 @@ for current_test_string in my_strings:
 
 
 """
+	Use the regular expression from [Avinash2021], without the suggested
+		re.search() method.
+
 	References:
-	+ [Shelvington2020]
-		- Iain Shelvington, Answer to ``Extracting only words out of a mixed string in Python [duplicate]'', Stack Exchange, Inc., New York, NY, January 5, 2020. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/59598630/1531728 and https://stackoverflow.com/questions/59598565/extracting-only-words-out-of-a-mixed-string-in-python/59598630#59598630; November 6, 2021 was the last accessed date.
+	+ [Avinash2021]
+		- Arvind Kumar Avinash, Answer to ``Extract text between quotation using regex python'', Stack Exchange, Inc., New York, NY, October 12, 2021. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/69543129/1531728 and https://stackoverflow.com/questions/69542978/extract-text-between-quotation-using-regex-python/69543129#69543129; November 8, 2021 was the last accessed date.
 """
-print("= Method 2i: Get substring with ...")
-print("	re.findall('\"(.*?)\"', string).")
+print("= Method 2j: Get substring with ...")
+print("	re.findall('\"(.+?)\"', string).")
 # Enumerate all the test strings.
 for current_test_string in my_strings:
 	for values in re.findall('"(.+?)"', current_test_string):
@@ -466,6 +469,70 @@ for current_test_string in my_strings:
 		#print("values are:",values,"=")
 	print("	my_substrings are:",my_substrings,"=")
 	my_substrings = []
+#print("= Method 2k: Get substring with ...")
+#print("	re.search('\"(.+?)\"', string).")
+"""
+	Enumerate all the test strings.
+
+	Use the method in [Avinash2021] based on regular expression objects,
+		specifically 're.Match' object.
+
+	However, it only finds the first/only substring embedded within
+		quotation marks, double quotes in this case.
+"""
+#	for current_test_string in my_strings:
+		#values = re.search('"(.+?)"', current_test_string)
+#		values = re.findall('"(.+?)"', current_test_string)
+		#values = re.compile('"(.+?)"', current_test_string)
+		#values = re.match('"(.+?)"', current_test_string)
+		#values = re.fullmatch('"(.+?)"', current_test_string)
+#		"""
+#		if values:
+#			print("values are:",values,"=")
+#			#print("	my_substrings are:",my_substrings,"=")
+#		my_substrings = []
+#		"""
+		#for v in values:
+			#print("values are:",values.group(1),"=")
+			#print("	my_substrings are:",my_substrings,"=")
+#		print("values are:",values,"=")
+		#print("values are:",values.span(),"=")
+		#print("values are:",values.string,"=")
+#			print("values are:",values.group(),"=")
+		#print("values are:",values.group(0),"=")
+		#print("values are:",values.group(1),"=")
+		#print("values are:",values.group(2),"=")
+		#my_substrings = []
+
+
+
+
+
+
+
+"""
+	References:
+	+ [Avinash2021]
+		- Arvind Kumar Avinash, Answer to ``Extract text between quotation using regex python'', Stack Exchange, Inc., New York, NY, October 12, 2021. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/69543129/1531728 and https://stackoverflow.com/questions/69542978/extract-text-between-quotation-using-regex-python/69543129#69543129; November 8, 2021 was the last accessed date.
+"""
+print("= Method 2k: Get substring with ...")
+print("	re.findall(r'\\\"(.+?)\\\"', string).")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	for values in re.findall(r'\"(.+?)\"', current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+
+
+
+
+
+
+
+
+
 
 
 
