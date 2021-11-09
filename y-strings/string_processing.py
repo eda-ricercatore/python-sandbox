@@ -142,6 +142,44 @@ if not empty_string:
 	print("+	The string is empty.")
 else:
 	print("+	The string is NOT empty!!!")
+if 0 == len(empty_string):
+	print("+	len(empty_string) is 0.")
+else:
+	print("+	len(empty_string) is NOT 0!!!")
+
+"""
+	Reference:
+	+ vault, Answer to ``How to check if the string is empty?,'' Stack Exchange Inc., New York, NY, March 12, 2021. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/27982561/1531728 and https://stackoverflow.com/questions/9573244/how-to-check-if-the-string-is-empty/27982561#27982561; November 6, 2021 was the last accessed date.
+"""
+if not bool(empty_string.strip()):
+	print("+	bool(empty_string.strip()) returns false.")
+else:
+	print("+	bool(empty_string.strip()) returns TRUE!!!")
+"""
+	Reference:
+	+ Dakkaron, Answer to ``How to check if the string is empty?,'' Stack Exchange Inc., New York, NY, April 18, 2019. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/55747410/1531728 and https://stackoverflow.com/questions/9573244/how-to-check-if-the-string-is-empty/55747410#55747410; November 6, 2021 was the last accessed date.
+
+"""
+if "".__eq__(empty_string):
+	print("+	\"\".__eq__(empty_string) indicates that the string is empty.")
+else:
+	print("+	\"\".__eq__(empty_string) indicates that the string is NOT empty!!!")
+
+
+
+"""
+	References:
+	+ Wikipedia contributors, "TITLE OF THE ARTICLE," in Wikipedia, The Free Encyclopedia: CATEGORY, Wikimedia Foundation, San Francisco, CA, MONTH DATE, YEAR.
+	Available online from Wikipedia, The Free Encyclopedia: CATEGORY at: https://en.wikipedia.org/wiki/Magic_number_(programming); October 10, 2020 was the last accessed date.
+	+ firelynx Community bot, Answer to ``How to check if the string is empty?,'' Stack Exchange Inc., New York, NY, April 18, 2019. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/55747410/1531728 and https://stackoverflow.com/questions/9573244/how-to-check-if-the-string-is-empty/55747410#55747410; November 6, 2021 was the last accessed date.
+"""
+if "" == empty_string:
+	print("+	\"\" == empty_string indicates that the string is empty.")
+else:
+	print("+	\"\" == empty_string indicates that the string is NOT empty!!!")
+
+
+
 not_empty_string = "String is not empty."
 # Is the string empty?
 if not_empty_string:
