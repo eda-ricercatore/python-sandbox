@@ -169,8 +169,8 @@ else:
 
 """
 	References:
-	+ Wikipedia contributors, "TITLE OF THE ARTICLE," in Wikipedia, The Free Encyclopedia: CATEGORY, Wikimedia Foundation, San Francisco, CA, MONTH DATE, YEAR.
-	Available online from Wikipedia, The Free Encyclopedia: CATEGORY at: https://en.wikipedia.org/wiki/Magic_number_(programming); October 10, 2020 was the last accessed date.
+	+ Wikipedia contributors, "Magic number (programming)," in Wikipedia, The Free Encyclopedia: Anti-patterns, Wikimedia Foundation, San Francisco, CA, November 8, 2021.
+	Available online from Wikipedia, The Free Encyclopedia: Anti-patterns at: https://en.wikipedia.org/wiki/Magic_number_(programming); November 9, 2021 was the last accessed date.
 	+ firelynx Community bot, Answer to ``How to check if the string is empty?,'' Stack Exchange Inc., New York, NY, April 18, 2019. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/55747410/1531728 and https://stackoverflow.com/questions/9573244/how-to-check-if-the-string-is-empty/55747410#55747410; November 6, 2021 was the last accessed date.
 """
 if "" == empty_string:
