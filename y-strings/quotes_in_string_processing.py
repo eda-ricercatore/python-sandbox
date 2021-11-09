@@ -169,6 +169,280 @@ with Popen(["/usr/local/bin/python3", "-V"], stdout=PIPE) as proc:
 	print("		python_version is:",python_version,"=")
 
 
+
+my_strings = ["SetVariables 'a' 'b' 'c' ", "d2efw  	f 'first' +&%#$%'second',vwrfhir, d2e	u'third' dwedew", "'uno'?>P>MNUIHUH~!@#$%^&*()_+=0trewq'due'		'tre'fef	fre f", "		'uno''dos'		'tres'", "'unu''doua''trei'", " 	 'um' 		    		 'dois'  		  'tres'   			 	  "]
+my_substrings = []
+"""
+	Test with the loop/enumeration approach [Booboo2020], and modified
+		regular expression from [Avinash2021] and [user17405772021]
+		for substrings embedded within single quotes.
+
+	Swap the positions of the double quotes and the single quotes
+		for the modification.
+
+	References:
+	+ [Booboo2020]
+	+ [Avinash2021]
+	+ [user17405772021]
+"""
+print("= Method 1c: Get substring with ...")
+print("	re.findall(\"'(.+?)'\", string) method.")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	"""
+		For each test string, extract substrings embedded within
+			single quotes.
+	"""
+	for values in re.findall("'(.+?)'", current_test_string):
+		# Append found embedded substring into the list of substrings.
+		my_substrings.append(values)
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+"""
+	Test with the loop/enumeration approach [Booboo2020], and modified
+		regular expression from [Lundberg2012] and [Avinash2021]
+		for substrings embedded within single quotes.
+
+	Swap the positions of the double quotes and the single quotes
+		for the modification.
+
+	References:
+	+ [Booboo2020]
+	+ [Lundberg2012]
+	+ [Avinash2021]
+"""
+print("= Method 1d: Get substring with ...")
+print("	re.findall(r\"\\\'(.+?)\\\'\", string) method.")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	"""
+		For each test string, extract substrings embedded within
+			single quotes.
+	"""
+	for values in re.findall(r"\'(.+?)\'", current_test_string):
+		# Append found embedded substring into the list of substrings.
+		my_substrings.append(values)
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+"""
+	Test with the loop/enumeration approach [Booboo2020], and modified
+		regular expression from [Lundberg2012] and [Avinash2021]
+		for substrings embedded within single quotes.
+
+	Swap the positions of the double quotes and the single quotes
+		for the modification.
+
+	References:
+	+ [Booboo2020]
+	+ [Lundberg2012]
+	+ [Avinash2021]
+"""
+print("= Method 1e: Get substring with ...")
+print("	re.findall(r\"\\\'(.*?)\\\'\", string) method.")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	"""
+		For each test string, extract substrings embedded within
+			single quotes.
+	"""
+	for values in re.findall(r"\'(.*?)\'", current_test_string):
+		# Append found embedded substring into the list of substrings.
+		my_substrings.append(values)
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+"""
+	Test with the loop/enumeration approach [Booboo2020], and modified
+		regular expression from [Pieters2014] for substrings embedded
+		within single quotes.
+
+	Swap the positions of the double quotes and the single quotes
+		for the modification.
+
+	References:
+	+ [Booboo2020]
+	+ [Pieters2014]
+"""
+print("= Method 1f: Get substring with ...")
+print("	re.findall(r\"'([^\']*)'\", string) method.")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	"""
+		For each test string, extract substrings embedded within
+			single quotes.
+	"""
+	for values in re.findall(r"'([^']*)'", current_test_string):
+		# Append found embedded substring into the list of substrings.
+		my_substrings.append(values)
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+"""
+	Test with the loop/enumeration approach [Booboo2020], and modified
+		regular expression from [Shelvington2020] for substrings embedded
+		within single quotes.
+
+	Swap the positions of the double quotes and the single quotes
+		for the modification.
+
+	References:
+	+ [Booboo2020]
+	+ [Shelvington2020]
+"""
+print("= Method 1g: Get substring with ...")
+print("	re.findall(\"'(.*?)'\", string) method.")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	"""
+		For each test string, extract substrings embedded within
+			single quotes.
+	"""
+	for values in re.findall("'(.*?)'", current_test_string):
+		# Append found embedded substring into the list of substrings.
+		my_substrings.append(values)
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+"""
+	Test with the loop/enumeration approach [Booboo2020], and modified
+		regular expression from [jspcal2014] for substrings embedded
+		within single quotes.
+
+	Swap the positions of the double quotes and the single quotes
+		for the modification.
+
+	References:
+	+ [Booboo2020]
+	+ [jspcal2014]
+"""
+print("= Method 1h: Get substring with ...")
+print("	re.findall(\"'([^']*)'\", string) method.")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	"""
+		For each test string, extract substrings embedded within
+			single quotes.
+	"""
+	for values in re.findall("'([^']*)'", current_test_string):
+		# Append found embedded substring into the list of substrings.
+		my_substrings.append(values)
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+"""
+	Test with the loop/enumeration approach [Booboo2020], and modified
+		regular expression from [Martelli2013] for substrings embedded
+		within single quotes.
+
+	Swap the positions of the double quotes and the single quotes
+		for the modification.
+
+	References:
+	+ [Booboo2020]
+	+ [Martelli2013]
+"""
+print("= Method 1i: Get substring with ...")
+print("	re.findall(\"'[^']*'\", string) method.")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	"""
+		For each test string, extract substrings embedded within
+			single quotes.
+	"""
+	for values in re.findall("'[^']*'", current_test_string):
+		# Append found embedded substring into the list of substrings.
+		my_substrings.append(values)
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+print("	!!! Fails to extract the substrings without the")
+print("		quotation marks (single quotes)!!!")
+"""
+	Test with the loop/enumeration approach [Booboo2020], and modified
+		regular expression from [Muthupandi2019] for substrings embedded
+		within single quotes.
+
+	Swap the positions of the double quotes and the single quotes
+		for the modification.
+
+	References:
+	+ [Booboo2020]
+	+ [Muthupandi2019]
+"""
+print("= Method 1j: Get substring with ...")
+print("	re.findall(r\"['](.*?)[']\", string) method.")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	"""
+		For each test string, extract substrings embedded within
+			single quotes.
+	"""
+	for values in re.findall(r"['](.*?)[']", current_test_string):
+		# Append found embedded substring into the list of substrings.
+		my_substrings.append(values)
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+"""
+	Test with the loop/enumeration approach [Booboo2020], and modified
+		regular expression from [Hassan2014] for substrings embedded
+		within single quotes.
+
+	Swap the positions of the double quotes and the single quotes
+		for the modification.
+
+	References:
+	+ [Booboo2020]
+	+ [Hassan2014]
+"""
+print("= Method 1k: Get substring with ...")
+print("	re.findall(r\"'(.*?)(?<!\\\\)'\", string) method.")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	"""
+		For each test string, extract substrings embedded within
+			single quotes.
+	"""
+	for values in re.findall(r"'(.*?)(?<!\\)'", current_test_string):
+		# Append found embedded substring into the list of substrings.
+		my_substrings.append(values)
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+"""
+	Test with the loop/enumeration approach [Booboo2020], and modified
+		regular expression for substrings embedded within single
+		quotes.
+
+	Swap the positions of the double quotes and the single quotes
+		for the modification.
+
+	References:
+	+ [Booboo2020]
+"""
+print("= Method 1l: Get substring with ...")
+print("	re.findall(r\"'(?:(?:(?!(?<!\\\\)').)*)'\", string) method.")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	"""
+		For each test string, extract substrings embedded within
+			single quotes.
+	"""
+	for values in re.findall(r"'(?:(?:(?!(?<!\\)').)*)'", current_test_string):
+		# Append found embedded substring into the list of substrings.
+		my_substrings.append(values)
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+print("	!!! Fails to extract the substrings without the")
+print("		quotation marks (single quotes)!!!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ===================================================================
 
 
@@ -263,8 +537,7 @@ print("		quotation marks (double quotes)!!!")
 """
 	Reference:
 	+ [Hassan2014]
-		- Sabuj Hassan, Answer to ``Extract a string between double quotes'', Stack Exchange, Inc., New York, NY, March 29, 2014.
-	Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/22735480/1531728 and https://stackoverflow.com/questions/22735440/extract-a-string-between-double-quotes/22735480#22735480; November 6, 2021 was the last accessed date.
+		- Sabuj Hassan, Answer to ``Extract a string between double quotes'', Stack Exchange, Inc., New York, NY, March 29, 2014. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/22735480/1531728 and https://stackoverflow.com/questions/22735440/extract-a-string-between-double-quotes/22735480#22735480; November 6, 2021 was the last accessed date.
 """
 print("= Method 2c: Get substring with ...")
 print("	re.findall(r\'\"(.*?)(?<!\\)\"\', string).")
