@@ -180,32 +180,106 @@ else:
 
 
 
+"""
+	References:
+	+ Thai Tran, Answer to ``How to check whether a str(variable) is empty or not?,'' Stack Exchange Inc., New York, NY, April 5, 2017. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/43222230/1531728 and https://stackoverflow.com/questions/9926446/how-to-check-whether-a-strvariable-is-empty-or-not/43222230#43222230; November 9, 2021 was the last accessed date.
+"""
+if not bool(empty_string):
+	print("+	bool(empty_string) indicates that the string is empty.")
+else:
+	print("+	bool(empty_string) indicates that the string is NOT empty!!!")
+
+
+
 not_empty_string = "String is not empty."
 # Is the string empty?
 if not_empty_string:
-	print("+	The string is NOT empty.")
+	print("+	The string is not empty.")
 else:
 	print("+	The string is EMPTY!!!")
 
 print("======================================================")
 
-my_string = ""
-
-if not my_string:
-	print("my_string is empty:",my_string,"=")
-else:
-	print("The string is:",my_string,"=")
-
 my_string = "Hello World"
 
-if not my_string:
-	print("my_string is empty:",my_string,"=")
+if my_string:
+	print("my_string is not empty:",my_string,"=")
 else:
-	print("The string is:",my_string,"=")
+	print("The string is EMPTY!!!:",my_string,"=")
+
+
+if not my_string:
+	print("my_string is empty!!!:",my_string,"=")
+else:
+	print("The non-empty string is:",my_string,"=")
+
+
+
+if 0 < len(my_string):
+	print("+	len(my_string) is > 0. Hence, the string is not empty.")
+else:
+	print("+	len(my_string) is 0!!! The string is empty.")
+
+"""
+	Reference:
+	+ vault, Answer to ``How to check if the string is empty?,'' Stack Exchange Inc., New York, NY, March 12, 2021. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/27982561/1531728 and https://stackoverflow.com/questions/9573244/how-to-check-if-the-string-is-empty/27982561#27982561; November 6, 2021 was the last accessed date.
+"""
+if bool(my_string.strip()):
+	print("+	bool(my_string.strip()) returns true.")
+else:
+	print("+	bool(my_string.strip()) returns FALSE!!!")
+"""
+	Reference:
+	+ Dakkaron, Answer to ``How to check if the string is empty?,'' Stack Exchange Inc., New York, NY, April 18, 2019. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/55747410/1531728 and https://stackoverflow.com/questions/9573244/how-to-check-if-the-string-is-empty/55747410#55747410; November 6, 2021 was the last accessed date.
+
+"""
+if "".__eq__(my_string):
+	print("+	\"\".__eq__(my_string) indicates that the string is empty.")
+else:
+	print("+	\"\".__eq__(my_string) indicates that the string is NOT empty!!!")
+"""
+	References:
+	+ Wikipedia contributors, "Magic number (programming)," in Wikipedia, The Free Encyclopedia: Anti-patterns, Wikimedia Foundation, San Francisco, CA, November 8, 2021.
+	Available online from Wikipedia, The Free Encyclopedia: Anti-patterns at: https://en.wikipedia.org/wiki/Magic_number_(programming); November 9, 2021 was the last accessed date.
+	+ firelynx Community bot, Answer to ``How to check if the string is empty?,'' Stack Exchange Inc., New York, NY, April 18, 2019. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/55747410/1531728 and https://stackoverflow.com/questions/9573244/how-to-check-if-the-string-is-empty/55747410#55747410; November 6, 2021 was the last accessed date.
+"""
+if "" != my_string:
+	print("+	\"\" != my_string indicates that the string is not empty.")
+else:
+	print("+	\"\" != my_string indicates that the string is EMPTY!!!")
+if "" == my_string:
+	print("+	\"\" == my_string indicates that the string is EMPTY!!!")
+else:
+	print("+	\"\" == my_string indicates that the string is not empty.")
+
+
+
+
+"""
+	References:
+	+ Thai Tran, Answer to ``How to check whether a str(variable) is empty or not?,'' Stack Exchange Inc., New York, NY, April 5, 2017. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/43222230/1531728 and https://stackoverflow.com/questions/9926446/how-to-check-whether-a-strvariable-is-empty-or-not/43222230#43222230; November 9, 2021 was the last accessed date.
+"""
+if bool(my_string):
+	print("+	bool(my_string) indicates that the string is empty.")
+else:
+	print("+	bool(my_string) indicates that the string is NOT empty!!!")
+
+
+
+
+
+
+
+
+
+
+
 
 print("= length of input arguments to the program:",len(sys.argv),"=")
 if 1 < len(sys.argv):
-	print("the first argument is:",sys.argv[1],"=")
+	print("The first argument is:",sys.argv[1],"=")
+else:
+	print("The first argument does not exist.")
 
 print("======================================================")
 
@@ -409,8 +483,22 @@ set_of_substrings = {"substring that I ", "to eliminate from", "non-existent"}
 		processing varies between execution of this Python script.
 """
 for x in set_of_substrings:
-	print("=	substring:",x)
+	print("=	substring:",x,"=")
 	if x in my_string:
 		print("substring exists in my_string.")
 	else:
 		print("substring is not found in my_string.")
+
+
+
+
+print("======================================================")
+"""
+	Exploring ways to measure the size of (empty) strings.
+
+	References:
+	+ Nicholas Humphrey and Solomon Ucko, ``Why does an empty string in Python sometimes take up 49 bytes and sometimes 51?,'' Stack Exchange Inc., New York, NY, December 22, 2018. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/q/53899931/1531728 and https://stackoverflow.com/questions/53899931/why-does-an-empty-string-in-python-sometimes-take-up-49-bytes-and-sometimes-51; November 9, 2021 was the last accessed date.
+"""
+print("Size of empty string:",sys.getsizeof(""),"=")
+print("Size of string 'dui hiewlf ifywei7f wfuywf o2o4':",sys.getsizeof("dui hiewlf ifywei7f wfuywf o2o4"),"=")
+print("Size of empty string:",sys.getsizeof(""),"=")
