@@ -27,7 +27,7 @@
 		- [Loreto2019]
 	+ For string processing for the output of running UNIX/Linux commands:
 		- [Roman2010]
-
+	+ [KiteStaff20XY] Kite staff, "How to get the substring between two markers in Python", from Kite: The Python Language: Kite Docs, Kite, San Francisco, CA. Available online from Kite: The Python Language: Kite Docs at: https://www.kite.com/python/answers/how-to-get-the-substring-between-two-markers-in-python; November 9, 2021 was the last accessed date.
 
 
 
