@@ -909,7 +909,7 @@ print("	> Method FAILS!!!")
 """
 	References:
 	+ [devnull2013]
-		- devnull, Answer to `Extracting strings in {Python} in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/19675957/1531728 and https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes/19675957#19675957; November 11, 2021 was the last accessed date.
+		- devnull, Answer to `Extracting strings in Python in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/19675957/1531728 and https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes/19675957#19675957; November 11, 2021 was the last accessed date.
 """
 print("= Method 2l: Get substring with ...")
 print("	re.findall(r\"['\\\"](.*?)['\\\"]\", string).")
@@ -932,9 +932,9 @@ print("	> Method works.")
 """
 	References:
 	+ [devnull2013]
-		- devnull, Answer to `Extracting strings in {Python} in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/19675957/1531728 and https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes/19675957#19675957; November 11, 2021 was the last accessed date.
+		- devnull, Answer to `Extracting strings in Python in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/19675957/1531728 and https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes/19675957#19675957; November 11, 2021 was the last accessed date.
 	+ [devnull2013a]
-		- tripleee, Comment about an answer to `Extracting strings in {Python} in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes#comment29222674_19675957; November 11, 2021 was the last accessed date.
+		- tripleee, Comment about an answer to `Extracting strings in Python in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes#comment29222674_19675957; November 11, 2021 was the last accessed date.
 	+ [WikipediaContributors2019i]
 		- Wikipedia contributors, "CAR and CDR", Wikimedia Foundation, San Francisco, CA, August 28, 2019. Available online from Wikipedia, The Free Encyclopedia: Lisp (programming language) at: https://en.wikipedia.org/wiki/CAR_and_CDR; February 19, 2020 was the last accessed date.
 """
@@ -960,9 +960,9 @@ print("	> Method works.")
 """
 	References:
 	+ [devnull2013]
-		- devnull, Answer to `Extracting strings in {Python} in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/19675957/1531728 and https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes/19675957#19675957; November 11, 2021 was the last accessed date.
+		- devnull, Answer to `Extracting strings in Python in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/19675957/1531728 and https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes/19675957#19675957; November 11, 2021 was the last accessed date.
 	+ [tripleee2013]
-		- tripleee, Comment about an answer to `Extracting strings in {Python} in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes#comment29224831_19675957; November 11, 2021 was the last accessed date.
+		- tripleee, Comment about an answer to `Extracting strings in Python in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes#comment29224831_19675957; November 11, 2021 was the last accessed date.
 	+ [WikipediaContributors2019i]
 		- Wikipedia contributors, "CAR and CDR", Wikimedia Foundation, San Francisco, CA, August 28, 2019. Available online from Wikipedia, The Free Encyclopedia: Lisp (programming language) at: https://en.wikipedia.org/wiki/CAR_and_CDR; February 19, 2020 was the last accessed date.
 """
@@ -1016,7 +1016,7 @@ print("	> Method works.")
 """
 	References: FIX THIS!!!
 	+ [devnull2013]
-		- devnull, Answer to `Extracting strings in {Python} in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/19675957/1531728 and https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes/19675957#19675957; November 11, 2021 was the last accessed date.
+		- devnull, Answer to `Extracting strings in Python in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/19675957/1531728 and https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes/19675957#19675957; November 11, 2021 was the last accessed date.
 	+ [WikipediaContributors2019i]
 		- Wikipedia contributors, "CAR and CDR", Wikimedia Foundation, San Francisco, CA, August 28, 2019. Available online from Wikipedia, The Free Encyclopedia: Lisp (programming language) at: https://en.wikipedia.org/wiki/CAR_and_CDR; February 19, 2020 was the last accessed date.
 """

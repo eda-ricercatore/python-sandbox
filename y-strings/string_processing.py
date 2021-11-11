@@ -7,8 +7,15 @@
 	Script to process strings.
 
 
- Revision History:
- 1) November 13, 2014. Initial working version.
+	Revision History:
+	1) November 13, 2014. Initial working version.
+
+
+
+
+	References:
+	+ References provided within square brackets are BibTeX keys of
+		entries in my BibTeX database of references (set of BibTeX entries).
 
 
 
@@ -509,6 +516,13 @@ print("Size of empty string:",sys.getsizeof(""),"=")
 
 print("======================================================")
 
+"""
+	Test methods to extract substrings embedded within quotation marks.
+
+	Reference:
+	+ [KiteStaff20XY]
+"""
+
 print("= Extract a substring within a pair of markers,")
 print("	left marker 'AUG\|' and right marker '\|UGA'.")
 s = "abc123AUG|GAC|UGAasdfg789"
@@ -548,3 +562,32 @@ print("	> This method returns only the first substring that")
 print("		is embedded within the specified markers,")
 print("		if these markers are different;")
 print("		i.e., the begin & end markers are different.")
+"""
+	Method only returns the first substring embedded within quotation
+		marks.
+
+	Hence, for strings with multiple substrings embedded within
+		quotation marks, this method only returns the first embedded
+		substring.
+
+	Reference:
+	+ Alex 'af3ld' Feldman and Shaido, Answer to `How do I find quotes in strings - Python', Stack Exchange, Inc., New York, NY, February 26, 2021. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/38444540/1531728 and https://stackoverflow.com/questions/38444389/how-do-i-find-quotes-in-strings-python/38444540#38444540; November 11, 2021 was the last accessed date.
+"""
+s = 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew'
+#s = 'd2efw  	f ?first" +&%#$%?second",vwrfhir, d2e	u?third" dwedew'
+start = s.find('"')
+if -1 != start:
+	end = s.find('"', start+1)
+	if -1 != end:
+		substring = s[start+1:end]
+		print("s is:",s,"=")
+		print("substring of s is:",substring,"=")
+print("= Use while loop to test method for all embedded substrings.")
+print("	> s is:",s,"=")
+start = s.find('"')
+while -1 != start:
+	end = s.find('"', start+1)
+	if -1 != end:
+		substring = s[start+1:end]
+		print("	> substring of s is:",substring,"=")
+	start = s.find('"', end+1)
