@@ -759,7 +759,7 @@ for current_test_string in my_strings:
 	print("	my_substrings are:",my_substrings,"=")
 	my_substrings = []
 print("	> stores empty strings embedded within quotation marks.")
-print("	> Method FAILS!!!")
+print("	> Method works.")
 
 
 
@@ -905,34 +905,134 @@ print("	> Method FAILS!!!")
 
 
 
+
+"""
+	References:
+	+ [devnull2013]
+		- devnull, Answer to `Extracting strings in {Python} in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/19675957/1531728 and https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes/19675957#19675957; November 11, 2021 was the last accessed date.
+"""
+print("= Method 2l: Get substring with ...")
+print("	re.findall(r\"['\\\"](.*?)['\\\"]\", string).")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	for values in re.findall(r"['\"](.*?)['\"]", current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+print("	> stores empty strings embedded within quotation marks.")
+print("	> Method works.")
+
+
+
+
+
+
+
+"""
+	References:
+	+ [devnull2013]
+		- devnull, Answer to `Extracting strings in {Python} in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/19675957/1531728 and https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes/19675957#19675957; November 11, 2021 was the last accessed date.
+	+ [devnull2013a]
+		- tripleee, Comment about an answer to `Extracting strings in {Python} in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes#comment29222674_19675957; November 11, 2021 was the last accessed date.
+	+ [WikipediaContributors2019i]
+		- Wikipedia contributors, "CAR and CDR", Wikimedia Foundation, San Francisco, CA, August 28, 2019. Available online from Wikipedia, The Free Encyclopedia: Lisp (programming language) at: https://en.wikipedia.org/wiki/CAR_and_CDR; February 19, 2020 was the last accessed date.
+"""
+print("= Method 2m: Get substring with ...")
+print("	re.findall(r\"(['\\\"])(.*?)['\\\"]\", string).")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	for values in re.findall(r"(['\"])(.*?)['\"]", current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+print("	> stores empty strings embedded within quotation marks.")
+print("	> Store result in tuples, as cdr for the cons (car, cdr).")
+#print("	> Method FAILS!!!")
+print("	> Method works.")
+
+
+
+
+
+
+"""
+	References:
+	+ [devnull2013]
+		- devnull, Answer to `Extracting strings in {Python} in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/19675957/1531728 and https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes/19675957#19675957; November 11, 2021 was the last accessed date.
+	+ [tripleee2013]
+		- tripleee, Comment about an answer to `Extracting strings in {Python} in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes#comment29224831_19675957; November 11, 2021 was the last accessed date.
+	+ [WikipediaContributors2019i]
+		- Wikipedia contributors, "CAR and CDR", Wikimedia Foundation, San Francisco, CA, August 28, 2019. Available online from Wikipedia, The Free Encyclopedia: Lisp (programming language) at: https://en.wikipedia.org/wiki/CAR_and_CDR; February 19, 2020 was the last accessed date.
+"""
+print("= Method 2n: Get substring with ...")
+print("	re.findall(r\"(['\\\"])(.*?)\\1\", string).")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	for values in re.findall(r"(['\"])(.*?)\1", current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+print("	> stores empty strings embedded within quotation marks.")
+print("	> Store result in tuples, as cdr for the cons (car, cdr).")
+#print("	> Method FAILS!!!")
+print("	> Method works.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 """
 	Set of failed approaches:
 	+ for values in re.findall('(?:[^"]*.)*[^"]*', current_test_string):
 """
 
 
+
 """
 	References: FIX THIS!!!
-	+ [BLAH]
-		- Daniel Muthupandi and trotta, Answer to ``Python Regex to find a string in double quotes within a string'', Stack Exchange, Inc., New York, NY, August 3, 2019. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/57337020/1531728 and https://stackoverflow.com/questions/9519734/python-regex-to-find-a-string-in-double-quotes-within-a-string/63707053#63707053; November 6, 2021 was the last accessed date.
+	+ [devnull2013]
+		- devnull, Answer to `Extracting strings in {Python} in either single or double quotes', Stack Exchange, Inc., New York, NY, October 30, 2013. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/19675957/1531728 and https://stackoverflow.com/questions/19675760/extracting-strings-in-python-in-either-single-or-double-quotes/19675957#19675957; November 11, 2021 was the last accessed date.
+	+ [WikipediaContributors2019i]
+		- Wikipedia contributors, "CAR and CDR", Wikimedia Foundation, San Francisco, CA, August 28, 2019. Available online from Wikipedia, The Free Encyclopedia: Lisp (programming language) at: https://en.wikipedia.org/wiki/CAR_and_CDR; February 19, 2020 was the last accessed date.
 """
-print("= Method 2l: Get substring with ...")
+print("= Method 2z: Get substring with ...")
 print("	re.findall(r'[\"](.*?)[\"]', string).")
 # Enumerate all the test strings.
 for current_test_string in my_strings:
-	for values in re.findall('(?:[^"]*.)*[^"]*', current_test_string):
+	for values in re.findall(r"(['\"])(.*?)\1", current_test_string):
 		my_substrings.append(values)
 		#print("values are:",values,"=")
 	print("	my_substrings are:",my_substrings,"=")
 	my_substrings = []
-print("	> Method FAILS!!!")
-
-
-
-
-
-
-
+print("	> stores empty strings embedded within quotation marks.")
+print("	> Store result in tuples, as cdr for the cons (car, cdr).")
+#print("	> Method FAILS!!!")
+print("	> Method works.")
 
 
 
