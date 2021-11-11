@@ -469,25 +469,28 @@ print("	my_substrings are:",my_substrings,"=")
 my_string = 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew'
 my_substrings = re.findall('"([^"]*)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
-# Use the substrings (in Italian): one, two, three.
-my_string = '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	fre f'
+# Use the substrings (in Italian): one, two, three, and an empty string.
+my_string = '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	""fre f'
 my_substrings = re.findall('"([^"]*)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
-# Use the substrings (in Spanish): one, two, three.
-my_string = '		"uno""dos"		"tres"'
+# Use the substrings (in Spanish): one, two, empty string, three.
+my_string = '		"uno""dos"		"""tres"'
 my_substrings = re.findall('"([^"]*)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Romanian): one, two, three.
 my_string = '"unu""doua""trei"'
 my_substrings = re.findall('"([^"]*)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
-# Use the substrings (in Portuguese): one, two, three.
-my_string = ' 	 "um" 		    		 "dois"  		  "tres"   			 	  '
+# Use the substrings (in Portuguese): empty string, one, two, three.
+my_string = '"" 	 "um" 		    		 "dois"  		  "tres"   			 	  '
 my_substrings = re.findall('"([^"]*)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
-
-
-
+# Use the substrings (in French): one, two, three, and an empty string.
+my_string = ' 	 "une" 		    		 "deux"  		  "trois"   			 	  ""'
+my_substrings = re.findall('"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+print("	> stores empty strings embedded within quotation marks.")
+print("	> Method works.")
 
 
 
@@ -509,11 +512,11 @@ my_string = 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew'
 my_substrings = re.findall('"[^"]*"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Italian): one, two, three.
-my_string = '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	fre f'
+my_string = '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	""fre f'
 my_substrings = re.findall('"[^"]*"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Spanish): one, two, three.
-my_string = '		"uno""dos"		"tres"'
+my_string = '		"uno""dos"		"""tres"'
 my_substrings = re.findall('"[^"]*"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Romanian): one, two, three.
@@ -521,11 +524,18 @@ my_string = '"unu""doua""trei"'
 my_substrings = re.findall('"[^"]*"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Portuguese): one, two, three.
-my_string = ' 	 "um" 		    		 "dois"  		  "tres"   			 	  '
+my_string = '"" 	 "um" 		    		 "dois"  		  "tres"   			 	  '
+my_substrings = re.findall('"[^"]*"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+# Use the substrings (in French): one, two, three, and an empty string.
+my_string = ' 	 "une" 		    		 "deux"  		  "trois"   			 	  ""'
 my_substrings = re.findall('"[^"]*"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 print("	!!! Fails to extract the substrings without the")
 print("		quotation marks (double quotes)!!!")
+print("	> stores empty strings embedded within quotation marks.")
+print("	> Method works.")
+
 
 
 
@@ -549,11 +559,11 @@ my_string = 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew'
 my_substrings = re.findall(r'"(.*?)(?<!\\)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Italian): one, two, three.
-my_string = '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	fre f'
+my_string = '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	""fre f'
 my_substrings = re.findall(r'"(.*?)(?<!\\)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Spanish): one, two, three.
-my_string = '		"uno""dos"		"tres"'
+my_string = '		"uno""dos"		"""tres"'
 my_substrings = re.findall(r'"(.*?)(?<!\\)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Romanian): one, two, three.
@@ -561,12 +571,15 @@ my_string = '"unu""doua""trei"'
 my_substrings = re.findall(r'"(.*?)(?<!\\)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Portuguese): one, two, three.
-my_string = ' 	 "um" 		    		 "dois"  		  "tres"   			 	  '
+my_string = '"" 	 "um" 		    		 "dois"  		  "tres"   			 	  '
 my_substrings = re.findall(r'"(.*?)(?<!\\)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
-
-
-
+# Use the substrings (in French): one, two, three, and an empty string.
+my_string = ' 	 "une" 		    		 "deux"  		  "trois"   			 	  ""'
+my_substrings = re.findall(r'"(.*?)(?<!\\)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+print("	> stores empty strings embedded within quotation marks.")
+print("	> Method works.")
 
 
 
@@ -590,11 +603,11 @@ my_string = 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew'
 my_substrings = re.findall(r'"([^"]*)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Italian): one, two, three.
-my_string = '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	fre f'
+my_string = '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	""fre f'
 my_substrings = re.findall(r'"([^"]*)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Spanish): one, two, three.
-my_string = '		"uno""dos"		"tres"'
+my_string = '		"uno""dos"		"""tres"'
 my_substrings = re.findall(r'"([^"]*)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Romanian): one, two, three.
@@ -602,11 +615,15 @@ my_string = '"unu""doua""trei"'
 my_substrings = re.findall(r'"([^"]*)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
 # Use the substrings (in Portuguese): one, two, three.
-my_string = ' 	 "um" 		    		 "dois"  		  "tres"   			 	  '
+my_string = '"" 	 "um" 		    		 "dois"  		  "tres"   			 	  '
 my_substrings = re.findall(r'"([^"]*)"', my_string)
 print("	my_substrings are:",my_substrings,"=")
-
-
+# Use the substrings (in French): one, two, three, and an empty string.
+my_string = ' 	 "une" 		    		 "deux"  		  "trois"   			 	  ""'
+my_substrings = re.findall(r'"([^"]*)"', my_string)
+print("	my_substrings are:",my_substrings,"=")
+print("	> stores empty strings embedded within quotation marks.")
+print("	> Method works.")
 
 
 
@@ -634,7 +651,7 @@ print("	re.findall(r'\"(?:(?:(?!(?<!\\)\").)*)\"\', string).")
 	+ Romanian
 	+ Portuguese
 """
-my_strings = ['SetVariables "a" "b" "c" ', 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew', '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	fre f', '		"uno""dos"		"tres"', '"unu""doua""trei"', ' 	 "um" 		    		 "dois"  		  "tres"   			 	  ']
+my_strings = ['SetVariables "a" "b" "c" ', 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew', '"uno"?>P>MNUIHUH~!@#$%^&*()_+=0trewq"due"		"tre"fef	""fre f', '		"uno""dos"		"""tres"', '"unu""doua""trei"', '"" 	 "um" 		    		 "dois"  		  "tres"   			 	  ', ' 	 "une" 		    		 "deux"  		  "trois"   			 	  ""']
 my_substrings = []
 # Enumerate all the test strings.
 for current_test_string in my_strings:
@@ -645,6 +662,16 @@ for current_test_string in my_strings:
 	my_substrings = []
 print("	!!! Fails to extract the substrings without the")
 print("		quotation marks (double quotes)!!!")
+print("	> stores empty strings embedded within quotation marks.")
+print("	> Method works.")
+
+
+
+
+
+
+
+
 
 
 """
@@ -668,6 +695,14 @@ for current_test_string in my_strings:
 		#print("values are:",values,"=")
 	print("	my_substrings are:",my_substrings,"=")
 	my_substrings = []
+print("	> stores empty strings embedded within quotation marks.")
+print("	> Method works.")
+
+
+
+
+
+
 
 
 """
@@ -684,6 +719,15 @@ for current_test_string in my_strings:
 		#print("values are:",values,"=")
 	print("	my_substrings are:",my_substrings,"=")
 	my_substrings = []
+print("	> stores empty strings embedded within quotation marks.")
+print("	> Method works.")
+
+
+
+
+
+
+
 
 
 """
@@ -702,6 +746,8 @@ for current_test_string in my_strings:
 		#print("values are:",values,"=")
 	print("	my_substrings are:",my_substrings,"=")
 	my_substrings = []
+print("	> Fails with empty strings embedded within quotation marks.")
+print("	> Method FAILS!!!")
 # Replace ".+" (one or more empty strings) wit ".*" (zero or more empty strings)
 print("= Method 2h(ii): Get substring with ...")
 print("	re.findall(r'\\\"(.*?)\\\"', string).")
@@ -712,6 +758,13 @@ for current_test_string in my_strings:
 		#print("values are:",values,"=")
 	print("	my_substrings are:",my_substrings,"=")
 	my_substrings = []
+print("	> stores empty strings embedded within quotation marks.")
+print("	> Method FAILS!!!")
+
+
+
+
+
 
 
 
@@ -722,6 +775,7 @@ for current_test_string in my_strings:
 	References:
 	+ [Shelvington2020]
 		- Iain Shelvington, Answer to ``Extracting only words out of a mixed string in Python [duplicate]'', Stack Exchange, Inc., New York, NY, January 5, 2020. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/59598630/1531728 and https://stackoverflow.com/questions/59598565/extracting-only-words-out-of-a-mixed-string-in-python/59598630#59598630; November 6, 2021 was the last accessed date.
+	+ [w3resourceContributors2021] w3resource contributors, "Python: Extract values between quotation marks of a string", from w3resource: Backend tutorials: Python Tutorial: Python Exercises, Practice, Solution: Python Regular Expression - Exercises, Practice, Solution, or from w3resource: Exercises with online editor: Python Tutorial: Python Exercises, Practice, Solution: Python Regular Expression - Exercises, Practice, Solution, DataSoft, Khosbagan, Bardhaman, Purba Bardhaman, West Bengal, India, October 25, 2021. Available from w3resource: Backend tutorials: Python Tutorial: Python Exercises, Practice, Solution: Python Regular Expression - Exercises, Practice, Solution, or from w3resource: Exercises with online editor: Python Tutorial: Python Exercises, Practice, Solution: Python Regular Expression - Exercises, Practice, Solution at: https://www.w3resource.com/python-exercises/re/python-re-exercise-38.php; last accessed on November 10, 2021.
 """
 print("= Method 2i: Get substring with ...")
 print("	re.findall('\"(.*?)\"', string).")
@@ -732,6 +786,13 @@ for current_test_string in my_strings:
 		#print("values are:",values,"=")
 	print("	my_substrings are:",my_substrings,"=")
 	my_substrings = []
+print("	> stores empty strings embedded within quotation marks.")
+print("	> Method works.")
+
+
+
+
+
 
 
 
@@ -756,6 +817,14 @@ for current_test_string in my_strings:
 		#print("values are:",values,"=")
 	print("	my_substrings are:",my_substrings,"=")
 	my_substrings = []
+print("	> stores empty strings embedded within quotation marks.")
+print("	> Method FAILS!!!")
+
+
+
+
+
+
 #print("= Method 2k: Get substring with ...")
 #print("	re.search('\"(.+?)\"', string).")
 """
@@ -823,11 +892,40 @@ for current_test_string in my_strings:
 	my_substrings = []
 print("	!!!Approach works for strings with targeted")
 print("		substrings embedded in patterns!!!")
+print("	> Method FAILS!!!")
 
 
 
 
 
+
+
+
+
+
+
+
+"""
+	Set of failed approaches:
+	+ for values in re.findall('(?:[^"]*.)*[^"]*', current_test_string):
+"""
+
+
+"""
+	References: FIX THIS!!!
+	+ [BLAH]
+		- Daniel Muthupandi and trotta, Answer to ``Python Regex to find a string in double quotes within a string'', Stack Exchange, Inc., New York, NY, August 3, 2019. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/57337020/1531728 and https://stackoverflow.com/questions/9519734/python-regex-to-find-a-string-in-double-quotes-within-a-string/63707053#63707053; November 6, 2021 was the last accessed date.
+"""
+print("= Method 2l: Get substring with ...")
+print("	re.findall(r'[\"](.*?)[\"]', string).")
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	for values in re.findall('(?:[^"]*.)*[^"]*', current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+print("	> Method FAILS!!!")
 
 
 
