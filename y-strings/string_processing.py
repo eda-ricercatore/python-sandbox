@@ -509,9 +509,42 @@ print("Size of empty string:",sys.getsizeof(""),"=")
 
 print("======================================================")
 
-print("= Extract a substring within a pair of markers, left marker and right marker.")
+print("= Extract a substring within a pair of markers,")
+print("	left marker 'AUG\|' and right marker '\|UGA'.")
 s = "abc123AUG|GAC|UGAasdfg789"
 pattern = "AUG\|(.*?)\|UGA"
 substring = re.search(pattern, s).group(1)
 print("s is:",s,"=")
 print("substring of s is:",substring,"=")
+s = 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew'
+pattern = '"(.*?)"'
+substring = re.search(pattern, s).group(1)
+#substring = re.search(pattern, s).group(3)
+print("s is:",s,"=")
+print("substring of s is:",substring,"=")
+print("	> This method returns only the first substring that")
+print("		is embedded within the specified markers.")
+s = "abc123AUG|GAC|UGAasdfg789"
+start = s.find("AUG|") + len("AUG|")
+end = s.find("|UGA")
+substring = s[start:end]
+print("s is:",s,"=")
+print("substring of s is:",substring,"=")
+s = 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew'
+start = s.find('"') + len('"')
+end = s.find('"')
+substring = s[start:end]
+print("s is:",s,"=")
+print("substring of s is:",substring,"=")
+print("	> This method FAILS to return substrings embedded within")
+print("		the specified equivalent begin & end markers.")
+s = 'd2efw  	f ?first" +&%#$%?second",vwrfhir, d2e	u?third" dwedew'
+start = s.find('?') + len('?')
+end = s.find('"')
+substring = s[start:end]
+print("s is:",s,"=")
+print("substring of s is:",substring,"=")
+print("	> This method returns only the first substring that")
+print("		is embedded within the specified markers,")
+print("		if these markers are different;")
+print("		i.e., the begin & end markers are different.")

@@ -766,6 +766,10 @@ for current_test_string in my_strings:
 
 	However, it only finds the first/only substring embedded within
 		quotation marks, double quotes in this case.
+
+	[KiteStaff20XY] uses the re.search().group(1) method that
+		returns only the first substring embedded within the
+		specified markers.
 """
 #	for current_test_string in my_strings:
 		#values = re.search('"(.+?)"', current_test_string)
