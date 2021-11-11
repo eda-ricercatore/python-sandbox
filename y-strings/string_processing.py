@@ -502,3 +502,16 @@ print("======================================================")
 print("Size of empty string:",sys.getsizeof(""),"=")
 print("Size of string 'dui hiewlf ifywei7f wfuywf o2o4':",sys.getsizeof("dui hiewlf ifywei7f wfuywf o2o4"),"=")
 print("Size of empty string:",sys.getsizeof(""),"=")
+
+
+
+
+
+print("======================================================")
+
+print("= Extract a substring within a pair of markers, left marker and right marker.")
+s = "abc123AUG|GAC|UGAasdfg789"
+pattern = "AUG\|(.*?)\|UGA"
+substring = re.search(pattern, s).group(1)
+print("s is:",s,"=")
+print("substring of s is:",substring,"=")
