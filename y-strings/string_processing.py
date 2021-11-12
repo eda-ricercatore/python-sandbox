@@ -571,7 +571,10 @@ print("		i.e., the begin & end markers are different.")
 		substring.
 
 	Reference:
-	+ Alex 'af3ld' Feldman and Shaido, Answer to `How do I find quotes in strings - Python', Stack Exchange, Inc., New York, NY, February 26, 2021. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/38444540/1531728 and https://stackoverflow.com/questions/38444389/how-do-i-find-quotes-in-strings-python/38444540#38444540; November 11, 2021 was the last accessed date.
+	+ [Feldman2021]
+		- Alex 'af3ld' Feldman and Shaido, Answer to `How do I find quotes in strings - Python', Stack Exchange, Inc., New York, NY, February 26, 2021. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/38444540/1531728 and https://stackoverflow.com/questions/38444389/how-do-i-find-quotes-in-strings-python/38444540#38444540; November 11, 2021 was the last accessed date.
+	+ [Paluter2016]
+		- Paluter, Answer to "How do I find quotes in strings - Python", Stack Exchange, Inc., New York, NY, July 18, 2016. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/38444653/1531728 and https://stackoverflow.com/questions/38444389/how-do-i-find-quotes-in-strings-python/38444653#38444653; November 11, 2021 was the last accessed date.
 """
 s = 'd2efw  	f "first" +&%#$%"second",vwrfhir, d2e	u"third" dwedew'
 #s = 'd2efw  	f ?first" +&%#$%?second",vwrfhir, d2e	u?third" dwedew'

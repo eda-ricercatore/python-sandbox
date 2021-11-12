@@ -989,6 +989,55 @@ print("	> Method works.")
 
 
 
+"""
+	References:
+	+ [Feldman2021]
+		- Alex 'af3ld' Feldman and Shaido, Answer to `How do I find quotes in strings - Python', Stack Exchange, Inc., New York, NY, February 26, 2021. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/38444540/1531728 and https://stackoverflow.com/questions/38444389/how-do-i-find-quotes-in-strings-python/38444540#38444540; November 11, 2021 was the last accessed date.
+	+ [Paluter2016]
+		- Paluter, Answer to "How do I find quotes in strings - Python", Stack Exchange, Inc., New York, NY, July 18, 2016. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/38444653/1531728 and https://stackoverflow.com/questions/38444389/how-do-i-find-quotes-in-strings-python/38444653#38444653; November 11, 2021 was the last accessed date.
+"""
+print("= Method 2o: Get substring with ...")
+print("	my_string.find(pattern, string_positional_index).")
+my_substrings = []
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	"""
+	for values in re.findall(r"(['\"])(.*?)\1", current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	"""
+	start = current_test_string.find('"')
+	while -1 != start:
+		end = current_test_string.find('"', start+1)
+		if -1 != end:
+			substring = current_test_string[start+1:end]
+			#print("	> substring of current_test_string is:",substring,"=")
+			my_substrings.append(substring)
+		start = current_test_string.find('"', end+1)
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+print("	> stores empty strings embedded within quotation marks.")
+#print("	> Method FAILS!!!")
+print("	> Method works.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
