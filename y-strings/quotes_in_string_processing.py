@@ -1032,7 +1032,38 @@ print("	> Method works.")
 
 
 
-
+"""
+	References:
+	+ [Tisnek2015]
+		- Dima Tisnek and Kenly, Answer to `How do I find quotes in strings - Python', Stack Exchange, Inc., New York, NY, December 17, 2015. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/34155315/1531728 and https://stackoverflow.com/questions/34155110/python-find-text-in-file-between-quotation-marks/34155315#34155315; November 11, 2021 was the last accessed date.
+"""
+print("= Method 2p: Get substring with ...")
+print("	re.findall('(?:\")([^\"]*)(?:\")', current_test_string).")
+my_substrings = []
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	for values in re.findall('(?:")([^"]*)(?:")', current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+print("	> stores empty strings embedded within quotation marks.")
+#print("	> Method FAILS!!!")
+print("	> Method works.")
+# Try alternate method in [Tisnek2015].
+print("= Method 2q: Get substring with ...")
+print("	re.findall('(?<=\")[^\"]*(?=\")', current_test_string).")
+my_substrings = []
+# Enumerate all the test strings.
+for current_test_string in my_strings:
+	for values in re.findall('(?<=")[^"]*(?=")', current_test_string):
+		my_substrings.append(values)
+		#print("values are:",values,"=")
+	print("	my_substrings are:",my_substrings,"=")
+	my_substrings = []
+print("	> stores empty strings embedded within quotation marks.")
+#print("	> Method FAILS!!!")
+print("	> Method partially works, with erroneous extracted substrings.")
 
 
 
