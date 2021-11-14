@@ -104,7 +104,7 @@ print("list 4 is:",list_4,"=")
 
 
 
-with open("test-cases/output-files/op-file-1.md", "w") as op_file_1:
+with open("./test-cases/input-files/ip-file-1.md", "r") as op_file_1:
 	op_file_1.write("")
 
 

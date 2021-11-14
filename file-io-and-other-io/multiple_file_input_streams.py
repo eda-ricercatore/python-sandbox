@@ -1,7 +1,6 @@
-#!/Users/zhiyang/anaconda3/bin/python3
+#!/usr/local/bin/python3
 
-###	#!/usr/local/bin/python3
-
+###!/Users/zhiyang/anaconda3/bin/python3
 
 
 """
@@ -76,21 +75,67 @@ import time
 
 # ===================================================================
 
-# Generate the test data set.
-
-
-
-
-
-
-
-# ===================================================================
-
 
 """
+	Create multiple input file streams concurrently.
+
+	We can also modify this for creating multiple output file streams
+		concurrently.
 
 	References:
-	+ John "johntellsall" Mitchell, 
+	+ [Rands2021]
+		- Chris Rands, Answer to `How can I open multiple files using ``with open'' in {Python}?', Stack Exchange, Inc., New York, NY, February 26, 2021. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/66388647/1531728 and https://stackoverflow.com/questions/4617034/how-can-i-open-multiple-files-using-with-open-in-python/66388647#66388647; November 13, 2021 was the last accessed date.
+"""
+#with (open("./test-cases/input-files/ip-file-1.md", "r") as ip_file_1, open("./test-cases/input-files/ip-file-2.md", "r") as ip_file_2, open("./test-cases/input-files/ip-file-3.md", "r") as ip_file_3):
+with open("./test-cases/input-files/ip-file-1.md", "r") as ip_file_1, open("./test-cases/input-files/ip-file-2.md", "r") as ip_file_2, open("./test-cases/input-files/ip-file-3.md", "r") as ip_file_3:
+	"""
+		Use file_object.readline() method to read the next line from a file
+			[Brandl2017a, in \S7 Input and Output: \S 7.2. Reading and Writing Files: \S7.2.1 Methods of File Objects].
 
+		Read line #1.
+	"""
+	print(ip_file_1.readline())
+	print(ip_file_2.readline())
+	print(ip_file_3.readline())
+	# Read line #2.
+	ip_file_1.readline()
+	ip_file_2.readline()
+	ip_file_3.readline()
+	# Read line #3.
+	print(ip_file_1.readline())
+	print(ip_file_2.readline())
+	print(ip_file_3.readline())
+	# Read line #3.
+	ip_file_1.readline()
+	ip_file_2.readline()
+	ip_file_3.readline()
+	# Read line #3.
+	print(ip_file_1.readline())
+	print(ip_file_2.readline())
+	print(ip_file_3.readline())
+"""
+# Read nonexistent line from closed file object.
+ip_file_1.readline()
+ip_file_2.readline()
+ip_file_3.readline()
 """
 
+
+
+
+
+
+
+
+
+
+
+
+"""
+	Attempted solutions that do not work.
+
+
+	References:
+	+ [Rands2021]
+		- Chris Rands, Answer to `How can I open multiple files using ``with open'' in {Python}?', Stack Exchange, Inc., New York, NY, February 26, 2021. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/66388647/1531728 and https://stackoverflow.com/questions/4617034/how-can-i-open-multiple-files-using-with-open-in-python/66388647#66388647; November 13, 2021 was the last accessed date.
+"""
