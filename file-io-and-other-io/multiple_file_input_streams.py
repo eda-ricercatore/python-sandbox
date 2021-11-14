@@ -184,6 +184,13 @@ with (
 	Reference:
 	+ [Marnach2019]
 		- Sven Marnach, Answer to `How can I open multiple files using ``with open'' in {Python}?', Stack Exchange, Inc., New York, NY, February 10, 2019. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/4617069/1531728 and https://stackoverflow.com/questions/4617034/how-can-i-open-multiple-files-using-with-open-in-python/4617069#4617069; November 13, 2021 was the last accessed date.
+	+ [timgeb2020]
+		- timgeb and Community Bot, Answer to `How can I open multiple files using ``with open'' in {Python}?', Stack Exchange, Inc., New York, NY, June 20, 2020. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/53363923/1531728 and https://stackoverflow.com/questions/4617034/how-can-i-open-multiple-files-using-with-open-in-python/53363923#53363923; November 13, 2021 was the last accessed date.
+	+ [DrakeJr2016b, Python 3.10.0 Documentation: The Python Standard Library: Python Runtime Services: contextlib — Utilities for with-statement contexts: Utilities]
+		- https://docs.python.org/3/library/contextlib.html#contextlib.ExitStack
+		- For version Python 3.10.0 Documentation.
+		- Last accessed on November 14, 2021.
+		- Last Modified on November 14, 2021.
 """
 print("= Try method #2 from [Marnach2019].")
 filenames = ["./test-cases/input-files/ip-file-1.md", "./test-cases/input-files/ip-file-2.md", "./test-cases/input-files/ip-file-3.md"]
