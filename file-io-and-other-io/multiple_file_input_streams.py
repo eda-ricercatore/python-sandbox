@@ -252,12 +252,19 @@ print("= Try fileinput.input() method from [DrakeJr2016b].")
 #with fileinput.input(files=("./test-cases/input-files/ip-file-1.md", "./test-cases/input-files/ip-file-2.md", "./test-cases/input-files/ip-file-3.md"), encoding="utf-8") as f:
 with fileinput.input(files=("./test-cases/input-files/ip-file-1.md", "./test-cases/input-files/ip-file-2.md", "./test-cases/input-files/ip-file-3.md")) as f:
 	for line in f:
-		process(line)
+		print(line)
 
 
 
 
-
+"""
+	Reference:
+	+ [DrakeJr2016b, File and Directory Access: fileinput — Iterate over lines from multiple input streams]
+"""
+print("= Try fileinput.FileInput() method from [DrakeJr2016b].")
+with fileinput.FileInput(files=("./test-cases/input-files/ip-file-1.md", "./test-cases/input-files/ip-file-2.md", "./test-cases/input-files/ip-file-3.md")) as f:
+	for line in f:
+		print(line)
 
 
 
