@@ -28,6 +28,7 @@
 
 	References:
 	+ [Brandl2017a, in \S7 Input and Output: \S 7.2. Reading and Writing Files]
+	+ [DrakeJr2016b]
 
 
 
@@ -83,8 +84,8 @@ import datetime
 import time
 # For method #2 from [Marnach2019].
 from contextlib import ExitStack
-
-
+# From [DrakeJr2016b, File and Directory Access: fileinput — Iterate over lines from multiple input streams]
+import fileinput
 
 
 
@@ -243,6 +244,15 @@ with ExitStack() as stack:
 
 
 
+"""
+	Reference:
+	+ [DrakeJr2016b, File and Directory Access: fileinput — Iterate over lines from multiple input streams]
+"""
+print("= Try fileinput.input() method from [DrakeJr2016b].")
+#with fileinput.input(files=("./test-cases/input-files/ip-file-1.md", "./test-cases/input-files/ip-file-2.md", "./test-cases/input-files/ip-file-3.md"), encoding="utf-8") as f:
+with fileinput.input(files=("./test-cases/input-files/ip-file-1.md", "./test-cases/input-files/ip-file-2.md", "./test-cases/input-files/ip-file-3.md")) as f:
+	for line in f:
+		process(line)
 
 
 
