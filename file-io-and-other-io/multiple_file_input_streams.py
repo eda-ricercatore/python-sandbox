@@ -17,6 +17,20 @@
 
 
 
+
+	Notes:
+	+ The default mode for the open() method to open file input/output
+		streams is the "read" mode [Brandl2017a, in \S7 Input and Output: \S 7.2. Reading and Writing Files].
+
+
+
+
+
+	References:
+	+ [Brandl2017a, in \S7 Input and Output: \S 7.2. Reading and Writing Files]
+
+
+
 	Revision History:
 	September 6, 2019			Version 0.1	Script.
 """
