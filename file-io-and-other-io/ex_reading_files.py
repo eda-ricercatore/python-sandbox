@@ -76,13 +76,13 @@ with open(filename, "r") as f_obj:
 		print(prompt .format("OK"))
 	else:
 		print(prompt .format("FAIL!!!"))
-	i_certify_statement = "I certify that I have listed all the sources that I used to develop the solutions/code to the submitted work."
+	i_certify_statement = "I certify that I have listed all the sources that I used to develop the solutions/code to the submitted work.\n"
 	if i_certify_statement in list_of_lines:
 		print(prompt .format("OK"))
 	else:
 		print(prompt .format("FAIL!!!"))
 	prompt = "	... Test if 'Aggie honor promise' is provided:	{}."
-	aggie_honor_promise = "On my honor as an Aggie, I have neither given nor received any unauthorized help on this academic work."
+	aggie_honor_promise = "On my honor as an Aggie, I have neither given nor received any unauthorized help on this academic work.\n"
 	if aggie_honor_promise in list_of_lines:
 		print(prompt .format("OK"))
 	else:
