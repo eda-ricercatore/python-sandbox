@@ -78,7 +78,19 @@ with open(filename, "r") as f_obj:
 		print(prompt .format("OK"))
 	else:
 		print(prompt .format("FAIL!!!"))
-	i_certify_statement = "I certify that I have listed all the sources that I used to develop the solutions/code to the submitted work."
+	prompt = "	... Test certification statement exists:	{}."
+	"""
+		#### IMPORTANT NOTES
+
+		When files are read via the file_object.readlines() method,
+			the newline control character would exist at the end of
+			each line.
+
+		Hence, any string comparison to a string in the list of lines
+			in the text file must account for this newline control
+			character, or remove it from the string from that line.
+	"""
+	i_certify_statement = "I certify that I have listed all the sources that I used to develop the solutions/code to the submitted work.\n"
 	if i_certify_statement in list_of_lines:
 		print(prompt .format("OK"))
 	else:
