@@ -68,7 +68,8 @@ import datetime
 import time
 
 
-filename = "README"
+#filename = "README"
+filename = "readme.md"
 with open(filename, "r") as f_obj:
 	list_of_lines = f_obj.readlines()
 	print("	Number of lines in README file:",len(list_of_lines),"=")
