@@ -13,6 +13,6 @@ import datetime
 #	Call function of the aforementioned module to determine the current date.
 now = datetime.datetime.now()
 #	While it is your birthday, ...
-while "08-10" == now.strftime('%m-%d'):
+while "08-30" == now.strftime('%m-%d'):
 	# Keep wishing you, "Happy Birthday!"
 	print('Happy Birthday, Dr. BLAH!')
