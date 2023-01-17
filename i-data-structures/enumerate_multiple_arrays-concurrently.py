@@ -45,6 +45,8 @@ for index, (value1, value2, value3) in enumerate(zip(data1, data2, data3)):
 	print(value1 + value2 + value3)
 
 
+
+#	This is an example of concurrently enumerating multiple lists.
 print("===========================================")
 b = [23, 34, 45, 56, 67, 78, 89]
 c = [2.3, 3.4, 4.5, 5.6, 6.7, 7.8, 8.9]
