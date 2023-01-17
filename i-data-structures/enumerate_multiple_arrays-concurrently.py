@@ -45,6 +45,16 @@ for index, (value1, value2, value3) in enumerate(zip(data1, data2, data3)):
 	print(value1 + value2 + value3)
 
 
+print("===========================================")
+b = [23, 34, 45, 56, 67, 78, 89]
+c = [2.3, 3.4, 4.5, 5.6, 6.7, 7.8, 8.9]
+d = [1.3, 2.4, 3.5, 4.6, 5.7, 6.8, 7.9]
+for i, (bi,ci,di) in enumerate(zip(b,c,d)):
+	print("index", i, "elem 1:",bi, "elem 2:",ci, "elem 3:", di)
+print("===========================================")
+
+
+
 
 print("	Enumerating lists of different lengths, for the longest list.")
 for i in itertools.zip_longest(data1, data2, data3, data4):
