@@ -111,9 +111,9 @@ fig.tight_layout()
 """
 	@modified by Zhiyang Ong, January 15, 2020.
 	Save plot in PDF format.
-	This save to PDF command has to appear before the .show()
+	This "save to PDF" command has to appear before the .show()
 		command;
-		else, the PDF fuile would be empty.
+		else, the PDF file would be empty.
 	https://github.com/futurestudio/matplotlib-tutorials/tree/master/export_samples
 	
 	Reference:
