@@ -122,7 +122,7 @@ fig.tight_layout()
 			{Fellner, P{\"{o}}hls, Peitek GbR}, Magdeburg,
 			Saxony-Anhalt, Germany, August 5, 2019.
 			Available at: https://futurestud.io/tutorials/matplotlib-save-plots-as-file;
-				last accessed on January 15, 2019.
+				last accessed on January 15, 2020.
 """
 plt.savefig(__file__+".pdf")
 plt.show()
