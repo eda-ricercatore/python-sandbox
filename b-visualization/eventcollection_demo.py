@@ -73,6 +73,7 @@ ax.set_title('line plot with data points')
 	https://github.com/futurestudio/matplotlib-tutorials/tree/master/export_samples
 	
 	Reference:
+	+ [Peitek2019]
 		Norman Peitek, "Matplotlib — Save Plots as File", from
 			{\it Future Studio: Future Studio Tutorials},
 			{Fellner, P{\"{o}}hls, Peitek GbR}, Magdeburg,
