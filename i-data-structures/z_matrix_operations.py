@@ -196,3 +196,28 @@ if np.array_equal(x3,x6):
 	print("x3 == x6")
 else:
 	print("x3 and x6 are different.")
+
+
+
+
+
+# Use the method from [Berg2022a, Array objects: Indexing routines, or Generating index arrays: numpy.c_]
+x7 = np.c_[x, y]
+print(x7)
+# Are x1 and x7 equivalent? [Berg2022a, from Routines: Logic functions]
+if np.array_equal(x1,x7):
+	print("x1 == x7")
+else:
+	print("x1 and x7 are different.")
+
+"""
+	Use the method from [Berg2022a, Array objects: Indexing routines, or Generating index arrays: numpy.r_]
+		for adding a row.
+"""
+x8 = np.r_[x1, x2]
+print(x8)
+# Are x1 and x7 equivalent? [Berg2022a, from Routines: Logic functions]
+if np.array_equal(x3,x8):
+	print("x3 == x8")
+else:
+	print("x3 and x8 are different.")
