@@ -2,7 +2,7 @@
 
 """
 	References for handling the "__file__" attribute.
-	+ https://stackoverflow.com/questions/9271464/what-does-the-file-variable-mean-do
+	+ depling and Octavia Togami and tornikeo, ``what does the __file__ variable mean/do?,'' Stack Exchange Inc., New York, NY, October 21, 2022. Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/q/9271464/1531728 and https://stackoverflow.com/questions/9271464/what-does-the-file-variable-mean-do; November 9, 2021 was the last accessed date.
 """
 
 
