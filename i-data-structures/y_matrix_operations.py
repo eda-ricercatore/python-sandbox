@@ -91,9 +91,9 @@ b = perfplot.bench(
     n_range=[2 ** k for k in range(23)],
     xlabel="len(a)",
 )
-b.save("y_matrix_operations.png")
+b.save("./output-files/y_matrix_operations.png")
 """
 	@Modified by Zhiyang Ong, February 9, 2023.
 	Successful attempt to save the plot/figure in PDF format.
 """
-b.save("y_matrix_operations.pdf")
+b.save("./output-files/y_matrix_operations.pdf")
