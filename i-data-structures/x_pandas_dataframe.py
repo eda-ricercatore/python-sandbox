@@ -169,7 +169,7 @@ print(df_to_np)
 	Hence, printing the Xyce circuit simulation results to a format
 		with standardized separation between the columns, such as a
 		comma, tab, or fixed amount of character space (or whitespace
-		characters).
+		characters) makes input file processing a lot easier.
 
 """
 # Create the pandas DataFrame
