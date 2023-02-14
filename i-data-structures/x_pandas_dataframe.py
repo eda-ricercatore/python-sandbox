@@ -162,6 +162,15 @@ print(df_to_np)
 		reference guide [Keiter2022a] to`generate CSV files, instead
 		of ".prn" files, which is difficult to process [Keiter2022a].
 
+	This is because the default ".prn" (print-to-file) format stores
+		data in columns that are not uniformly separated from each other.
+	E.g., for each row, the whitespace between a pair of columns is
+		different from another pair of columns.
+	Hence, printing the Xyce circuit simulation results to a format
+		with standardized separation between the columns, such as a
+		comma, tab, or fixed amount of character space (or whitespace
+		characters).
+
 """
 # Create the pandas DataFrame
 #df_to_np_to_df = pd.DataFrame(df_to_np, columns = ["index", "time", "Vout", "Vin", "v1"])

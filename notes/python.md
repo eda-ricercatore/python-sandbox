@@ -3858,6 +3858,34 @@ Strongly recommended resource for data science:
 + **[Anaconda Distribution: The Most Popular Python/R Data Science Distribution](https://www.anaconda.com/distribution/)** \cite{AnacondaStaff2018}
 
 
+
+Notes about the pandas library [Haire2023d] from PyData:
++ The 2-D matrix class, or n-D matrix class, in *pandas* is deprecated.
+	- Just use the n-D array class from *pandas* instead.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ##	Miscellaneous
 
 
