@@ -571,8 +571,8 @@ if 1 < number_of_input_arguments:
 					Process the next input argument that should contain
 						the booktitle of selected publications.
 				"""
-				last_name_of_an_author = next(iterator_for_list_of_input_arguments)[1]
-				print("option is:",last_name_of_an_author,"=")
+				booktitle_selected = next(iterator_for_list_of_input_arguments)[1]
+				print("option is:",booktitle_selected,"=")
 			else:
 				"""
 					No, there are no more input arguments to process.
