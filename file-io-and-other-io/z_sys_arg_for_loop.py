@@ -377,16 +377,6 @@ def print_help_manual():
 	print("")
 
 
-"""
-	Flag to indicate it the next input argument in the command for
-		this script is a filename, rather than a string.
-
-	Boolean true value indicates that the next argument is a filename.
-	Else, it indicates a string.
-"""
-#filename_not_string = False
-
-
 # --------------------------------------------------------
 
 """
@@ -695,14 +685,7 @@ else:
 	# End execution of the script without error.
 	sys.exit(0)
 
-"""
-names_of_all_authors
-last_name_of_an_author
-booktitle_selected
-journal_title
-series_title
-university_name
-"""
+
 
 
 

@@ -6,11 +6,11 @@ test:
 
 
 sysarg:
-	@echo "= Run the program without input arguments."
+	@echo "= Run the sys.argv processing script without input arguments."
 	./z_sys_arg_for_loop.py
 	@echo = Run the program with unary input argument.
 	./z_sys_arg_for_loop.py -h
-	@echo "= Run the program with 2-tuple/paired input arguments."
+	@echo "= Run the sys.argv processing script with 2-tuple/paired input arguments."
 	./z_sys_arg_for_loop.py -h -k ./input-files/bibtex_keys.csv
 	./z_sys_arg_for_loop.py -h -m ./input-files/keyphrases_as_metadata.csv
 	./z_sys_arg_for_loop.py -h -k ./input-files/bibtex_keys.csv -m ./input-files/keyphrases_as_metadata.csv
