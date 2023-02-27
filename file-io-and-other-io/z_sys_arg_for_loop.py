@@ -194,6 +194,8 @@
 		the Python interpreter from Conda to use the PyPI package installations.
 	Else, I can use other Python interpreters, one of which is commented out
 		to enable the usage of the Python interpreter from Conda.
+	If options are used multiple times, only the last instance
+		associated with that option is used.
 
 
 
