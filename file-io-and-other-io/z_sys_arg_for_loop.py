@@ -409,8 +409,9 @@ if 1 < len(sys.argv):
 			"""
 			if not os.path.isfile(bibtex_key_csv_filename):
 				# No, it does not exist.
-				print(">>>	filename is invalid:", bibtex_key_csv_filename,"=")
-			# Else, proceed.
+				print(">>>	BibTeX keys CSV filename is invalid:", bibtex_key_csv_filename,"=")
+			else:
+				print("	BibTeX keys CSV filename is valid:", bibtex_key_csv_filename,"=")
 			#print("option is:",next(iterator_for_list_of_input_arguments),"=")
 			# The next input argument should be a filename.
 			#filename_not_string = True
