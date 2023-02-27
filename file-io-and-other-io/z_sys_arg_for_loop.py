@@ -367,23 +367,30 @@ def print_help_manual():
 	https://docs.python.org/3/library/sys.html
 """
 
-# Are there any input arguments?
-if 1 < len(sys.argv):
+# Number of input arguments for this Python script.
+number_of_input_arguments = len(sys.argv)
+"""
+	Are there any input arguments?
+
+	sys.argv contains at least one element, which is the name of the
+		Python script being executed, and is indicated by sys.argv[0].
+
+	Input arguments for the Python script being executed have indices
+		that range from 1 to "n", if "n" input arguments are provided.
+"""
+if 1 < number_of_input_arguments:
 	# Yes. Is the [-h] option/flag is used?
 	if h_option in sys.argv:
 		# Yes, print the help manual. Skip subsequent processing of [-h].
 		print_help_manual()
-		# Is the number of 
 	"""
 		Enumerate the options of the program.
 
 		If the [-h] option is encountered, skip its processing.
 	"""
 	# List of input arguments.
-	#list_of_input_arguments = sys.argv[1:]
 	iterator_for_list_of_input_arguments = enumerate(sys.argv[1:])
 	#for index, option in enumerate(sys.argv[1:]):
-	#for index, option in enumerate(list_of_input_arguments):
 	for index, option in iterator_for_list_of_input_arguments:
 		# Is this input argument the [-h] option?
 		if h_option == option:
@@ -397,24 +404,39 @@ if 1 < len(sys.argv):
 			print("= Processing the [-k] option.")
 			print("index is:",index,"=")
 			print("option is:",option,"=")
-			#index = index + 1
-			print("= Filename of input CSV file for the [-k] option.")
-			print("index is:",index+1,"=")
-			bibtex_key_csv_filename = next(iterator_for_list_of_input_arguments)[1]
-			print("option is:",bibtex_key_csv_filename,"=")
-			"""
-				Is the filename/path for the CSV file containing BibTeX keys valid?
+			# Is there at least one more input argument to process?
+			if index < number_of_input_arguments:
+				#index = index + 1
+				print("= Filename of input CSV file for the [-k] option.")
+				print("index is:",index+1,"=")
+				"""
+					Process the next input argument that should contain
+						the valid input filename for a CSV file.
+				"""
+				bibtex_key_csv_filename = next(iterator_for_list_of_input_arguments)[1]
+				print("option is:",bibtex_key_csv_filename,"=")
+				"""
+					Is the filename/path for the CSV file containing BibTeX keys valid?
 
-				Or, does that file or path exist?
-			"""
-			if not os.path.isfile(bibtex_key_csv_filename):
-				# No, it does not exist.
-				print(">>>	BibTeX keys CSV filename is invalid:", bibtex_key_csv_filename,"=")
+					Or, does that file or path exist?
+				"""
+				if not os.path.isfile(bibtex_key_csv_filename):
+					# No, it does not exist.
+					print(">>>	BibTeX keys CSV filename is invalid:", bibtex_key_csv_filename,"=")
+				else:
+					print("	BibTeX keys CSV filename is valid:", bibtex_key_csv_filename,"=")
 			else:
-				print("	BibTeX keys CSV filename is valid:", bibtex_key_csv_filename,"=")
-			#print("option is:",next(iterator_for_list_of_input_arguments),"=")
-			# The next input argument should be a filename.
-			#filename_not_string = True
+				"""
+					No, there are no more input arguments to process.
+
+					The [-k] option requires a pair of input arguments.
+					+ the [-k] flag
+					+ valid input filename for a CSV file
+				"""
+				print("	Invalid usage of [-k] option.")
+				print("	No valid input filename for a CSV file is provided for the [-k] option.")
+				print("")
+				print_help_manual()
 		else:
 			# Else, process the next input argument.
 			print("index is:",index,"=")
