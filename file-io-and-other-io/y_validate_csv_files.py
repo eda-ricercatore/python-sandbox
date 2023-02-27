@@ -143,22 +143,22 @@ execution_time_measurement_no_ns.set_initial_timestamp()
 		else, return False.
 """
 def validate_csv_file(csv_filename=None):
-	print("	csv_filename is:",csv_filename,"=")
+	#print("	csv_filename is:",csv_filename,"=")
 	if None != csv_filename:
 		validator = CSVValidator("Generic CSV file")
 		csv_data = csv.reader(csv_filename)
 		problems_with_csv_file = validator.validate(csv_data)
-		print("	problems_with_csv_file is:",problems_with_csv_file,"=")
+		#print("	problems_with_csv_file is:",problems_with_csv_file,"=")
 		if not problems_with_csv_file:
-			print("	There are no problems with the CSV file.")
+			#print("	There are no problems with the CSV file.")
 			return True
 		else:
-			print("	There are problems with the CSV file!!!")
-			print("	problems_with_csv_file is:",problems_with_csv_file,"=")
+			#print("	There are problems with the CSV file!!!")
+			#print("	problems_with_csv_file is:",problems_with_csv_file,"=")
 			return False
 	else:
-		print("	The csv_filename is:",csv_filename,"=")
-		print("	csv_filename is NOT 'None'.")
+		#print("	The csv_filename is:",csv_filename,"=")
+		#print("	csv_filename is NOT 'None'.")
 		return False
 
 
