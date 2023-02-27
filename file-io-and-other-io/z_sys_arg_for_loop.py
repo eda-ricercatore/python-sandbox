@@ -132,10 +132,6 @@
 					which is recommended as opposed to error processing
 					with the traditional pair of open and close
 					statements for input/output file objects.
-			If the [-m] input argument/option is also selected,
-				find the subset of these records that have keyphrases
-				found in the set of keyphrases, and print out information about these records into an output file.
-			Similarly, if multiple options are selected, process them here.
 		If the [-m] input argument/option is selected,
 			check if the next input argument exists and if it refers
 			to an existing input file.
