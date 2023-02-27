@@ -387,3 +387,17 @@ for item in odd_numbers_less_than_20:
 	print("The next element in sequence is:",item,"=")
 generator_obj_to_list = list(odd_numbers_less_than_20)
 print("Converted generator object to list:",generator_obj_to_list,"=")
+
+
+
+
+
+
+
+print("--------------------------------------------------------")
+
+# Select a subset of a list without the first element.
+a = [30, 41, 62, 93, 34, 505, 716, 5407]
+print("a is:",a,"=")
+b = a[1:]
+print("b (= a[1:]) is:",b,"=")
