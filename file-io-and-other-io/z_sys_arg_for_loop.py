@@ -697,3 +697,5 @@ else:
 elapsed_time = execution_time_measurement_no_ns.get_elapsed_time(mode_current_time_measurement)
 #temp_text = "Elapsed time:::"+str(datetime.timedelta(seconds=elapsed_time))+"=\n"
 print("Elapsed time:::",datetime.timedelta(seconds=elapsed_time),"=")
+print("")
+print("")
