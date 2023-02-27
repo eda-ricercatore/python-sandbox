@@ -652,7 +652,7 @@ if 1 < number_of_input_arguments:
 			# Is there at least one more input argument to process?
 			if index < number_of_input_arguments:
 				#index = index + 1
-				print("= Series title for the [-u] option.")
+				print("= University name for the [-u] option.")
 				print("index is:",index+1,"=")
 				"""
 					Process the next input argument that should contain
@@ -670,7 +670,7 @@ if 1 < number_of_input_arguments:
 					+ university name
 				"""
 				print("	Invalid usage of [-u] option.")
-				print("	No book series title is provided for the [-u] option.")
+				print("	No university name is provided for the [-u] option.")
 				print("")
 				print_help_manual()
 				# End execution of the script to indicate error.
