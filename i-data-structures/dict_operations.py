@@ -17,6 +17,10 @@
 		Available online from W3Schools Online Web Tutorials: Python Tutorial at:
 			https://www.w3schools.com/python/ref_dictionary_keys.asp;
 			February 3, 2020 was the last accessed date.
+	+ [DrakeJr2023a]
+		- Fred L. Drake, Jr., David Goodger, and Fredrik Lundh, "The Python Standard Library," Python Software Foundation, Beaverton, OR, February 26, 2023. Available online from *Welcome to Python.org: Docs: Python 3.11.2 documentation: Library Reference* at: https://docs.python.org/3/library/; February 26, 2023 was the last accessed date.
+	+ [ParewaLabsStaff20XYe]
+		- Parewa Labs staff, "Python Dictionary get()," Parewa Labs Pvt. Ltd., Kathmandu, Kathmandu District, Bagmati Province, Nepal. Available online from *Programiz: Learn Python Programming: Python References: Python Dictionary Methods* at: https://www.programiz.com/python-programming/methods/dictionary/get; February 26, 2023 was the last accessed date.
 	+ \cite[Section/Chapter 5, Data Structures]{Brandl2017a}
 	+ See references cited in the source code.
 """
@@ -58,6 +62,22 @@ try:
 	print("unknown is:", unknown,".")
 except KeyError:
 	print("Accessing the dictionary with an invalid key.")
+
+
+"""
+	Use this approach to search for keys in dictionaries, especially
+		if the keys may not be in the dictionaries.
+	If the key is not found, a "None" object is returned [DrakeJr2023a, from Built-in Types: Mapping Types — dict] [ParewaLabsStaff20XYe]
+
+	https://docs.python.org/3/library/stdtypes.html#dict.
+"""
+try:
+	unknown_2 = dict_of_reference_values.get("random string 2")
+	print("unknown (2) is:", unknown_2,".")
+except KeyError:
+	print("Accessing the dictionary with an invalid key (2).")
+
+
 
 
 # Change 'g' to 9.81.
