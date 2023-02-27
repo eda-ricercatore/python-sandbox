@@ -136,15 +136,68 @@ execution_time_measurement_no_ns.set_initial_timestamp()
 # --------------------------------------------------------
 
 
+"""
+	Method to validate a comma-separated values (CSV) file.
+	@param csv_filename - Filename of the CSV file to be validated.
+	@return boolean True, if csv_filename is a valid CSV file;
+		else, return False.
+"""
+def validate_csv_file(csv_filename=None):
+	print("	csv_filename is:",csv_filename,"=")
+	if None != csv_filename:
+		validator = CSVValidator("Generic CSV file")
+		csv_data = csv.reader(csv_filename)
+		problems_with_csv_file = validator.validate(csv_data)
+		print("	problems_with_csv_file is:",problems_with_csv_file,"=")
+		if not problems_with_csv_file:
+			print("	There are no problems with the CSV file.")
+			return True
+		else:
+			print("	There are problems with the CSV file!!!")
+			print("	problems_with_csv_file is:",problems_with_csv_file,"=")
+			return False
+	else:
+		print("	The csv_filename is:",csv_filename,"=")
+		print("	csv_filename is NOT 'None'.")
+		return False
+
+
+
+# --------------------------------------------------------
+
+
+input_filename = "./input-files/bibtex_keys.csv"
+print("Processing file:",input_filename,"=")
 #validator = CSVValidator(field_names)
 validator = CSVValidator("BibTeX keys")
-csv_data = csv.reader("./input-files/bibtex_keys.csv")
+csv_data = csv.reader(input_filename)
 problems_with_csv_file = validator.validate(csv_data)
+"""
+	The following line of code raises the following: AttributeError.
+
+	Since "problems_with_csv_file" is an empty list, by checking if
+		it is an empty list, I can check if there are no problems in
+		validating the CSV file.
+"""
 #write_problems(problems_with_csv_file, sys.stdout)
 print("problems_with_csv_file is:",problems_with_csv_file,"=")
+if not problems_with_csv_file:
+	print("	There are no problems with the CSV file.")
+else:
+	print("	There are problems with the CSV file!!!")
 #csv_data = csv.reader("./input-files/keyphrases_as_metadata.csv")
-
-
+input_filename = "./input-files/keyphrases_as_metadata.csv"
+print("Processing file:",input_filename,"=")
+if True == validate_csv_file(csv_filename=input_filename):
+	print("	No problems with the CSV file for keyphrases.")
+else:
+	print("	There are problems with the CSV file for keyphrases!!!")
+input_filename = "./input-files/keyphrases_as_metadata_with_quotes.csv"
+print("Processing file:",input_filename,"=")
+if validate_csv_file(csv_filename=input_filename):
+	print("	No problems with the CSV file for keyphrases.")
+else:
+	print("	There are problems with the CSV file for keyphrases!!!")
 
 
 
