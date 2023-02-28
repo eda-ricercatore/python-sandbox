@@ -27,6 +27,10 @@
 	+ Wikipedia contributors, ``Parsing expression grammar,'' in Wikipedia, The Free Encyclopedia: Formal languages, Wikimedia Foundation, San Francisco, CA, September 21, 2020. Available online at: https://en.wikipedia.org/wiki/Parsing_expression_grammar; last accessed on October 9, 2020.
 		- parsing expression grammar (PEG) is similar to
 			context-free grammar (CFG), and cannot be ambiguous.
+	+ [DrakeJr2023b]
+		- Fred L. Drake, Jr., David Goodger, and Fredrik Lundh, "The Python Tutorial," Python Software Foundation, Beaverton, OR, February 26, 2023. Available online from *Welcome to Python.org: Docs: Python 3.11.2 documentation: Tutorial* at: https://docs.python.org/3/tutorial/; February 26, 2023 was the last accessed date.
+
+
 
 
 
@@ -396,8 +400,57 @@ print("Converted generator object to list:",generator_obj_to_list,"=")
 
 print("--------------------------------------------------------")
 
+"""
+	From [DrakeJr2023b, from 5. Data Structures: 5.1. More on Lists]
+
+	https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+"""
+
 # Select a subset of a list without the first element.
 a = [30, 41, 62, 93, 34, 505, 716, 5407]
 print("a is:",a,"=")
 b = a[1:]
 print("b (= a[1:]) is:",b,"=")
+print("Add the elements 13348 and 13432449 to the end of the list 'a'.")
+a.append(13348)
+a.append(13432449)
+print("Updated list 'a' is:",a,"=")
+print("Add the elements 62 and 505 to the end of the list 'a'.")
+a.remove(62)
+a.remove(505)
+print("Updated list 'a' is:",a,"=")
+print("")
+try:
+	a.remove(99)
+	print("Removing 99 from list 'a' does not change 'a':",a,"=")
+except ValueError:
+	print("Removing 99 from list 'a', which does not include 99, would result in an error")
+	print("Removing elements from lists, which do not include these elements would result in errors.")
+	print("")
+print("Empty list 'a'.")
+a.clear()
+print("Updated list 'a' is:",a,"=")
+c = [4,7,6,5,3,9,1,2,8]
+print("Before sorting, list 'c' is:",c,"=")
+c.sort()
+print("After sorting, list 'c' is:",c,"=")
+c.reverse()
+print("After reversing, list 'c' is:",c,"=")
+d = c.copy()
+if c == d:
+	print("Lists 'c' and 'd' are equivalent in value.")
+else:
+	print("Lists 'c' and 'd' are different!!!")
+if c is d:
+	print("Lists 'c' and 'd' are refer to the same object!!!")
+else:
+	print("Lists 'c' and 'd' are refer to different objects.")
+e = c
+if e == c:
+	print("Lists 'e' and 'c' are equivalent in value.")
+else:
+	print("Lists 'e' and 'c' are different!!!")
+if c is d:
+	print("Lists 'c' and 'd' are refer to the same object.")
+else:
+	print("Lists 'c' and 'd' are refer to different objects!!!")

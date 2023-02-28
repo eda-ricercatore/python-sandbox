@@ -373,3 +373,80 @@ if value_to_change == dict_of_sat_solvers_and_rank["SketchySAT"]:
 	print("Double checked that dict_of_sat_solvers_and_rank['SketchySAT'] == 800.")
 else:
 	print("dict_of_sat_solvers_and_rank['SketchySAT'] has not been adapted.")
+
+
+
+
+
+
+
+	# Is the [-k] option selected?
+	if None != paired_input_arguments.get("bibtex_key_csv_filename"):
+		"""
+			Yes, load the input CSV file.
+			Check of the input CSV file for BibTeX keys is valid.
+		"""
+		if validate_csv_file(csv_filename=bibtex_key_csv_filename):
+			print("	No problems with the CSV file for BibTeX keys.")
+			"""
+				Read the CSV file for BibTeX keys [DrakeJr2023a, from File Formats: csv — CSV File Reading and Writing].
+
+				https://docs.python.org/3/library/csv.html
+			"""
+			#bibtex_keys_selected = csv.reader(bibtex_key_csv_filename, delimiter=',', quotechar='|')
+			with open(bibtex_key_csv_filename, "r") as csv_ip_file_obj:
+				bibtex_keys_selected_csv_obj = csv.reader(csv_ip_file_obj, delimiter=',')
+				print("bibtex_keys_selected_csv_obj is:",bibtex_keys_selected_csv_obj,"=")
+				for row in bibtex_keys_selected_csv_obj:
+					bibtex_key_csv_filename = row
+					print("	List of BibTeX keys are:",bibtex_key_csv_filename,"=")
+		else:
+			print("	There are problems with the CSV file for BibTeX keys!!!")
+			# End execution of the script to indicate error.
+			sys.exit(input_filename_is_invalid)
+	else:
+		# Else, no, proceed/continue/pass.
+		print("[-k] input argument with input file is not used.")
+	print("	Check if variable assignments are retained.")
+	print("	List of BibTeX keys are:",bibtex_key_csv_filename,"=")
+	# Update the dictionary of paired/2-tuples input arguments.
+	paired_input_arguments["bibtex_key_csv_filename"] = bibtex_key_csv_filename
+	if bibtex_key_csv_filename == paired_input_arguments["bibtex_key_csv_filename"]:
+		print("paired_input_arguments['bibtex_key_csv_filename'] has been updated:",paired_input_arguments["bibtex_key_csv_filename"],"=")
+	else:
+		print("paired_input_arguments['bibtex_key_csv_filename'] has NOT been updated!!!")
+	# Is the [-m] option selected?
+	if None != paired_input_arguments.get("keyphrases_csv_filename"):
+		"""
+			Yes, load the input CSV file.
+			Check of the input CSV file for keyphrases is valid.
+		"""
+		if validate_csv_file(csv_filename=keyphrases_csv_filename):
+			print("	No problems with the CSV file for keyphrases.")
+			"""
+				Read the CSV file for keyphrases [DrakeJr2023a, from File Formats: csv — CSV File Reading and Writing].
+
+				https://docs.python.org/3/library/csv.html
+			"""
+			#keyphrases_selected = csv.reader(keyphrases_csv_filename, delimiter=',', quotechar='|')
+			with open(keyphrases_csv_filename, "r") as csv_ip_file_obj:
+				keyphrases_selected_csv_obj = csv.reader(csv_ip_file_obj, delimiter=',')
+				print("keyphrases_selected_csv_obj is:",keyphrases_selected_csv_obj,"=")
+				for row in keyphrases_selected_csv_obj:
+					keyphrases_csv_filename = row
+					print("	List of keyphrases are:",keyphrases_csv_filename,"=")
+		else:
+			print("	There are problems with the CSV file for keyphrases!!!")
+			# End execution of the script to indicate error.
+			sys.exit(input_filename_is_invalid)
+	else:
+		# Else, no, proceed/continue/pass.
+		print("[-m] input argument with input file is not used.")
+	print("	Check if variable assignments are retained.")
+	print("	List of keyphrases are:",keyphrases_csv_filename,"=")
+	# Update the dictionary of paired/2-tuples input arguments.
+	paired_input_arguments["keyphrases_csv_filename"] = keyphrases_csv_filename
+	if keyphrases_csv_filename == paired_input_arguments["keyphrases_csv_filename"]:
+		print("paired_input_arguments['keyphrases_csv_filename'] has been updated:",paired_input_arguments["keyphrases_csv_filename"],"=")
+	else:
+		print("paired_input_arguments['keyphrases_csv_filename'] has NOT been updated!!!")
