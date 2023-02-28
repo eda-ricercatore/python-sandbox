@@ -361,3 +361,15 @@ except TypeError:
 
 
 
+# Create a dictionary to test if items in it can be updated.
+dict_of_sat_solvers_and_rank = {"parkissat-rs":1, "nps":2, "dps":3, "mallob-ki":4, "pakis22":5, "mergesat-aws":6, "pakismab22":7, "gimsatul":8, "pmcomsps":9, "pkissat":10, "SketchySAT":100, "DodgySAT":1000, "SuperSlowSAT":5000}
+print("dict_of_sat_solvers_and_rank is:",dict_of_sat_solvers_and_rank,"=")
+print("	Change the ranking of 'SketchySAT' from 100 to 800.")
+value_to_change = 800
+dict_of_sat_solvers_and_rank["SketchySAT"] = value_to_change
+print("Has dict_of_sat_solvers_and_rank been updated? :",dict_of_sat_solvers_and_rank,"=")
+# Double check if the change has been made by comparing it to the modifying value.
+if value_to_change == dict_of_sat_solvers_and_rank["SketchySAT"]:
+	print("Double checked that dict_of_sat_solvers_and_rank['SketchySAT'] == 800.")
+else:
+	print("dict_of_sat_solvers_and_rank['SketchySAT'] has not been adapted.")
