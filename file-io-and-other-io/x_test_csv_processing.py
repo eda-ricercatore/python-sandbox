@@ -145,19 +145,28 @@ execution_time_measurement_no_ns.set_initial_timestamp()
 # Name of input CSV file.
 input_filename = "./input-files/bibtex_keys.csv"
 print("Processing file:",input_filename,"=")
+bibtex_keys_set = None
 """
 	Use the "with" statement approach from [DrakeJr2023a, from File Formats: csv — CSV File Reading and Writing: Module Contents]
 		to open the input CSV file, since it ensures that the file
 		object would be closed after input file processing [DrakeJr2023b, from Section 7. Input and Output: 7.2. Reading and Writing Files].
 """
 with open(input_filename, "r") as csv_ip_file_obj:
-	bibtex_keys_set = csv.reader(csv_ip_file_obj, delimiter=',')
-	print("bibtex_keys_list is:",bibtex_keys_set,"=")
-	for row in bibtex_keys_set:
-		print("row is:",row,"=")
+	bibtex_keys_set_csv_obj = csv.reader(csv_ip_file_obj, delimiter=',')
+	print("bibtex_keys_list is:",bibtex_keys_set_csv_obj,"=")
+	for row in bibtex_keys_set_csv_obj:
+		bibtex_keys_set = row
+		print("bibtex_keys_set is:",bibtex_keys_set,"=")
 
 input_filename = "./input-files/keyphrases_as_metadata_with_quotes.csv"
-
+print("Processing file:",input_filename,"=")
+keyphrases_set = None
+with open(input_filename, "r") as csv_ip_file_obj:
+	keyphrases_csv_obj = csv.reader(csv_ip_file_obj, delimiter=',')
+	print("bibtex_keys_list is:",keyphrases_csv_obj,"=")
+	for row in keyphrases_csv_obj:
+		keyphrases_set = row
+		print("keyphrases_set is:",keyphrases_set,"=")
 
 
 
