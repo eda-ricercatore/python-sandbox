@@ -454,3 +454,15 @@ if c is d:
 	print("Lists 'c' and 'd' are refer to the same object.")
 else:
 	print("Lists 'c' and 'd' are refer to different objects!!!")
+f = [4,7,6,5,3,9,1,2,8]
+print("f is:",f,"=")
+x = 17
+if x not in f:
+	print("x is:",x,"= and is not in f.")
+else:
+	print("x is found in f, and has the value:",x,"=!!!")
+x = 5
+if x not in f:
+	print("x is:",x,"= and is not in f!!!")
+else:
+	print("x is found in f, and has the value:",x,"=")

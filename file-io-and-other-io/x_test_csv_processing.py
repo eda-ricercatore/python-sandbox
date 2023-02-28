@@ -102,7 +102,22 @@ import csv
 #pip install csvvalidator
 # Import [Boulogne2022] [Boulogne2023a]
 #import bibtexparser
-# Import [Miles2013]
+
+
+"""
+	Import [Miles2013].
+	This Python package from PyPI causes problems with finding
+		the method: datetime.timedelta()
+	
+	A workaround is described as follows.
+
+	Import the following in addition to: "import datetime"
+	from datetime import timedelta
+
+	Subsequently, use the following method call instead.
+
+	timedelta()
+"""
 #import csvvalidator
 #from csvvalidator import *
 
