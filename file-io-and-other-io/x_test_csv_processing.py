@@ -169,6 +169,9 @@ with open(input_filename, "r") as csv_ip_file_obj:
 		print("keyphrases_set is:",keyphrases_set,"=")
 
 
+print("Check if variable assignments are retained.")
+print("bibtex_keys_set is:",bibtex_keys_set,"=")
+print("keyphrases_set is:",keyphrases_set,"=")
 
 
 
