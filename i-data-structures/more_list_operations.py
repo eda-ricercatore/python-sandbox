@@ -49,8 +49,23 @@
 	+ https://note.nkmk.me/en/python-split-rsplit-splitlines-re/
 """
 
+###############################################################
+#	Import modules from The Python Standard Library.
+
 # Import regular expressions package.
 import re
+
+
+# For the is_list_a_subset_of_another_functools_and_operator_method() method.
+"""
+	Import the functools module for "higher-order functions and
+		operations on callable objects".
+"""
+from functools import reduce
+# Import the operator module for "standard operators as functions".
+from operator import __and__
+
+###############################################################
 
 print("=========================================================")
 
@@ -493,8 +508,8 @@ print("list_of_keyphrases_for_subset is:",list_of_keyphrases_for_subset,"=")
 
 search_keyphrases = ['VLSI design', 'VLSI design flows', 'VLSI architecture']
 print("search_keyphrases is:",search_keyphrases,"=")
-
-
+search_keyphrases_copy = ['VLSI design', 'VLSI design flows', 'VLSI architecture']
+search_keyphrases__diff = ['VLSI design', 'automatic test pattern generation', 'VLSI architecture']
 
 
 
@@ -565,6 +580,22 @@ if is_list_a_subset_of_another(search_keyphrases, list_of_keyphrases_for_subset)
 	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
 else:
 	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+
+if is_list_a_subset_of_another(search_keyphrases, search_keyphrases_copy):
+	print("search_keyphrases_copy and search_keyphrases are identical.")
+else:
+	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
+if is_list_a_subset_of_another(search_keyphrases, search_keyphrases__diff):
+	print("search_keyphrases_copy and search_keyphrases ARE identical!!!")
+else:
+	print("search_keyphrases_copy and search_keyphrases are not identical.")
+
+
+
+
+
 
 
 
@@ -643,6 +674,18 @@ if is_list_a_subset_of_another_subset_method(search_keyphrases, list_of_keyphras
 	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
 else:
 	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+if is_list_a_subset_of_another_subset_method(search_keyphrases, search_keyphrases_copy):
+	print("search_keyphrases_copy and search_keyphrases are identical.")
+else:
+	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
+if is_list_a_subset_of_another_subset_method(search_keyphrases, search_keyphrases__diff):
+	print("search_keyphrases_copy and search_keyphrases ARE identical!!!")
+else:
+	print("search_keyphrases_copy and search_keyphrases are not identical.")
+
+
 
 
 
@@ -726,6 +769,18 @@ else:
 	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
 
 
+if is_list_a_subset_of_another_set_intersection_method(search_keyphrases, search_keyphrases_copy):
+	print("search_keyphrases_copy and search_keyphrases are identical.")
+else:
+	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
+if is_list_a_subset_of_another_set_intersection_method(search_keyphrases, search_keyphrases__diff):
+	print("search_keyphrases_copy and search_keyphrases ARE identical!!!")
+else:
+	print("search_keyphrases_copy and search_keyphrases are not identical.")
+
+
+
+
 
 
 
@@ -806,6 +861,22 @@ else:
 	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
 
 
+if is_list_a_subset_of_yet_another_subset_method(search_keyphrases, search_keyphrases_copy):
+	print("search_keyphrases_copy and search_keyphrases are identical.")
+else:
+	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
+if is_list_a_subset_of_yet_another_subset_method(search_keyphrases, search_keyphrases__diff):
+	print("search_keyphrases_copy and search_keyphrases ARE identical!!!")
+else:
+	print("search_keyphrases_copy and search_keyphrases are not identical.")
+
+
+
+
+
+
+
+
 
 
 
@@ -855,8 +926,11 @@ def is_list_a_subset_of_another_set_method(bigger_list=None, smaller_list=None):
 				checking if each element in the smaller set is in the
 				bigger set?
 		"""
-		if set(x in list_of_keyphrases_for_subset for x in search_keyphrases):
+		if set(x in bigger_list for x in smaller_list):
+		#if set(x in smaller_list for x in bigger_list):
 			# Yes.
+#			print("bigger_list is:",bigger_list,"=")
+#			print("smaller_list is:",smaller_list,"=")
 			return True
 		else:
 			# No.
@@ -889,6 +963,21 @@ else:
 
 
 
+if is_list_a_subset_of_another_set_method(search_keyphrases, search_keyphrases_copy):
+	print("search_keyphrases_copy and search_keyphrases are identical.")
+else:
+	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
+if is_list_a_subset_of_another_set_method(search_keyphrases, search_keyphrases__diff):
+	print("search_keyphrases_copy and search_keyphrases ARE identical!!!")
+	print("	is_list_a_subset_of_another_set_method() fails to work for different lists of the same size.")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_copy and search_keyphrases are not identical.")
+
+
+
+
+
 
 
 
@@ -897,7 +986,6 @@ else:
 print("")
 print("------------------------------------------------------------")
 print("")
-
 
 
 
@@ -923,6 +1011,7 @@ print("")
 	+ URL for [DrakeJr2023a, from operator - Standard operators as functions]
 		- https://docs.python.org/3/library/operator.html#operator.__and__
 """
+#def is_list_a_subset_of_another_functools_and_operator_method(bigger_list=None, smaller_list=None) -> bool:
 def is_list_a_subset_of_another_functools_and_operator_method(bigger_list=None, smaller_list=None):
 	# Is the smaller list actually bigger than the bigger list?
 	if len(smaller_list) > len(bigger_list):
@@ -940,12 +1029,7 @@ def is_list_a_subset_of_another_functools_and_operator_method(bigger_list=None, 
 				checking if each element in the smaller set is in the
 				bigger set?
 		"""
-		if set(x in list_of_keyphrases_for_subset for x in search_keyphrases):
-			# Yes.
-			return True
-		else:
-			# No.
-			return False
+		return reduce(__and__, [x in bigger_list for x in smaller_list])
 
 
 
@@ -971,6 +1055,31 @@ if is_list_a_subset_of_another_functools_and_operator_method(search_keyphrases, 
 	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
 else:
 	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+
+if is_list_a_subset_of_another_functools_and_operator_method(search_keyphrases, search_keyphrases_copy):
+	print("search_keyphrases_copy and search_keyphrases are identical.")
+else:
+	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
+if is_list_a_subset_of_another_functools_and_operator_method(search_keyphrases, search_keyphrases__diff):
+	print("search_keyphrases_copy and search_keyphrases ARE identical!!!")
+else:
+	print("search_keyphrases_copy and search_keyphrases are not identical.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
