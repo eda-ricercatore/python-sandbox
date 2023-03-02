@@ -29,6 +29,13 @@
 			context-free grammar (CFG), and cannot be ambiguous.
 	+ [DrakeJr2023b]
 		- Fred L. Drake, Jr., David Goodger, and Fredrik Lundh, "The Python Tutorial," Python Software Foundation, Beaverton, OR, February 26, 2023. Available online from *Welcome to Python.org: Docs: Python 3.11.2 documentation: Tutorial* at: https://docs.python.org/3/tutorial/; February 26, 2023 was the last accessed date.
+	+ [manjeet042023]
+		- manjeet\_04, "Python: Check if one list is subset of other," Sanchhaya Education Pvt. Ltd., Noida, Gautam Buddha Nagar, Meerut, Uttar Pradesh, India, February 21, 2023. Available online from *GeeksforGeeks: Python: Python Programming Language* at: https://www.geeksforgeeks.org/python-check-if-one-list-is-subset-of-other/; February 28, 2023 was the last accessed date.
+	+ [DrakeJr2023a]
+		- Fred L. Drake, Jr., David Goodger, and Fredrik Lundh, "The Python Standard Library," Python Software Foundation, Beaverton, OR, February 26, 2023. Available online from *Welcome to Python.org: Docs: Python 3.11.2 documentation: Library Reference* at: https://docs.python.org/3/library/; February 26, 2023 was the last accessed date.
+
+
+
 
 
 
@@ -466,3 +473,509 @@ if x not in f:
 	print("x is:",x,"= and is not in f!!!")
 else:
 	print("x is found in f, and has the value:",x,"=")
+
+
+print("")
+print("============================================================")
+print("")
+
+keyphrases_for_partial_overlap = "MOSFET device physics, transistor characteristics, CMOS processing technology, semiconductor manufacturing, VLSI design rules, design rule checking, DRC, circuit extraction, antenna rules, circuit characterization, circuit performance estimation, circuit delay estimation, logical effort, transistor sizing, power dissipation, on-chip interconnects, wire engineering, repeaters, crosstalk, VLSI design margin, process variations, VLSI design corners, reliability, process technology scaling, ITRS, International Technology Roadmap for Semiconductors, SPICE, device models, device characterization, combinational circuit design, circuit families, leakage, charge sharing, power supply noise, hot spots, process sensitivity, low-power circuit design, silicon-on-insulator circuit design, SOI, silicon-on-insulator, sequential circuit design, latches, flip-flops, dynamic circuits, dynamic logic, domino logic, skew-tolerant domino logic, synchronizer, wave pipelining, structured design strategies, VLSI design methods, VLSI design flows, VLSI design economics, VLSI design styles, interchange formats, logic verification, testbench, regression testing, change management, bug tracking, silicon debug, post-silicon validation, manufacturing test, fault modeling, observability, controllability, fault coverage, ATPG, automatic test pattern generation, DFT, design for testability, BIST, built-in self-test, IDDQ testing, DFM, design for manufacturing, boundary-scan testing, mixed-signal testing, reliability testing, datapath subsystems, adders, comparators, counters, multipliers, dividers, encoders, decoders, shifters, array subsystems, SRAM, DRAM, ROM, read-only memory, shift registers, queues, FIFOs, content-addressable memory, CAM, programmable logic arrays, memory testing, semiconductor packaging, power distribution, on-chip power distribution network, IR drops, Ldi/dt Noise, power network modeling, power supply filtering, substrate noise, I/O pad circuits, level converters, clock system architecture, global clock generation, global clock distribution, clock gating, clock skew, analog circuits, RF circuits, mixed-signal circuits, DAC, ADC, digital-to-analog converters, analog-to-digital converters, operational amplifiers, current mirrors, differential pairs, VHDL, Verilog, sequential logic design, combinational logic design"
+list_of_keyphrases_for_partial_overlap = keyphrases_for_partial_overlap.split(", ")
+print("list_of_keyphrases_for_partial_overlap is:",list_of_keyphrases_for_partial_overlap,"=")
+
+
+keyphrases_for_subset = "MOSFET device physics, transistor characteristics, CMOS processing technology, semiconductor manufacturing, VLSI design rules, design rule checking, DRC, circuit extraction, antenna rules, circuit characterization, circuit performance estimation, circuit delay estimation, logical effort, transistor sizing, power dissipation, on-chip interconnects, wire engineering, repeaters, crosstalk, VLSI design margin, process variations, VLSI design corners, reliability, process technology scaling, ITRS, International Technology Roadmap for Semiconductors, SPICE, device models, device characterization, combinational circuit design, circuit families, leakage, charge sharing, power supply noise, hot spots, process sensitivity, low-power circuit design, silicon-on-insulator circuit design, SOI, silicon-on-insulator, sequential circuit design, latches, flip-flops, dynamic circuits, dynamic logic, domino logic, skew-tolerant domino logic, synchronizer, wave pipelining, structured design strategies, VLSI design methods, VLSI design flows, VLSI design economics, VLSI design styles, interchange formats, logic verification, testbench, regression testing, change management, bug tracking, silicon debug, post-silicon validation, manufacturing test, fault modeling, observability, controllability, fault coverage, ATPG, automatic test pattern generation, DFT, design for testability, BIST, built-in self-test, VLSI architecture, IDDQ testing, DFM, design for manufacturing, boundary-scan testing, mixed-signal testing, reliability testing, datapath subsystems, adders, comparators, counters, multipliers, dividers, encoders, decoders, shifters, array subsystems, SRAM, DRAM, ROM, read-only memory, shift registers, queues, FIFOs, content-addressable memory, CAM, programmable logic arrays, memory testing, semiconductor packaging, power distribution, on-chip power distribution network, IR drops, Ldi/dt Noise, power network modeling, power supply filtering, substrate noise, I/O pad circuits, level converters, clock system architecture, VLSI design, global clock generation, global clock distribution, clock gating, clock skew, analog circuits, RF circuits, mixed-signal circuits, DAC, ADC, digital-to-analog converters, analog-to-digital converters, operational amplifiers, current mirrors, differential pairs, VHDL, Verilog, sequential logic design, combinational logic design"
+list_of_keyphrases_for_subset = keyphrases_for_subset.split(", ")
+print("list_of_keyphrases_for_subset is:",list_of_keyphrases_for_subset,"=")
+
+
+
+
+search_keyphrases = ['VLSI design', 'VLSI design flows', 'VLSI architecture']
+print("search_keyphrases is:",search_keyphrases,"=")
+
+
+
+
+
+
+
+
+"""
+	Method to determine if a list is a subset of another, using the Python
+		"universal quantifier" operator, all() [DrakeJr2023a, from Built-in Functions]
+		[manjeet042023].
+	@param bigger_list - a bigger list of items that we want to determine
+		if it is the superset.
+	@param smaller_list - a smaller list of items that we want to determine
+		if it is the subset.
+	@return boolean True, if the smaller list is a subset of the bigger list;
+		else, return False.
+
+
+	References:
+	+ URL for [DrakeJr2023a, from Built-in Functions]
+		- https://docs.python.org/3/library/functions.html#all
+		- https://docs.python.org/3/library/functions.html#any
+"""
+def is_list_a_subset_of_another(bigger_list=None, smaller_list=None):
+	# Is the smaller list actually bigger than the bigger list?
+	if len(smaller_list) > len(bigger_list):
+		# Yes, swap these two lists.
+		temp_list = bigger_list
+		bigger_list = smaller_list
+		smaller_list = temp_list
+	# Is the bigger or smaller list referencing the 'None' object? 
+	if (bigger_list is None) or (smaller_list is None):
+		# Yes, return False.
+		return False
+	else:
+		"""
+			Else, are all the elements/items in the smaller list found
+				in the bigger?
+		"""
+		if all(x in bigger_list for x in smaller_list):
+			# Yes.
+			return True
+		else:
+			# No.
+			return False
+
+
+
+print("Test the Python 'universal quantifier' operator, all().")
+if is_list_a_subset_of_another(list_of_keyphrases_for_partial_overlap, search_keyphrases):
+	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
+else:
+	print("search_keyphrases is not a subset of list_of_keyphrases_for_partial_overlap.")
+
+
+
+
+
+
+if is_list_a_subset_of_another(list_of_keyphrases_for_subset, search_keyphrases):
+	print("search_keyphrases is a subset of list_of_keyphrases_for_subset.")
+else:
+	print("search_keyphrases IS NOT A subset of list_of_keyphrases_for_subset!!!")
+
+
+
+if is_list_a_subset_of_another(search_keyphrases, list_of_keyphrases_for_subset):
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
+else:
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+
+
+
+
+print("")
+print("------------------------------------------------------------")
+print("")
+
+
+
+
+
+"""
+	Method to determine if a list is a subset of another, using the Python
+		issubset() method for sets [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		[manjeet042023].
+	@param bigger_list - a bigger list of items that we want to determine
+		if it is the superset.
+	@param smaller_list - a smaller list of items that we want to determine
+		if it is the subset.
+	@return boolean True, if the smaller list is a subset of the bigger list;
+		else, return False.
+
+
+	References:
+	+ URL for [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		- https://docs.python.org/3/library/stdtypes.html#frozenset.issubset
+"""
+def is_list_a_subset_of_another_subset_method(bigger_list=None, smaller_list=None):
+	# Is the smaller list actually bigger than the bigger list?
+	if len(smaller_list) > len(bigger_list):
+		# Yes, swap these two lists.
+		temp_list = bigger_list
+		bigger_list = smaller_list
+		smaller_list = temp_list
+	# Is the smaller list actually bigger than the bigger list?
+	# Is the bigger or smaller list referencing the 'None' object? 
+	if (bigger_list is None) or (smaller_list is None):
+		# Yes, return False.
+		return False
+	else:
+		"""
+			Else, is the smaller list a subset of the bigger list,
+				after transforming/casting the lists into sets?
+		"""
+		if (set(smaller_list).issubset(set(bigger_list))):
+			# Yes.
+			return True
+		else:
+			# No.
+			return False
+
+
+
+print("Test the Python approach for the issubset() method for sets.")
+if is_list_a_subset_of_another_subset_method(list_of_keyphrases_for_partial_overlap, search_keyphrases):
+	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
+else:
+	print("search_keyphrases is not a subset of list_of_keyphrases_for_partial_overlap.")
+
+
+
+
+
+
+if is_list_a_subset_of_another_subset_method(list_of_keyphrases_for_subset, search_keyphrases):
+	print("search_keyphrases is a subset of list_of_keyphrases_for_subset.")
+else:
+	print("search_keyphrases IS NOT A subset of list_of_keyphrases_for_subset!!!")
+
+
+
+if is_list_a_subset_of_another_subset_method(search_keyphrases, list_of_keyphrases_for_subset):
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
+else:
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+
+
+
+
+
+print("")
+print("------------------------------------------------------------")
+print("")
+
+
+
+
+
+"""
+	Method to determine if a list is a subset of another, using the Python
+		approach for the intersection of sets [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		[manjeet042023].
+	@param bigger_list - a bigger list of items that we want to determine
+		if it is the superset.
+	@param smaller_list - a smaller list of items that we want to determine
+		if it is the subset.
+	@return boolean True, if the smaller list is a subset of the bigger list;
+		else, return False.
+
+
+	References:
+	+ URL for [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		- https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset
+"""
+def is_list_a_subset_of_another_set_intersection_method(bigger_list=None, smaller_list=None):
+	# Is the smaller list actually bigger than the bigger list?
+	if len(smaller_list) > len(bigger_list):
+		# Yes, swap these two lists.
+		temp_list = bigger_list
+		bigger_list = smaller_list
+		smaller_list = temp_list
+	#print("len(smaller_list) is:",len(smaller_list),"=")
+	#print("len(bigger_list) is:",len(bigger_list),"=")
+	# Is the bigger or smaller list referencing the 'None' object? 
+	if (bigger_list is None) or (smaller_list is None):
+		# Yes, return False.
+		return False
+	else:
+		"""
+			Else, is the smaller list a subset of the bigger list,
+				after transforming/casting the lists into sets?
+		"""
+		result = all(x in bigger_list for x in smaller_list)
+		if ((set(smaller_list) & (set(bigger_list))) == (set(smaller_list))):
+			# Yes.
+			return True
+		else:
+			# No.
+			return False
+
+
+
+print("Test the Python approach for the intersection of sets.")
+if is_list_a_subset_of_another_set_intersection_method(list_of_keyphrases_for_partial_overlap, search_keyphrases):
+	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
+else:
+	print("search_keyphrases is not a subset of list_of_keyphrases_for_partial_overlap.")
+
+
+
+
+
+
+if is_list_a_subset_of_another_set_intersection_method(list_of_keyphrases_for_subset, search_keyphrases):
+	print("search_keyphrases is a subset of list_of_keyphrases_for_subset.")
+else:
+	print("search_keyphrases IS NOT A subset of list_of_keyphrases_for_subset!!!")
+
+
+
+if is_list_a_subset_of_another_set_intersection_method(search_keyphrases, list_of_keyphrases_for_subset):
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
+else:
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+
+
+
+
+
+
+print("")
+print("------------------------------------------------------------")
+print("")
+
+
+
+
+
+"""
+	Method to determine if a list is a subset of another, using the Python
+		issubset() method for sets [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		[manjeet042023].
+	@param bigger_list - a bigger list of items that we want to determine
+		if it is the superset.
+	@param smaller_list - a smaller list of items that we want to determine
+		if it is the subset.
+	@return boolean True, if the smaller list is a subset of the bigger list;
+		else, return False.
+
+
+	References:
+	+ URL for [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		- https://docs.python.org/3/library/stdtypes.html#frozenset.issubset
+"""
+def is_list_a_subset_of_yet_another_subset_method(bigger_list=None, smaller_list=None):
+	# Is the smaller list actually bigger than the bigger list?
+	if len(smaller_list) > len(bigger_list):
+		# Yes, swap these two lists.
+		temp_list = bigger_list
+		bigger_list = smaller_list
+		smaller_list = temp_list
+	# Is the smaller list actually bigger than the bigger list?
+	# Is the bigger or smaller list referencing the 'None' object? 
+	if (bigger_list is None) or (smaller_list is None):
+		# Yes, return False.
+		return False
+	else:
+		"""
+			Else, is the smaller list a subset of the bigger list,
+				after transforming/casting the lists into sets?
+		"""
+		if (set(smaller_list).issubset(set(bigger_list))):
+			# Yes.
+			return True
+		else:
+			# No.
+			return False
+
+
+
+print("Test the Python approach for the issubset() method for sets.")
+if is_list_a_subset_of_yet_another_subset_method(list_of_keyphrases_for_partial_overlap, search_keyphrases):
+	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
+else:
+	print("search_keyphrases is not a subset of list_of_keyphrases_for_partial_overlap.")
+
+
+
+
+
+
+if is_list_a_subset_of_yet_another_subset_method(list_of_keyphrases_for_subset, search_keyphrases):
+	print("search_keyphrases is a subset of list_of_keyphrases_for_subset.")
+else:
+	print("search_keyphrases IS NOT A subset of list_of_keyphrases_for_subset!!!")
+
+
+
+if is_list_a_subset_of_yet_another_subset_method(search_keyphrases, list_of_keyphrases_for_subset):
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
+else:
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+
+
+
+
+
+print("")
+print("------------------------------------------------------------")
+print("")
+
+
+
+print("set(x in list_of_keyphrases_for_subset for x in search_keyphrases):",set(x in list_of_keyphrases_for_subset for x in search_keyphrases),"=")
+print("(x in list_of_keyphrases_for_subset for x in search_keyphrases):",(x in list_of_keyphrases_for_subset for x in search_keyphrases),"=")
+
+
+
+"""
+	Method to determine if a list is a subset of another, using the Python
+		approach for sets [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		[manjeet042023].
+	@param bigger_list - a bigger list of items that we want to determine
+		if it is the superset.
+	@param smaller_list - a smaller list of items that we want to determine
+		if it is the subset.
+	@return boolean True, if the smaller list is a subset of the bigger list;
+		else, return False.
+
+
+	References:
+	+ URL for [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		- https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset
+"""
+def is_list_a_subset_of_another_set_method(bigger_list=None, smaller_list=None):
+	# Is the smaller list actually bigger than the bigger list?
+	if len(smaller_list) > len(bigger_list):
+		# Yes, swap these two lists.
+		temp_list = bigger_list
+		bigger_list = smaller_list
+		smaller_list = temp_list
+	# Is the bigger or smaller list referencing the 'None' object? 
+	if (bigger_list is None) or (smaller_list is None):
+		# Yes, return False.
+		return False
+	else:
+		"""
+			Else, is the smaller list a subset of the bigger list, by
+				checking if each element in the smaller set is in the
+				bigger set?
+		"""
+		if set(x in list_of_keyphrases_for_subset for x in search_keyphrases):
+			# Yes.
+			return True
+		else:
+			# No.
+			return False
+
+
+
+print("Test the Python approach for the intersection of sets.")
+if is_list_a_subset_of_another_set_method(list_of_keyphrases_for_partial_overlap, search_keyphrases):
+	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
+else:
+	print("search_keyphrases is not a subset of list_of_keyphrases_for_partial_overlap.")
+
+
+
+
+
+
+if is_list_a_subset_of_another_set_method(list_of_keyphrases_for_subset, search_keyphrases):
+	print("search_keyphrases is a subset of list_of_keyphrases_for_subset.")
+else:
+	print("search_keyphrases IS NOT A subset of list_of_keyphrases_for_subset!!!")
+
+
+
+if is_list_a_subset_of_another_set_method(search_keyphrases, list_of_keyphrases_for_subset):
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
+else:
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+
+
+
+
+
+
+print("")
+print("------------------------------------------------------------")
+print("")
+
+
+
+
+
+
+
+"""
+	Method to determine if a list is a subset of another, using functools.reduce()
+		[DrakeJr2023a, from functools - Higher-order functions and operations on callable objects]
+		and [DrakeJr2023a, from operator - Standard operators as functions]
+		[manjeet042023].
+	@param bigger_list - a bigger list of items that we want to determine
+		if it is the superset.
+	@param smaller_list - a smaller list of items that we want to determine
+		if it is the subset.
+	@return boolean True, if the smaller list is a subset of the bigger list;
+		else, return False.
+
+
+	References:
+	+ URL for [DrakeJr2023a, from functools - Higher-order functions and operations on callable objects]
+		- https://docs.python.org/3/library/functools.html#functools.reduce
+	+ URL for [DrakeJr2023a, from operator - Standard operators as functions]
+		- https://docs.python.org/3/library/operator.html#operator.__and__
+"""
+def is_list_a_subset_of_another_functools_and_operator_method(bigger_list=None, smaller_list=None):
+	# Is the smaller list actually bigger than the bigger list?
+	if len(smaller_list) > len(bigger_list):
+		# Yes, swap these two lists.
+		temp_list = bigger_list
+		bigger_list = smaller_list
+		smaller_list = temp_list
+	# Is the bigger or smaller list referencing the 'None' object? 
+	if (bigger_list is None) or (smaller_list is None):
+		# Yes, return False.
+		return False
+	else:
+		"""
+			Else, is the smaller list a subset of the bigger list, by
+				checking if each element in the smaller set is in the
+				bigger set?
+		"""
+		if set(x in list_of_keyphrases_for_subset for x in search_keyphrases):
+			# Yes.
+			return True
+		else:
+			# No.
+			return False
+
+
+
+print("Test the Python approach for the intersection of sets.")
+if is_list_a_subset_of_another_functools_and_operator_method(list_of_keyphrases_for_partial_overlap, search_keyphrases):
+	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
+else:
+	print("search_keyphrases is not a subset of list_of_keyphrases_for_partial_overlap.")
+
+
+
+
+
+
+if is_list_a_subset_of_another_functools_and_operator_method(list_of_keyphrases_for_subset, search_keyphrases):
+	print("search_keyphrases is a subset of list_of_keyphrases_for_subset.")
+else:
+	print("search_keyphrases IS NOT A subset of list_of_keyphrases_for_subset!!!")
+
+
+
+if is_list_a_subset_of_another_functools_and_operator_method(search_keyphrases, list_of_keyphrases_for_subset):
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
+else:
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+
+
+
+
+
+

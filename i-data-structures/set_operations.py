@@ -25,6 +25,7 @@ import pandas as pd
 	A Python object to test performing an addition operation
 		between a Python object that is not a basic data type
 		and a number.
+	####TO BE COMPLETED
 """
 class my_object:
 	property = 678
