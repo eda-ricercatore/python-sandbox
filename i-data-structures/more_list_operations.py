@@ -33,7 +33,14 @@
 		- manjeet\_04, "Python: Check if one list is subset of other," Sanchhaya Education Pvt. Ltd., Noida, Gautam Buddha Nagar, Meerut, Uttar Pradesh, India, February 21, 2023. Available online from *GeeksforGeeks: Python: Python Programming Language* at: https://www.geeksforgeeks.org/python-check-if-one-list-is-subset-of-other/; February 28, 2023 was the last accessed date.
 	+ [DrakeJr2023a]
 		- Fred L. Drake, Jr., David Goodger, and Fredrik Lundh, "The Python Standard Library," Python Software Foundation, Beaverton, OR, February 26, 2023. Available online from *Welcome to Python.org: Docs: Python 3.11.2 documentation: Library Reference* at: https://docs.python.org/3/library/; February 26, 2023 was the last accessed date.
-
+	+ [Karefylakis2013]
+		- James "jamylak" Karefylakis, Answer to "How can I verify if one list is a subset of another?", Stack Exchange Inc., New York, NY, May 16, 2013. Available online from *Stack Exchange Inc.: Stack Overflow: Questions* at: https://stackoverflow.com/a/16579133/1531728 and https://stackoverflow.com/questions/16579085/how-can-i-verify-if-one-list-is-a-subset-of-another/16579133#16579133; March 26, 2023 was the last accessed date.
+	+ [WikipediaContributors2023]
+		- Wikipedia contributors, "Complement (set theory)," Wikimedia Foundation, San Francisco, CA, January 11, 2023. Available online from *Wikipedia, The Free Encyclopedia: Operations on sets* at: https://en.wikipedia.org/wiki/Complement_(set_theory) and https://en.wikipedia.org/wiki/Complement_(set_theory)#Relative_complement; March 3, 2023 was the last accessed date.
+	+ [WikipediaContributors2023a]
+		- Wikipedia contributors, "Set theory," Wikimedia Foundation, San Francisco, CA, February 14, 2023. Available online from *Wikipedia, The Free Encyclopedia: Set theory* at: https://en.wikipedia.org/wiki/Set_theory; March 3, 2023 was the last accessed date.
+	+ [WikipediaContributors2023b]
+		- Wikipedia contributors, "Set (mathematics)," Wikimedia Foundation, San Francisco, CA, January 22, 2023. Available online from *Wikipedia, The Free Encyclopedia: Set theory* and *Wikipedia, The Free Encyclopedia: Mathematical objects* at: https://en.wikipedia.org/wiki/Set_(mathematics) and https://en.wikipedia.org/wiki/Set_(mathematics)#Basic_operations; March 3, 2023 was the last accessed date.
 
 
 
@@ -64,6 +71,9 @@ import re
 from functools import reduce
 # Import the operator module for "standard operators as functions".
 from operator import __and__
+# To enable testing the Python "multiset" approach.
+from collections import Counter
+
 
 ###############################################################
 
@@ -509,9 +519,9 @@ print("list_of_keyphrases_for_subset is:",list_of_keyphrases_for_subset,"=")
 search_keyphrases = ['VLSI design', 'VLSI design flows', 'VLSI architecture']
 print("search_keyphrases is:",search_keyphrases,"=")
 search_keyphrases_copy = ['VLSI design', 'VLSI design flows', 'VLSI architecture']
-search_keyphrases__diff = ['VLSI design', 'automatic test pattern generation', 'VLSI architecture']
-
-
+search_keyphrases_diff = ['VLSI design', 'automatic test pattern generation', 'VLSI architecture']
+search_keyphrases_with_duplicates = ['VLSI design', 'VLSI architecture', 'VLSI design']
+search_keyphrases_with_duplicates_long = ['VLSI design', 'automatic test pattern generation', 'automatic test pattern generation', 'VLSI architecture', 'VLSI design', 'automatic test pattern generation', 'VLSI architecture', 'automatic test pattern generation']
 
 
 
@@ -587,10 +597,25 @@ if is_list_a_subset_of_another(search_keyphrases, search_keyphrases_copy):
 	print("search_keyphrases_copy and search_keyphrases are identical.")
 else:
 	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
-if is_list_a_subset_of_another(search_keyphrases, search_keyphrases__diff):
-	print("search_keyphrases_copy and search_keyphrases ARE identical!!!")
+if is_list_a_subset_of_another(search_keyphrases, search_keyphrases_diff):
+	print("search_keyphrases_diff and search_keyphrases ARE identical!!!")
 else:
-	print("search_keyphrases_copy and search_keyphrases are not identical.")
+	print("search_keyphrases_diff and search_keyphrases are not identical.")
+if is_list_a_subset_of_another(list_of_keyphrases_for_subset, search_keyphrases_with_duplicates):
+	print("search_keyphrases_with_duplicates is a subset of list_of_keyphrases_for_subset, WHEN DUPLICATES ARE IGNORED!!!")
+	print("	is_list_a_subset_of_another(): all(x in bigger_list for x in smaller_list).")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_with_duplicates is not a subset of list_of_keyphrases_for_subset.")
+print("Test the use case from [Karefylakis2013].")
+if is_list_a_subset_of_another(search_keyphrases, search_keyphrases_with_duplicates_long):
+	print("search_keyphrases_with_duplicates_long is a subset of search_keyphrases, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases_with_duplicates_long is not a subset of search_keyphrases.")
+if is_list_a_subset_of_another(search_keyphrases_with_duplicates_long, search_keyphrases):
+	print("search_keyphrases is a subset of search_keyphrases_with_duplicates_long, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases is not a subset of search_keyphrases_with_duplicates_long.")
 
 
 
@@ -680,11 +705,25 @@ if is_list_a_subset_of_another_subset_method(search_keyphrases, search_keyphrase
 	print("search_keyphrases_copy and search_keyphrases are identical.")
 else:
 	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
-if is_list_a_subset_of_another_subset_method(search_keyphrases, search_keyphrases__diff):
-	print("search_keyphrases_copy and search_keyphrases ARE identical!!!")
+if is_list_a_subset_of_another_subset_method(search_keyphrases, search_keyphrases_diff):
+	print("search_keyphrases_diff and search_keyphrases ARE identical!!!")
 else:
-	print("search_keyphrases_copy and search_keyphrases are not identical.")
-
+	print("search_keyphrases_diff and search_keyphrases are not identical.")
+if is_list_a_subset_of_another_subset_method(list_of_keyphrases_for_subset, search_keyphrases_with_duplicates):
+	print("search_keyphrases_with_duplicates is a subset of list_of_keyphrases_for_subset, WHEN DUPLICATES ARE IGNORED!!!")
+	print("	is_list_a_subset_of_another_subset_method(): (set(smaller_list).issubset(set(bigger_list))).")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_with_duplicates is not a subset of list_of_keyphrases_for_subset.")
+print("Test the use case from [Karefylakis2013].")
+if is_list_a_subset_of_another_subset_method(search_keyphrases, search_keyphrases_with_duplicates_long):
+	print("search_keyphrases_with_duplicates_long is a subset of search_keyphrases, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases_with_duplicates_long is not a subset of search_keyphrases.")
+if is_list_a_subset_of_another_subset_method(search_keyphrases_with_duplicates_long, search_keyphrases):
+	print("search_keyphrases is a subset of search_keyphrases_with_duplicates_long, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases is not a subset of search_keyphrases_with_duplicates_long.")
 
 
 
@@ -735,7 +774,6 @@ def is_list_a_subset_of_another_set_intersection_method(bigger_list=None, smalle
 			Else, is the smaller list a subset of the bigger list,
 				after transforming/casting the lists into sets?
 		"""
-		result = all(x in bigger_list for x in smaller_list)
 		if ((set(smaller_list) & (set(bigger_list))) == (set(smaller_list))):
 			# Yes.
 			return True
@@ -773,10 +811,25 @@ if is_list_a_subset_of_another_set_intersection_method(search_keyphrases, search
 	print("search_keyphrases_copy and search_keyphrases are identical.")
 else:
 	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
-if is_list_a_subset_of_another_set_intersection_method(search_keyphrases, search_keyphrases__diff):
-	print("search_keyphrases_copy and search_keyphrases ARE identical!!!")
+if is_list_a_subset_of_another_set_intersection_method(search_keyphrases, search_keyphrases_diff):
+	print("search_keyphrases_diff and search_keyphrases ARE identical!!!")
 else:
-	print("search_keyphrases_copy and search_keyphrases are not identical.")
+	print("search_keyphrases_diff and search_keyphrases are not identical.")
+if is_list_a_subset_of_another_set_intersection_method(list_of_keyphrases_for_subset, search_keyphrases_with_duplicates):
+	print("search_keyphrases_with_duplicates is a subset of list_of_keyphrases_for_subset, WHEN DUPLICATES ARE IGNORED!!!")
+	print("	is_list_a_subset_of_another_set_intersection_method(): ((set(smaller_list) & (set(bigger_list))) == (set(smaller_list))).")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_with_duplicates is not a subset of list_of_keyphrases_for_subset.")
+print("Test the use case from [Karefylakis2013].")
+if is_list_a_subset_of_another_set_intersection_method(search_keyphrases, search_keyphrases_with_duplicates_long):
+	print("search_keyphrases_with_duplicates_long is a subset of search_keyphrases, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases_with_duplicates_long is not a subset of search_keyphrases.")
+if is_list_a_subset_of_another_set_intersection_method(search_keyphrases_with_duplicates_long, search_keyphrases):
+	print("search_keyphrases is a subset of search_keyphrases_with_duplicates_long, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases is not a subset of search_keyphrases_with_duplicates_long.")
 
 
 
@@ -797,7 +850,7 @@ print("")
 
 """
 	Method to determine if a list is a subset of another, using the Python
-		issubset() method for sets [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		intersection() method for sets [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
 		[manjeet042023].
 	@param bigger_list - a bigger list of items that we want to determine
 		if it is the superset.
@@ -809,9 +862,9 @@ print("")
 
 	References:
 	+ URL for [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
-		- https://docs.python.org/3/library/stdtypes.html#frozenset.issubset
+		- https://docs.python.org/3/library/stdtypes.html#frozenset.intersection
 """
-def is_list_a_subset_of_yet_another_subset_method(bigger_list=None, smaller_list=None):
+def is_list_a_subset_of_another_set_intersection_method_longer(bigger_list=None, smaller_list=None):
 	# Is the smaller list actually bigger than the bigger list?
 	if len(smaller_list) > len(bigger_list):
 		# Yes, swap these two lists.
@@ -828,7 +881,7 @@ def is_list_a_subset_of_yet_another_subset_method(bigger_list=None, smaller_list
 			Else, is the smaller list a subset of the bigger list,
 				after transforming/casting the lists into sets?
 		"""
-		if (set(smaller_list).issubset(set(bigger_list))):
+		if (set(smaller_list).intersection(set(bigger_list))) == set(smaller_list):
 			# Yes.
 			return True
 		else:
@@ -837,8 +890,8 @@ def is_list_a_subset_of_yet_another_subset_method(bigger_list=None, smaller_list
 
 
 
-print("Test the Python approach for the issubset() method for sets.")
-if is_list_a_subset_of_yet_another_subset_method(list_of_keyphrases_for_partial_overlap, search_keyphrases):
+print("Test the Python approach for the issubset() method for sets - longer method.")
+if is_list_a_subset_of_another_set_intersection_method_longer(list_of_keyphrases_for_partial_overlap, search_keyphrases):
 	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
 else:
 	print("search_keyphrases is not a subset of list_of_keyphrases_for_partial_overlap.")
@@ -848,31 +901,42 @@ else:
 
 
 
-if is_list_a_subset_of_yet_another_subset_method(list_of_keyphrases_for_subset, search_keyphrases):
+if is_list_a_subset_of_another_set_intersection_method_longer(list_of_keyphrases_for_subset, search_keyphrases):
 	print("search_keyphrases is a subset of list_of_keyphrases_for_subset.")
 else:
 	print("search_keyphrases IS NOT A subset of list_of_keyphrases_for_subset!!!")
 
 
 
-if is_list_a_subset_of_yet_another_subset_method(search_keyphrases, list_of_keyphrases_for_subset):
+if is_list_a_subset_of_another_set_intersection_method_longer(search_keyphrases, list_of_keyphrases_for_subset):
 	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
 else:
 	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
 
 
-if is_list_a_subset_of_yet_another_subset_method(search_keyphrases, search_keyphrases_copy):
+if is_list_a_subset_of_another_set_intersection_method_longer(search_keyphrases, search_keyphrases_copy):
 	print("search_keyphrases_copy and search_keyphrases are identical.")
 else:
 	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
-if is_list_a_subset_of_yet_another_subset_method(search_keyphrases, search_keyphrases__diff):
-	print("search_keyphrases_copy and search_keyphrases ARE identical!!!")
+if is_list_a_subset_of_another_set_intersection_method_longer(search_keyphrases, search_keyphrases_diff):
+	print("search_keyphrases_diff and search_keyphrases ARE identical!!!")
 else:
-	print("search_keyphrases_copy and search_keyphrases are not identical.")
-
-
-
-
+	print("search_keyphrases_diff and search_keyphrases are not identical.")
+if is_list_a_subset_of_another_set_intersection_method_longer(list_of_keyphrases_for_subset, search_keyphrases_with_duplicates):
+	print("search_keyphrases_with_duplicates is a subset of list_of_keyphrases_for_subset, WHEN DUPLICATES ARE IGNORED!!!")
+	print("	is_list_a_subset_of_another_set_intersection_method_longer(): (set(smaller_list).intersection(set(bigger_list))) == set(smaller_list).")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_with_duplicates is not a subset of list_of_keyphrases_for_subset.")
+print("Test the use case from [Karefylakis2013].")
+if is_list_a_subset_of_another_set_intersection_method_longer(search_keyphrases, search_keyphrases_with_duplicates_long):
+	print("search_keyphrases_with_duplicates_long is a subset of search_keyphrases, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases_with_duplicates_long is not a subset of search_keyphrases.")
+if is_list_a_subset_of_another_set_intersection_method_longer(search_keyphrases_with_duplicates_long, search_keyphrases):
+	print("search_keyphrases is a subset of search_keyphrases_with_duplicates_long, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases is not a subset of search_keyphrases_with_duplicates_long.")
 
 
 
@@ -937,8 +1001,8 @@ def is_list_a_subset_of_another_set_method(bigger_list=None, smaller_list=None):
 			return False
 
 
-
-print("Test the Python approach for the intersection of sets.")
+print("")
+print("Test the Python approach for the set-based set enumerating comparison.")
 if is_list_a_subset_of_another_set_method(list_of_keyphrases_for_partial_overlap, search_keyphrases):
 	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
 else:
@@ -967,12 +1031,32 @@ if is_list_a_subset_of_another_set_method(search_keyphrases, search_keyphrases_c
 	print("search_keyphrases_copy and search_keyphrases are identical.")
 else:
 	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
-if is_list_a_subset_of_another_set_method(search_keyphrases, search_keyphrases__diff):
-	print("search_keyphrases_copy and search_keyphrases ARE identical!!!")
+if is_list_a_subset_of_another_set_method(search_keyphrases, search_keyphrases_diff):
+	print("search_keyphrases_diff and search_keyphrases ARE identical!!!")
 	print("	is_list_a_subset_of_another_set_method() fails to work for different lists of the same size.")
 	print("	Do not use this approach!!!")
 else:
-	print("search_keyphrases_copy and search_keyphrases are not identical.")
+	print("search_keyphrases_diff and search_keyphrases are not identical.")
+if is_list_a_subset_of_another_set_method(list_of_keyphrases_for_subset, search_keyphrases_with_duplicates):
+	print("search_keyphrases_with_duplicates is a subset of list_of_keyphrases_for_subset, WHEN DUPLICATES ARE IGNORED!!!")
+	print("	is_list_a_subset_of_another_functools_and_operator_method(): reduce(__and__, [x in bigger_list for x in smaller_list]) fails to work for duplicates.")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_with_duplicates is not a subset of list_of_keyphrases_for_subset.")
+print("Test the use case from [Karefylakis2013].")
+if is_list_a_subset_of_another_set_method(search_keyphrases, search_keyphrases_with_duplicates_long):
+	print("search_keyphrases_with_duplicates_long is a subset of search_keyphrases, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases_with_duplicates_long is not a subset of search_keyphrases.")
+if is_list_a_subset_of_another_set_method(search_keyphrases_with_duplicates_long, search_keyphrases):
+	print("search_keyphrases is a subset of search_keyphrases_with_duplicates_long, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases is not a subset of search_keyphrases_with_duplicates_long.")
+
+
+
+
+
 
 
 
@@ -1033,7 +1117,7 @@ def is_list_a_subset_of_another_functools_and_operator_method(bigger_list=None, 
 
 
 
-print("Test the Python approach for the intersection of sets.")
+print("Test the Python approach for higher-order functions and 'and' operator.")
 if is_list_a_subset_of_another_functools_and_operator_method(list_of_keyphrases_for_partial_overlap, search_keyphrases):
 	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
 else:
@@ -1062,12 +1146,806 @@ if is_list_a_subset_of_another_functools_and_operator_method(search_keyphrases, 
 	print("search_keyphrases_copy and search_keyphrases are identical.")
 else:
 	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
-if is_list_a_subset_of_another_functools_and_operator_method(search_keyphrases, search_keyphrases__diff):
-	print("search_keyphrases_copy and search_keyphrases ARE identical!!!")
+if is_list_a_subset_of_another_functools_and_operator_method(search_keyphrases, search_keyphrases_diff):
+	print("search_keyphrases_diff and search_keyphrases ARE identical!!!")
 else:
-	print("search_keyphrases_copy and search_keyphrases are not identical.")
+	print("search_keyphrases_diff and search_keyphrases are not identical.")
+if is_list_a_subset_of_another_functools_and_operator_method(list_of_keyphrases_for_subset, search_keyphrases_with_duplicates):
+	print("search_keyphrases_with_duplicates is a subset of list_of_keyphrases_for_subset, WHEN DUPLICATES ARE IGNORED!!!")
+	print("	is_list_a_subset_of_another_functools_and_operator_method(): reduce(__and__, [x in bigger_list for x in smaller_list]) fails to work for duplicates.")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_with_duplicates is not a subset of list_of_keyphrases_for_subset.")
+print("Test the use case from [Karefylakis2013].")
+if is_list_a_subset_of_another_functools_and_operator_method(search_keyphrases, search_keyphrases_with_duplicates_long):
+	print("search_keyphrases_with_duplicates_long is a subset of search_keyphrases, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases_with_duplicates_long is not a subset of search_keyphrases.")
+if is_list_a_subset_of_another_functools_and_operator_method(search_keyphrases_with_duplicates_long, search_keyphrases):
+	print("search_keyphrases is a subset of search_keyphrases_with_duplicates_long, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases is not a subset of search_keyphrases_with_duplicates_long.")
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+print("")
+print("------------------------------------------------------------")
+print("")
+
+
+
+"""
+	Method to determine if a list is a subset of another, using the Python
+		approach for sets [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		[manjeet042023].
+	@param bigger_list - a bigger list of items that we want to determine
+		if it is the superset.
+	@param smaller_list - a smaller list of items that we want to determine
+		if it is the subset.
+	@return boolean True, if the smaller list is a subset of the bigger list;
+		else, return False.
+
+
+	References:
+	+ URL for [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		- https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset
+"""
+def is_list_a_subset_of_another_set_comparison_method(bigger_list=None, smaller_list=None):
+	# Is the smaller list actually bigger than the bigger list?
+	if len(smaller_list) > len(bigger_list):
+		# Yes, swap these two lists.
+		temp_list = bigger_list
+		bigger_list = smaller_list
+		smaller_list = temp_list
+	# Is the bigger or smaller list referencing the 'None' object? 
+	if (bigger_list is None) or (smaller_list is None):
+		# Yes, return False.
+		return False
+	else:
+		"""
+			Else, is the smaller list a subset of the bigger list, by
+				using the "<=" operator to do the comparison?
+		"""
+		if set(smaller_list) <= set(bigger_list):
+			# Yes.
+			return True
+		else:
+			# No.
+			return False
+
+
+
+print("Test the Python approach for the set comparison method with '<='.")
+if is_list_a_subset_of_another_set_comparison_method(list_of_keyphrases_for_partial_overlap, search_keyphrases):
+	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
+else:
+	print("search_keyphrases is not a subset of list_of_keyphrases_for_partial_overlap.")
+
+
+
+
+
+
+if is_list_a_subset_of_another_set_comparison_method(list_of_keyphrases_for_subset, search_keyphrases):
+	print("search_keyphrases is a subset of list_of_keyphrases_for_subset.")
+else:
+	print("search_keyphrases IS NOT A subset of list_of_keyphrases_for_subset!!!")
+
+
+
+if is_list_a_subset_of_another_set_comparison_method(search_keyphrases, list_of_keyphrases_for_subset):
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
+else:
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+
+if is_list_a_subset_of_another_set_comparison_method(search_keyphrases, search_keyphrases_copy):
+	print("search_keyphrases_copy and search_keyphrases are identical.")
+else:
+	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
+if is_list_a_subset_of_another_set_comparison_method(search_keyphrases, search_keyphrases_diff):
+	print("search_keyphrases_diff and search_keyphrases ARE identical!!!")
+	print("	is_list_a_subset_of_another_set_method() fails to work for different lists of the same size.")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_diff and search_keyphrases are not identical.")
+if is_list_a_subset_of_another_set_comparison_method(list_of_keyphrases_for_subset, search_keyphrases_with_duplicates):
+	print("search_keyphrases_with_duplicates is a subset of list_of_keyphrases_for_subset, WHEN DUPLICATES ARE IGNORED!!!")
+	print("	is_list_a_subset_of_another_set_comparison_method(): set(smaller_list) <= set(bigger_list) fails to work for duplicates.")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_with_duplicates is not a subset of list_of_keyphrases_for_subset.")
+print("Test the use case from [Karefylakis2013].")
+if is_list_a_subset_of_another_set_comparison_method(search_keyphrases, search_keyphrases_with_duplicates_long):
+	print("search_keyphrases_with_duplicates_long is a subset of search_keyphrases, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases_with_duplicates_long is not a subset of search_keyphrases.")
+if is_list_a_subset_of_another_set_comparison_method(search_keyphrases_with_duplicates_long, search_keyphrases):
+	print("search_keyphrases is a subset of search_keyphrases_with_duplicates_long, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases is not a subset of search_keyphrases_with_duplicates_long.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+print("")
+print("------------------------------------------------------------")
+print("")
+
+
+
+
+
+"""
+	Method to determine if a list is a subset of another, using the Python
+		issubset() method for sets [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		[manjeet042023].
+	@param bigger_list - a bigger list of items that we want to determine
+		if it is the superset.
+	@param smaller_list - a smaller list of items that we want to determine
+		if it is the subset.
+	@return boolean True, if the smaller list is a subset of the bigger list;
+		else, return False.
+
+
+	References:
+	+ URL for [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		- https://docs.python.org/3/library/stdtypes.html#frozenset.issubset
+"""
+def is_list_a_subset_of_another_subset_method(bigger_list=None, smaller_list=None):
+	# Is the smaller list actually bigger than the bigger list?
+	if len(smaller_list) > len(bigger_list):
+		# Yes, swap these two lists.
+		temp_list = bigger_list
+		bigger_list = smaller_list
+		smaller_list = temp_list
+	# Is the smaller list actually bigger than the bigger list?
+	# Is the bigger or smaller list referencing the 'None' object? 
+	if (bigger_list is None) or (smaller_list is None):
+		# Yes, return False.
+		return False
+	else:
+		"""
+			Else, is the smaller list a subset of the bigger list,
+				after transforming/casting the lists into sets?
+		"""
+		if (set(smaller_list).issubset(set(bigger_list))):
+			# Yes.
+			return True
+		else:
+			# No.
+			return False
+
+
+
+print("Test the Python approach for the issubset() method for sets.")
+if is_list_a_subset_of_another_subset_method(list_of_keyphrases_for_partial_overlap, search_keyphrases):
+	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
+else:
+	print("search_keyphrases is not a subset of list_of_keyphrases_for_partial_overlap.")
+
+
+
+
+
+
+if is_list_a_subset_of_another_subset_method(list_of_keyphrases_for_subset, search_keyphrases):
+	print("search_keyphrases is a subset of list_of_keyphrases_for_subset.")
+else:
+	print("search_keyphrases IS NOT A subset of list_of_keyphrases_for_subset!!!")
+
+
+
+if is_list_a_subset_of_another_subset_method(search_keyphrases, list_of_keyphrases_for_subset):
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
+else:
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+if is_list_a_subset_of_another_subset_method(search_keyphrases, search_keyphrases_copy):
+	print("search_keyphrases_copy and search_keyphrases are identical.")
+else:
+	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
+if is_list_a_subset_of_another_subset_method(search_keyphrases, search_keyphrases_diff):
+	print("search_keyphrases_diff and search_keyphrases ARE identical!!!")
+else:
+	print("search_keyphrases_diff and search_keyphrases are not identical.")
+if is_list_a_subset_of_another_subset_method(list_of_keyphrases_for_subset, search_keyphrases_with_duplicates):
+	print("search_keyphrases_with_duplicates is a subset of list_of_keyphrases_for_subset, WHEN DUPLICATES ARE IGNORED!!!")
+	print("	is_list_a_subset_of_another_subset_method(): (set(smaller_list).issubset(set(bigger_list))).")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_with_duplicates is not a subset of list_of_keyphrases_for_subset.")
+print("Test the use case from [Karefylakis2013].")
+if is_list_a_subset_of_another_subset_method(search_keyphrases, search_keyphrases_with_duplicates_long):
+	print("search_keyphrases_with_duplicates_long is a subset of search_keyphrases, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases_with_duplicates_long is not a subset of search_keyphrases.")
+if is_list_a_subset_of_another_subset_method(search_keyphrases_with_duplicates_long, search_keyphrases):
+	print("search_keyphrases is a subset of search_keyphrases_with_duplicates_long, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases is not a subset of search_keyphrases_with_duplicates_long.")
+
+
+
+
+
+
+
+
+print("")
+print("------------------------------------------------------------")
+print("")
+
+
+
+
+
+"""
+	Method to determine if a list is a subset of another, using the Python
+		approach for the intersection of sets [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		[manjeet042023].
+	@param bigger_list - a bigger list of items that we want to determine
+		if it is the superset.
+	@param smaller_list - a smaller list of items that we want to determine
+		if it is the subset.
+	@return boolean True, if the smaller list is a subset of the bigger list;
+		else, return False.
+
+
+	References:
+	+ URL for [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		- https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset
+"""
+def is_list_a_subset_of_another_set_intersection_method(bigger_list=None, smaller_list=None):
+	# Is the smaller list actually bigger than the bigger list?
+	if len(smaller_list) > len(bigger_list):
+		# Yes, swap these two lists.
+		temp_list = bigger_list
+		bigger_list = smaller_list
+		smaller_list = temp_list
+	#print("len(smaller_list) is:",len(smaller_list),"=")
+	#print("len(bigger_list) is:",len(bigger_list),"=")
+	# Is the bigger or smaller list referencing the 'None' object? 
+	if (bigger_list is None) or (smaller_list is None):
+		# Yes, return False.
+		return False
+	else:
+		"""
+			Else, is the smaller list a subset of the bigger list,
+				after transforming/casting the lists into sets?
+		"""
+		if ((set(smaller_list) & (set(bigger_list))) == (set(smaller_list))):
+			# Yes.
+			return True
+		else:
+			# No.
+			return False
+
+
+
+print("Test the Python approach for the intersection of sets.")
+if is_list_a_subset_of_another_set_intersection_method(list_of_keyphrases_for_partial_overlap, search_keyphrases):
+	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
+else:
+	print("search_keyphrases is not a subset of list_of_keyphrases_for_partial_overlap.")
+
+
+
+
+
+
+if is_list_a_subset_of_another_set_intersection_method(list_of_keyphrases_for_subset, search_keyphrases):
+	print("search_keyphrases is a subset of list_of_keyphrases_for_subset.")
+else:
+	print("search_keyphrases IS NOT A subset of list_of_keyphrases_for_subset!!!")
+
+
+
+if is_list_a_subset_of_another_set_intersection_method(search_keyphrases, list_of_keyphrases_for_subset):
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
+else:
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+if is_list_a_subset_of_another_set_intersection_method(search_keyphrases, search_keyphrases_copy):
+	print("search_keyphrases_copy and search_keyphrases are identical.")
+else:
+	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
+if is_list_a_subset_of_another_set_intersection_method(search_keyphrases, search_keyphrases_diff):
+	print("search_keyphrases_diff and search_keyphrases ARE identical!!!")
+else:
+	print("search_keyphrases_diff and search_keyphrases are not identical.")
+if is_list_a_subset_of_another_set_intersection_method(list_of_keyphrases_for_subset, search_keyphrases_with_duplicates):
+	print("search_keyphrases_with_duplicates is a subset of list_of_keyphrases_for_subset, WHEN DUPLICATES ARE IGNORED!!!")
+	print("	is_list_a_subset_of_another_set_intersection_method(): ((set(smaller_list) & (set(bigger_list))) == (set(smaller_list))).")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_with_duplicates is not a subset of list_of_keyphrases_for_subset.")
+print("Test the use case from [Karefylakis2013].")
+if is_list_a_subset_of_another_set_intersection_method(search_keyphrases, search_keyphrases_with_duplicates_long):
+	print("search_keyphrases_with_duplicates_long is a subset of search_keyphrases, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases_with_duplicates_long is not a subset of search_keyphrases.")
+if is_list_a_subset_of_another_set_intersection_method(search_keyphrases_with_duplicates_long, search_keyphrases):
+	print("search_keyphrases is a subset of search_keyphrases_with_duplicates_long, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases is not a subset of search_keyphrases_with_duplicates_long.")
+
+
+
+
+
+
+
+
+
+
+print("")
+print("------------------------------------------------------------")
+print("")
+
+
+
+
+
+"""
+	Method to determine if a list is a subset of another, using the Python
+		intersection() method for sets [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		[manjeet042023].
+	@param bigger_list - a bigger list of items that we want to determine
+		if it is the superset.
+	@param smaller_list - a smaller list of items that we want to determine
+		if it is the subset.
+	@return boolean True, if the smaller list is a subset of the bigger list;
+		else, return False.
+
+
+	References:
+	+ URL for [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		- https://docs.python.org/3/library/stdtypes.html#frozenset.intersection
+"""
+def is_list_a_subset_of_another_set_intersection_method_longer(bigger_list=None, smaller_list=None):
+	# Is the smaller list actually bigger than the bigger list?
+	if len(smaller_list) > len(bigger_list):
+		# Yes, swap these two lists.
+		temp_list = bigger_list
+		bigger_list = smaller_list
+		smaller_list = temp_list
+	# Is the smaller list actually bigger than the bigger list?
+	# Is the bigger or smaller list referencing the 'None' object? 
+	if (bigger_list is None) or (smaller_list is None):
+		# Yes, return False.
+		return False
+	else:
+		"""
+			Else, is the smaller list a subset of the bigger list,
+				after transforming/casting the lists into sets?
+		"""
+		if (set(smaller_list).intersection(set(bigger_list))) == set(smaller_list):
+			# Yes.
+			return True
+		else:
+			# No.
+			return False
+
+
+
+print("Test the Python approach for the issubset() method for sets - longer method.")
+if is_list_a_subset_of_another_set_intersection_method_longer(list_of_keyphrases_for_partial_overlap, search_keyphrases):
+	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
+else:
+	print("search_keyphrases is not a subset of list_of_keyphrases_for_partial_overlap.")
+
+
+
+
+
+
+if is_list_a_subset_of_another_set_intersection_method_longer(list_of_keyphrases_for_subset, search_keyphrases):
+	print("search_keyphrases is a subset of list_of_keyphrases_for_subset.")
+else:
+	print("search_keyphrases IS NOT A subset of list_of_keyphrases_for_subset!!!")
+
+
+
+if is_list_a_subset_of_another_set_intersection_method_longer(search_keyphrases, list_of_keyphrases_for_subset):
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
+else:
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+if is_list_a_subset_of_another_set_intersection_method_longer(search_keyphrases, search_keyphrases_copy):
+	print("search_keyphrases_copy and search_keyphrases are identical.")
+else:
+	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
+if is_list_a_subset_of_another_set_intersection_method_longer(search_keyphrases, search_keyphrases_diff):
+	print("search_keyphrases_diff and search_keyphrases ARE identical!!!")
+else:
+	print("search_keyphrases_diff and search_keyphrases are not identical.")
+if is_list_a_subset_of_another_set_intersection_method_longer(list_of_keyphrases_for_subset, search_keyphrases_with_duplicates):
+	print("search_keyphrases_with_duplicates is a subset of list_of_keyphrases_for_subset, WHEN DUPLICATES ARE IGNORED!!!")
+	print("	is_list_a_subset_of_another_set_intersection_method_longer(): (set(smaller_list).intersection(set(bigger_list))) == set(smaller_list).")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_with_duplicates is not a subset of list_of_keyphrases_for_subset.")
+print("Test the use case from [Karefylakis2013].")
+if is_list_a_subset_of_another_set_intersection_method_longer(search_keyphrases, search_keyphrases_with_duplicates_long):
+	print("search_keyphrases_with_duplicates_long is a subset of search_keyphrases, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases_with_duplicates_long is not a subset of search_keyphrases.")
+if is_list_a_subset_of_another_set_intersection_method_longer(search_keyphrases_with_duplicates_long, search_keyphrases):
+	print("search_keyphrases is a subset of search_keyphrases_with_duplicates_long, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases is not a subset of search_keyphrases_with_duplicates_long.")
+
+
+
+
+
+
+
+
+
+print("")
+print("------------------------------------------------------------")
+print("")
+
+
+
+print("set(x in list_of_keyphrases_for_subset for x in search_keyphrases):",set(x in list_of_keyphrases_for_subset for x in search_keyphrases),"=")
+print("(x in list_of_keyphrases_for_subset for x in search_keyphrases):",(x in list_of_keyphrases_for_subset for x in search_keyphrases),"=")
+
+
+
+"""
+	Method to determine if a list is a subset of another, using the Python
+		approach for sets [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		[manjeet042023].
+	@param bigger_list - a bigger list of items that we want to determine
+		if it is the superset.
+	@param smaller_list - a smaller list of items that we want to determine
+		if it is the subset.
+	@return boolean True, if the smaller list is a subset of the bigger list;
+		else, return False.
+
+
+	References:
+	+ URL for [DrakeJr2023a, from Built-in Functions: Set Types — set, frozenset]
+		- https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset
+"""
+def is_list_a_subset_of_another_set_method(bigger_list=None, smaller_list=None):
+	# Is the smaller list actually bigger than the bigger list?
+	if len(smaller_list) > len(bigger_list):
+		# Yes, swap these two lists.
+		temp_list = bigger_list
+		bigger_list = smaller_list
+		smaller_list = temp_list
+	# Is the bigger or smaller list referencing the 'None' object? 
+	if (bigger_list is None) or (smaller_list is None):
+		# Yes, return False.
+		return False
+	else:
+		"""
+			Else, is the smaller list a subset of the bigger list, by
+				checking if each element in the smaller set is in the
+				bigger set?
+		"""
+		if set(x in bigger_list for x in smaller_list):
+		#if set(x in smaller_list for x in bigger_list):
+			# Yes.
+#			print("bigger_list is:",bigger_list,"=")
+#			print("smaller_list is:",smaller_list,"=")
+			return True
+		else:
+			# No.
+			return False
+
+
+print("")
+print("Test the Python approach for the set-based set enumerating comparison.")
+if is_list_a_subset_of_another_set_method(list_of_keyphrases_for_partial_overlap, search_keyphrases):
+	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
+else:
+	print("search_keyphrases is not a subset of list_of_keyphrases_for_partial_overlap.")
+
+
+
+
+
+
+if is_list_a_subset_of_another_set_method(list_of_keyphrases_for_subset, search_keyphrases):
+	print("search_keyphrases is a subset of list_of_keyphrases_for_subset.")
+else:
+	print("search_keyphrases IS NOT A subset of list_of_keyphrases_for_subset!!!")
+
+
+
+if is_list_a_subset_of_another_set_method(search_keyphrases, list_of_keyphrases_for_subset):
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
+else:
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+
+if is_list_a_subset_of_another_set_method(search_keyphrases, search_keyphrases_copy):
+	print("search_keyphrases_copy and search_keyphrases are identical.")
+else:
+	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
+if is_list_a_subset_of_another_set_method(search_keyphrases, search_keyphrases_diff):
+	print("search_keyphrases_diff and search_keyphrases ARE identical!!!")
+	print("	is_list_a_subset_of_another_set_method() fails to work for different lists of the same size.")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_diff and search_keyphrases are not identical.")
+if is_list_a_subset_of_another_set_method(list_of_keyphrases_for_subset, search_keyphrases_with_duplicates):
+	print("search_keyphrases_with_duplicates is a subset of list_of_keyphrases_for_subset, WHEN DUPLICATES ARE IGNORED!!!")
+	print("	is_list_a_subset_of_another_functools_and_operator_method(): reduce(__and__, [x in bigger_list for x in smaller_list]) fails to work for duplicates.")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_with_duplicates is not a subset of list_of_keyphrases_for_subset.")
+print("Test the use case from [Karefylakis2013].")
+if is_list_a_subset_of_another_set_method(search_keyphrases, search_keyphrases_with_duplicates_long):
+	print("search_keyphrases_with_duplicates_long is a subset of search_keyphrases, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases_with_duplicates_long is not a subset of search_keyphrases.")
+if is_list_a_subset_of_another_set_method(search_keyphrases_with_duplicates_long, search_keyphrases):
+	print("search_keyphrases is a subset of search_keyphrases_with_duplicates_long, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases is not a subset of search_keyphrases_with_duplicates_long.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+print("")
+print("------------------------------------------------------------")
+print("")
+
+
+
+
+
+
+"""
+	Method to determine if a list is a subset of another, using functools.reduce()
+		[DrakeJr2023a, from functools - Higher-order functions and operations on callable objects]
+		and [DrakeJr2023a, from operator - Standard operators as functions]
+		[manjeet042023].
+	@param bigger_list - a bigger list of items that we want to determine
+		if it is the superset.
+	@param smaller_list - a smaller list of items that we want to determine
+		if it is the subset.
+	@return boolean True, if the smaller list is a subset of the bigger list;
+		else, return False.
+
+
+	References:
+	+ URL for [DrakeJr2023a, from functools - Higher-order functions and operations on callable objects]
+		- https://docs.python.org/3/library/functools.html#functools.reduce
+	+ URL for [DrakeJr2023a, from operator - Standard operators as functions]
+		- https://docs.python.org/3/library/operator.html#operator.__and__
+"""
+#def is_list_a_subset_of_another_functools_and_operator_method(bigger_list=None, smaller_list=None) -> bool:
+def is_list_a_subset_of_another_functools_and_operator_method(bigger_list=None, smaller_list=None):
+	# Is the smaller list actually bigger than the bigger list?
+	if len(smaller_list) > len(bigger_list):
+		# Yes, swap these two lists.
+		temp_list = bigger_list
+		bigger_list = smaller_list
+		smaller_list = temp_list
+	# Is the bigger or smaller list referencing the 'None' object? 
+	if (bigger_list is None) or (smaller_list is None):
+		# Yes, return False.
+		return False
+	else:
+		"""
+			Else, is the smaller list a subset of the bigger list, by
+				checking if each element in the smaller set is in the
+				bigger set?
+		"""
+		return reduce(__and__, [x in bigger_list for x in smaller_list])
+
+
+
+print("Test the Python approach for higher-order functions and 'and' operator.")
+if is_list_a_subset_of_another_functools_and_operator_method(list_of_keyphrases_for_partial_overlap, search_keyphrases):
+	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
+else:
+	print("search_keyphrases is not a subset of list_of_keyphrases_for_partial_overlap.")
+
+
+
+
+
+
+if is_list_a_subset_of_another_functools_and_operator_method(list_of_keyphrases_for_subset, search_keyphrases):
+	print("search_keyphrases is a subset of list_of_keyphrases_for_subset.")
+else:
+	print("search_keyphrases IS NOT A subset of list_of_keyphrases_for_subset!!!")
+
+
+
+if is_list_a_subset_of_another_functools_and_operator_method(search_keyphrases, list_of_keyphrases_for_subset):
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
+else:
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+
+if is_list_a_subset_of_another_functools_and_operator_method(search_keyphrases, search_keyphrases_copy):
+	print("search_keyphrases_copy and search_keyphrases are identical.")
+else:
+	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
+if is_list_a_subset_of_another_functools_and_operator_method(search_keyphrases, search_keyphrases_diff):
+	print("search_keyphrases_diff and search_keyphrases ARE identical!!!")
+else:
+	print("search_keyphrases_diff and search_keyphrases are not identical.")
+if is_list_a_subset_of_another_functools_and_operator_method(list_of_keyphrases_for_subset, search_keyphrases_with_duplicates):
+	print("search_keyphrases_with_duplicates is a subset of list_of_keyphrases_for_subset, WHEN DUPLICATES ARE IGNORED!!!")
+	print("	is_list_a_subset_of_another_functools_and_operator_method(): reduce(__and__, [x in bigger_list for x in smaller_list]) fails to work for duplicates.")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_with_duplicates is not a subset of list_of_keyphrases_for_subset.")
+print("Test the use case from [Karefylakis2013].")
+if is_list_a_subset_of_another_functools_and_operator_method(search_keyphrases, search_keyphrases_with_duplicates_long):
+	print("search_keyphrases_with_duplicates_long is a subset of search_keyphrases, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases_with_duplicates_long is not a subset of search_keyphrases.")
+if is_list_a_subset_of_another_functools_and_operator_method(search_keyphrases_with_duplicates_long, search_keyphrases):
+	print("search_keyphrases is a subset of search_keyphrases_with_duplicates_long, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases is not a subset of search_keyphrases_with_duplicates_long.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+print("")
+print("------------------------------------------------------------")
+print("")
+
+
+
+"""
+	Method to determine if a list is a subset of another, using the Python
+		approach for multisets [Karefylakis2013] and set difference
+		[WikipediaContributors2023] [WikipediaContributors2023a] [WikipediaContributors2023b].
+	@param bigger_list - a bigger list of items that we want to determine
+		if it is the superset.
+	@param smaller_list - a smaller list of items that we want to determine
+		if it is the subset.
+	@return boolean True, if the smaller list is a subset of the bigger list;
+		else, return False.
+"""
+def is_list_a_subset_of_another_multiset_method(bigger_list=None, smaller_list=None):
+	# Is the smaller list actually bigger than the bigger list?
+	if len(smaller_list) > len(bigger_list):
+		# Yes, swap these two lists.
+		temp_list = bigger_list
+		bigger_list = smaller_list
+		smaller_list = temp_list
+	# Is the bigger or smaller list referencing the 'None' object? 
+	if (bigger_list is None) or (smaller_list is None):
+		# Yes, return False.
+		return False
+	else:
+		"""
+			Else, is the smaller list a subset of the bigger list, by
+				using the set difference "-" operator to do the comparison?
+		"""
+		if not (Counter(bigger_list) - Counter(smaller_list)):
+			# Yes.
+			return True
+		else:
+			# No.
+			return False
+
+
+
+print("Test the Python approach for the set comparison method with '<='.")
+if is_list_a_subset_of_another_multiset_method(list_of_keyphrases_for_partial_overlap, search_keyphrases):
+	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
+else:
+	print("search_keyphrases is not a subset of list_of_keyphrases_for_partial_overlap.")
+
+
+
+
+
+
+if is_list_a_subset_of_another_multiset_method(list_of_keyphrases_for_subset, search_keyphrases):
+	print("search_keyphrases is a subset of list_of_keyphrases_for_subset.")
+else:
+	print("search_keyphrases IS NOT A subset of list_of_keyphrases_for_subset!!!")
+
+
+
+if is_list_a_subset_of_another_multiset_method(search_keyphrases, list_of_keyphrases_for_subset):
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset works.")
+else:
+	print("Swapped search_keyphrases and list_of_keyphrases_for_subset does not work!!!")
+
+
+
+if is_list_a_subset_of_another_multiset_method(search_keyphrases, search_keyphrases_copy):
+	print("search_keyphrases_copy and search_keyphrases are identical.")
+else:
+	print("search_keyphrases_copy and search_keyphrases are NOT identical!!!")
+if is_list_a_subset_of_another_multiset_method(search_keyphrases, search_keyphrases_diff):
+	print("search_keyphrases_diff and search_keyphrases ARE identical!!!")
+	print("	is_list_a_subset_of_another_multiset_method() fails to work for different lists of the same size.")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_diff and search_keyphrases are not identical.")
+if is_list_a_subset_of_another_multiset_method(list_of_keyphrases_for_subset, search_keyphrases_with_duplicates):
+	print("search_keyphrases_with_duplicates is a subset of list_of_keyphrases_for_subset, WHEN DUPLICATES ARE IGNORED!!!")
+	print("	is_list_a_subset_of_another_multiset_method(): set subtract approach fails to work for duplicates.")
+	print("	Do not use this approach!!!")
+else:
+	print("search_keyphrases_with_duplicates is not a subset of list_of_keyphrases_for_subset.")
+print("Test the use case from [Karefylakis2013].")
+if is_list_a_subset_of_another_multiset_method(search_keyphrases, search_keyphrases_with_duplicates_long):
+	print("search_keyphrases_with_duplicates_long is a subset of search_keyphrases, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases_with_duplicates_long is not a subset of search_keyphrases.")
+if is_list_a_subset_of_another_multiset_method(search_keyphrases_with_duplicates_long, search_keyphrases):
+	print("search_keyphrases is a subset of search_keyphrases_with_duplicates_long, WHEN DUPLICATES ARE IGNORED!!!")
+else:
+	print("search_keyphrases is not a subset of search_keyphrases_with_duplicates_long.")
 
 
 
