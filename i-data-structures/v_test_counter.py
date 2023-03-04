@@ -99,3 +99,12 @@ print("a in b: ", containedInFirst(b, a),"=")
 
 
 # [Karefylakis2013]
+a = Counter([1, 32, 343, 964, 1065])
+b = Counter([1, 32, 46, 964])
+print("a is:",a,"=")
+print("b is:",b,"=")
+for key in b:
+	if (key in a) == False:
+		print("key in 'b', not found in 'a' is:",key,"=")
+	if b[key] > a[key]:
+		print("b[key] is:",b[key],"= and a[key] is:",a[key],"=")

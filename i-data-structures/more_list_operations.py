@@ -2009,12 +2009,15 @@ def is_list_a_subset_of_another_multiset_method_with_comparisons(bigger_list=Non
 		return False
 	else:
 		"""
-			Else, is the smaller list a subset of the bigger list, by
-				using the set difference "-" operator to do the comparison?
+			Else, does the value of a key in smaller list greater than
+				the value of the same key in the bigger list, by
+				using the Counter ">" operator to do the comparison?
 		"""
 		bigger_count = Counter(bigger_list)
 		smaller_count = Counter(smaller_list)
 		"""
+			Enumerate each key in the smaller Counter object or multiset.
+
 			Counter no longer has a has_key() method [DrakeJr2023a].
 
 			Use the "in" operator (or contains(seq, obj) function)
@@ -2029,15 +2032,34 @@ def is_list_a_subset_of_another_multiset_method_with_comparisons(bigger_list=Non
 			https://docs.python.org/3/library/operator.html#mapping-operators-to-functions
 		"""
 		for key in smaller_count:
+			"""
+				For the currently enumerated key (or key-value pair)
+					in the smaller list or Counter object, is it not
+					found in the larger list or Counter object?
+			"""
 			if (key in bigger_count) == False:
+				# It is not found in the larger list or Counter object.
 				return False
+			"""
+				Is item of the smaller list, or key of the smaller
+					Counter, occuring more in the smaller list than
+					in the bigger list?
+
+				For the currently enumerated key (or key-value pair)
+					in the smaller list, is its value greater than
+					that of the larger list?
+			"""
 			if smaller_count[key] > bigger_count[key]:
+				"""
+					Yes, the smaller list has more instances of an
+						item than the bigger list.
+				"""
 				return False
 		return True
 
 
 
-print("Test the Python approach for the set comparison method with '<='.")
+print("Test the Python approach for Counter/'multiset' approach with '>'.")
 if is_list_a_subset_of_another_multiset_method_with_comparisons(list_of_keyphrases_for_partial_overlap, search_keyphrases):
 	print("search_keyphrases IS A subset of list_of_keyphrases_for_partial_overlap!!!")
 else:
