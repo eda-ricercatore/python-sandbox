@@ -114,8 +114,10 @@ def process_howpublished_field(howpublished_field="", markdown_italicization=Tru
 	"""
 	if markdown_italicization:
 		# Yes. Change the italicization format from LaTeX to Markdown.
+		# Replace "} as Version" substring to "* as Version".
+		howpublished_field_for_markdown = howpublished_field.replace("} as Version","* as Version")
 		# Replace "} and {\it " substring to "* and *".
-		howpublished_field_for_markdown = howpublished_field.replace("} and {\it ","* and *")
+		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("} and {\it ","* and *")
 		# Replace "}, and {\it " substring to "*, and *".
 		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}, and {\it ","*, and *")
 		# Replace "} via {\it " substring to "* via *".
@@ -197,16 +199,6 @@ if __name__ == "__main__":
 		Available online from {\it {mass:werk} -- media environments: {JS/UIX}} and {\it {mass:werk} -- media environments: Products {\rm \&}\ Demos: Legacy Demos: {JS/UIX} (2003)} at: \\url{https://www.masswerk.at/jsuix/}; June 10, 2022 was the last accessed date
 		Available online from {\it {mass:werk} -- media environments: {JS/Um \&}\ Demos: Legacy Demos: {JS/UIX} (2003)} at: \\url{https://www.masswerk.at/jsuix/}; June 10, 2022 was the last accessed date
 		Available online from *{mass:werk} -- media environments: {JS/UIX}} m \&}\ Demos: Legacy Demos: {JS/UIX} (2003)* at: https://www.masswerk.at/jsuix/}; June 10, 2022 was the last accessed date.
-
-		Problems:
-		+ "}, and {\it "
-		+ "} "
-			- or, "} via {\it "
-		+ "}, \\url{"
-		+ "}, and \\url{"
-		+ "}; "
-		Available online from {\it University of Illinois at Urbana-Champaign: University Library: {IDEALS} -- Illinois Digital Environment for Access to Learning and Scholarship: Graduate Dissertations and Theses at Illinois}, and {\it {ProQuesm \&}\ Theses} via {\it {ProQuest} Dissertations Publishing}, at: \\url{http://hdl.handle.net/2142/57454}, \\url{https://www.ideals.illinois.edu/handle/2142/57454}, and \\url{https://www.proquest.com/docview/302061118}; June 15, 2022 was the last accessed date
-		Available online from *University of Illinois at Urbana-Champaign: University Library: {IDEALS} -- Illinois Digital Environment for Access to Learning and Scholarship: Graduate Dissertations and Theses at Illinois}, and *{ProQuest}: Dissem \&}\ Theses} via *{ProQuest} Dissertations Publishing*, at: http://hdl.handle.net/2142/57454}, \\url{https://www.ideals.illinois.edu/handle/2142/57454}, and \\url{https://www.proquest.com/docview/302061118}; June 15, 2022 was the last accessed date.
 
 		Problems:
 		+ "} as Version"
