@@ -113,48 +113,31 @@ def process_howpublished_field(howpublished_field="", markdown_italicization=Tru
 			Markdown format?
 	"""
 	if markdown_italicization:
-		"""
-			Yes. Change the italicization format from LaTeX to Markdown.
-			Replace "{\it " substring to "*".
-		"""
-		howpublished_field_for_markdown = howpublished_field.replace("{\it ","*")
+		# Yes. Change the italicization format from LaTeX to Markdown.
 		# Replace "} and {\it " substring to "* and *".
-		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}} and {\it ","* and *")
-		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("} and {\it ","* and *")
-		#howpublished_field_for_markdown = re.sub("} and {\it ","\* and \*",howpublished_field_for_markdown)
+		howpublished_field_for_markdown = howpublished_field.replace("} and {\it ","* and *")
 		# Replace "}, and {\it " substring to "*, and *".
-		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}}, and {\it ","*, and *")
 		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}, and {\it ","*, and *")
-		#howpublished_field_for_markdown = re.sub("}, and {\it ","*, and *",howpublished_field_for_markdown)
 		# Replace "} via {\it " substring to "* via *".
-		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}} via {\it ","* via *")
 		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("} via {\it ","* via *")
-		#howpublished_field_for_markdown = re.sub("} via {\it ","* via *",howpublished_field_for_markdown)
+		# Replace "{\it " substring to "*".
+		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("{\it ","*")
 		# Replace "} as " substring to "* as ".
-		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}} as "," as ")
-		#howpublished_field_for_markdown = re.sub("} as "," as ",howpublished_field_for_markdown)
+		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("} as "," as ")
 		# Replace "}, at: \url{" substring to "*, at: ".
-		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}}, at: \\url{","*, at: ")
 		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}, at: \\url{","*, at: ")
-		#howpublished_field_for_markdown = re.sub("}, at: \\url{","*, at: ",howpublished_field_for_markdown)
-		# Replace "} at: \url{" substring to "* at: ".
-		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}} at: \\url{","* at: ")
 		# Replace "} at: \url{" substring to "* at: ".
 		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("} at: \\url{","* at: ")
-		#howpublished_field_for_markdown = re.sub("} at: \\url{","* at: ",howpublished_field_for_markdown)
 		# Replace " at: \url{" substring to "* at: ".
 		howpublished_field_for_markdown = howpublished_field_for_markdown.replace(" at: \\url{"," at: ")
-		#howpublished_field_for_markdown = re.sub(" at: \\url{"," at: ",howpublished_field_for_markdown)
 		# Replace "}, \url{" substring to ", ".
-		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}}, \\url{",", ")
-		#howpublished_field_for_markdown = re.sub("}, \\url{",", ",howpublished_field_for_markdown)
+		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}, \\url{",", ")
 		# Replace "} and \url{" substring to " and ".
-		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}} and \\url{"," and ")
-		#howpublished_field_for_markdown = re.sub("} and \\url{"," and ",howpublished_field_for_markdown)
+		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("} and \\url{"," and ")
 		# Replace "}, and \url{" substring to ", and ".
-		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}}, and \\url{",", and ")
+		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}, and \\url{",", and ")
 		# Replace "}; " substring to "; ".
-		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}}; ","; ")
+		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}; ","; ")
 		"""
 			Replace "}, " substring to "*, ".
 
@@ -219,42 +202,42 @@ if __name__ == "__main__":
 		+ "}, and {\it "
 		+ "} "
 			- or, "} via {\it "
-		+ "}, \url{"
-		+ "}, and \url{"
+		+ "}, \\url{"
+		+ "}, and \\url{"
 		+ "}; "
-		Available online from {\it University of Illinois at Urbana-Champaign: University Library: {IDEALS} -- Illinois Digital Environment for Access to Learning and Scholarship: Graduate Dissertations and Theses at Illinois}, and {\it {ProQuesm \&}\ Theses} via {\it {ProQuest} Dissertations Publishing}, at: \url{http://hdl.handle.net/2142/57454}, \url{https://www.ideals.illinois.edu/handle/2142/57454}, and \url{https://www.proquest.com/docview/302061118}; June 15, 2022 was the last accessed date
-		Available online from *University of Illinois at Urbana-Champaign: University Library: {IDEALS} -- Illinois Digital Environment for Access to Learning and Scholarship: Graduate Dissertations and Theses at Illinois}, and *{ProQuest}: Dissem \&}\ Theses} via *{ProQuest} Dissertations Publishing*, at: http://hdl.handle.net/2142/57454}, \url{https://www.ideals.illinois.edu/handle/2142/57454}, and \url{https://www.proquest.com/docview/302061118}; June 15, 2022 was the last accessed date.
+		Available online from {\it University of Illinois at Urbana-Champaign: University Library: {IDEALS} -- Illinois Digital Environment for Access to Learning and Scholarship: Graduate Dissertations and Theses at Illinois}, and {\it {ProQuesm \&}\ Theses} via {\it {ProQuest} Dissertations Publishing}, at: \\url{http://hdl.handle.net/2142/57454}, \\url{https://www.ideals.illinois.edu/handle/2142/57454}, and \\url{https://www.proquest.com/docview/302061118}; June 15, 2022 was the last accessed date
+		Available online from *University of Illinois at Urbana-Champaign: University Library: {IDEALS} -- Illinois Digital Environment for Access to Learning and Scholarship: Graduate Dissertations and Theses at Illinois}, and *{ProQuest}: Dissem \&}\ Theses} via *{ProQuest} Dissertations Publishing*, at: http://hdl.handle.net/2142/57454}, \\url{https://www.ideals.illinois.edu/handle/2142/57454}, and \\url{https://www.proquest.com/docview/302061118}; June 15, 2022 was the last accessed date.
 
 		Problems:
 		+ "} as Version"
-		+ "} and \url{"
+		+ "} and \\url{"
 		+ "}; "
-		Available online from {\it {PyData}: pandas: Documentation} as Version 1.5.3 at: \url{https://pandas.pydata.org/docs/} and \url{https://pandas.pydata.org/pandas-docs/stable/index.html}; February 10, 2023 was the last accessed date
-		Available online from *{PyData}: pandas: Documentation} as Version 1.5.3 at: https://pandas.pydata.org/docs/} and \url{https://pandas.pydata.org/pandas-docs/stable/index.html}; February 10, 2023 was the last accessed date.
+		Available online from {\it {PyData}: pandas: Documentation} as Version 1.5.3 at: \\url{https://pandas.pydata.org/docs/} and \\url{https://pandas.pydata.org/pandas-docs/stable/index.html}; February 10, 2023 was the last accessed date
+		Available online from *{PyData}: pandas: Documentation} as Version 1.5.3 at: https://pandas.pydata.org/docs/} and \\url{https://pandas.pydata.org/pandas-docs/stable/index.html}; February 10, 2023 was the last accessed date.
 
 		Problems:
-		+ "}, \url{"
-		+ "}, and \url{"
+		+ "}, \\url{"
+		+ "}, and \\url{"
 		+ "}; "
-		Available online at: \url{http://hdl.handle.net/1721.1/111880}, \url{https://dspace.mit.edu/handle/1721.1/111880}, and \url{https://dspace.mit.edu/bitstream/handle/1721.1/111880/1004959482-MIT.pdf?sequence=1&isAllowed=y}; February 25, 2023 was the last accessed date
-		Available online at: http://hdl.handle.net/1721.1/111880}, \url{https://dspace.mit.edu/handle/1721.1/111880}, and \url{https://dspace.mit.edu/bitstream/handle/1721.1/111880/1004959482-MIT.pdf?sequence=1&isAllowed=y}; February 25, 2023 was the last accessed date.
+		Available online at: \\url{http://hdl.handle.net/1721.1/111880}, \\url{https://dspace.mit.edu/handle/1721.1/111880}, and \\url{https://dspace.mit.edu/bitstream/handle/1721.1/111880/1004959482-MIT.pdf?sequence=1&isAllowed=y}; February 25, 2023 was the last accessed date
+		Available online at: http://hdl.handle.net/1721.1/111880}, \\url{https://dspace.mit.edu/handle/1721.1/111880}, and \\url{https://dspace.mit.edu/bitstream/handle/1721.1/111880/1004959482-MIT.pdf?sequence=1&isAllowed=y}; February 25, 2023 was the last accessed date.
 
 		Problems:
 		+ "} and {\it "
-		+ "}, \url{"
-		+ "}, and \url{"
+		+ "}, \\url{"
+		+ "}, and \\url{"
 		+ "}; "
-		Available online from {\it The University of Utah: John and Marcia Price College of Engineering: Kahlert School of Computing: Prof. Erik Brunvand's Web page: Teaching\dots: CS 5789 Embedded Systems and Kinetic Art: Embedded Systems and Kinetic Art: Other Information\dots: From {SIGGRAPH} 2013, (Computer Graphics) July 2013: Arts/Tech Collaboration with Embedded Systems and Kinetic Art} and {\it The University of Utah: John and Marcia Price College of Engineering: Kahlert School of Computing: Prof. Erik Brunvand's Web page: Kinetic Art and Embedded Systems: From {SIGGRAPH} 2013, July 2013: Arts/Tech Collaboration with Embedded Systems and Kinetic Art} at: \url{https://my.eng.utah.edu/~cs5789/misc/SIGGRAPH-Kinetic.pdf}, \url{https://users.cs.utah.edu/~elb/Papers/SIGGRAPH-Kinetic.pdf}, and \url{https://my.eng.utah.edu/~cs5789/}; March 18, 2023 was the last accessed date
-		Available online from *The University of Utah: John and Marcia Price College of Engineering: Kahlert School of Computing: Prof. Erik Brunvand's Web page: Teaching\dots: CS 5789 Embedded Systems and Kinetic Art: Embedded Systems and Kinetic Art: Other Information\dots: From {SIGGRAPH} 2013, (Computer Graphics) July 2013: Arts/Tech Collaboration with Embedded Systems and Kinetic Art} and *The University of Utah: John and Marcia Price College of Engineering: Kahlert School of Computing: Prof. Erik Brunvand's Web page: Kinetic Art and Embedded Systems: From {SIGGRAPH} 2013, July 2013: Arts/Tech Collaboration with Embedded Systems and Kinetic Art* at: https://my.eng.utah.edu/~cs5789/misc/SIGGRAPH-Kinetic.pdf}, \url{https://users.cs.utah.edu/~elb/Papers/SIGGRAPH-Kinetic.pdf}, and \url{https://my.eng.utah.edu/~cs5789/}; March 18, 2023 was the last accessed date.
+		Available online from {\it The University of Utah: John and Marcia Price College of Engineering: Kahlert School of Computing: Prof. Erik Brunvand's Web page: Teaching\\dots: CS 5789 Embedded Systems and Kinetic Art: Embedded Systems and Kinetic Art: Other Information\\dots: From {SIGGRAPH} 2013, (Computer Graphics) July 2013: Arts/Tech Collaboration with Embedded Systems and Kinetic Art} and {\it The University of Utah: John and Marcia Price College of Engineering: Kahlert School of Computing: Prof. Erik Brunvand's Web page: Kinetic Art and Embedded Systems: From {SIGGRAPH} 2013, July 2013: Arts/Tech Collaboration with Embedded Systems and Kinetic Art} at: \\url{https://my.eng.utah.edu/~cs5789/misc/SIGGRAPH-Kinetic.pdf}, \\url{https://users.cs.utah.edu/~elb/Papers/SIGGRAPH-Kinetic.pdf}, and \\url{https://my.eng.utah.edu/~cs5789/}; March 18, 2023 was the last accessed date
+		Available online from *The University of Utah: John and Marcia Price College of Engineering: Kahlert School of Computing: Prof. Erik Brunvand's Web page: Teaching\\dots: CS 5789 Embedded Systems and Kinetic Art: Embedded Systems and Kinetic Art: Other Information\\dots: From {SIGGRAPH} 2013, (Computer Graphics) July 2013: Arts/Tech Collaboration with Embedded Systems and Kinetic Art} and *The University of Utah: John and Marcia Price College of Engineering: Kahlert School of Computing: Prof. Erik Brunvand's Web page: Kinetic Art and Embedded Systems: From {SIGGRAPH} 2013, July 2013: Arts/Tech Collaboration with Embedded Systems and Kinetic Art* at: https://my.eng.utah.edu/~cs5789/misc/SIGGRAPH-Kinetic.pdf}, \\url{https://users.cs.utah.edu/~elb/Papers/SIGGRAPH-Kinetic.pdf}, and \\url{https://my.eng.utah.edu/~cs5789/}; March 18, 2023 was the last accessed date.
 
 		Problems:
-		+ "} and \url{"
-		Available online from {\it Brown University: Office of the Provost: Brown University Library: Brown Digital Repository: Discover: Browse Collections: {BDR} Collections: Department of Religious Studies: Religious Studies Theses and Dissertations} at: \url{https://dx.doi.org/10.7301/Z0ZP44G3} and \url{https://repository.library.brown.edu/studio/item/bdr:419480/}; May 2, 2022 was the last accessed date
-		Available online from *Brown University: Office of the Provost: Brown University Library: Brown Digital Repository: Discover: Browse Collections: {BDR} Collections: Department of Religious Studies: Religious Studies Theses and Dissertations* at: https://dx.doi.org/10.7301/Z0ZP44G3} and \url{https://repository.library.brown.edu/studio/item/bdr:419480/}; May 2, 2022 was the last accessed date.
+		+ "} and \\url{"
+		Available online from {\it Brown University: Office of the Provost: Brown University Library: Brown Digital Repository: Discover: Browse Collections: {BDR} Collections: Department of Religious Studies: Religious Studies Theses and Dissertations} at: \\url{https://dx.doi.org/10.7301/Z0ZP44G3} and \\url{https://repository.library.brown.edu/studio/item/bdr:419480/}; May 2, 2022 was the last accessed date
+		Available online from *Brown University: Office of the Provost: Brown University Library: Brown Digital Repository: Discover: Browse Collections: {BDR} Collections: Department of Religious Studies: Religious Studies Theses and Dissertations* at: https://dx.doi.org/10.7301/Z0ZP44G3} and \\url{https://repository.library.brown.edu/studio/item/bdr:419480/}; May 2, 2022 was the last accessed date.
 
 		Problems:
 		+ "}; "
-		Available online from {\it Logic Poet} at: \url{http://www.logicpoet.com/systemc/}; March 30, 2010 was the last accessed date
+		Available online from {\it Logic Poet} at: \\url{http://www.logicpoet.com/systemc/}; March 30, 2010 was the last accessed date
 		Available online from *Logic Poet* at: http://www.logicpoet.com/systemc/}; March 30, 2010 was the last accessed date.
 
 
