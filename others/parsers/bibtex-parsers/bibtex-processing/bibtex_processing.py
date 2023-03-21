@@ -108,6 +108,8 @@ def process_author_field(list_of_authors=None):
 		'markdown_italicization'.
 """
 def process_howpublished_field(howpublished_field="", markdown_italicization=True):
+	# boolean flag for LaTeX italicization.
+	latex_italicization = False
 	"""
 		Should the 'Howpublished' field should be italicized in
 			Markdown format?
@@ -122,6 +124,10 @@ def process_howpublished_field(howpublished_field="", markdown_italicization=Tru
 		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}, and {\it ","*, and *")
 		# Replace "} via {\it " substring to "* via *".
 		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("} via {\it ","* via *")
+		# Is there any remaining LaTeX italicization in the string?
+		if " {\it " in howpublished_field_for_markdown:
+			# Set boolean flag for LaTeX italicization to be true.
+			latex_italicization = True
 		# Replace "{\it " substring to "*".
 		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("{\it ","*")
 		# Replace "} as " substring to "* as ".
@@ -151,8 +157,12 @@ def process_howpublished_field(howpublished_field="", markdown_italicization=Tru
 		#howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}, ","*, ")
 		# Add a period to the modified 'Howpublished' field.
 		howpublished_field_for_markdown = howpublished_field_for_markdown + "."
-		# Replace "}." substring to "*.".
-		howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}.","*.")
+		# Does the string contain the start of italicization in LaTeX.
+		#if " {\it " in howpublished_field_for_markdown:
+		if latex_italicization:
+			# Yes. Replace "}." substring to "*.".
+			howpublished_field_for_markdown = howpublished_field_for_markdown.replace("}.","*.")
+		# Else, append a period to the end of the 'Howpublished' field.
 		# Return the modified 'Howpublished' field in Markdown format.
 		return howpublished_field_for_markdown
 	else:
@@ -183,61 +193,12 @@ if __name__ == "__main__":
 		Failed cases:
 
 		Problems:
-		+ Last curly brace was replaced with an asterisk, when it should not be.
-		Available as software version {TLM2.0.1} and document version {JA32}
-		Available as software version {TLM2.0.1} and document version {JA32*.
-
-		Problems:
-		+ Last curly brace was replaced with an asterisk, when it should not be.
-		Available as: Companion {CD}
-		Available as: Companion {CD*.
-
-		Problems:
 		+ "}; "
 		+ "{\r" removes information from the string.
 			- Missing information.
 		Available online from {\it {mass:werk} -- media environments: {JS/UIX}} and {\it {mass:werk} -- media environments: Products {\rm \&}\ Demos: Legacy Demos: {JS/UIX} (2003)} at: \\url{https://www.masswerk.at/jsuix/}; June 10, 2022 was the last accessed date
 		Available online from {\it {mass:werk} -- media environments: {JS/Um \&}\ Demos: Legacy Demos: {JS/UIX} (2003)} at: \\url{https://www.masswerk.at/jsuix/}; June 10, 2022 was the last accessed date
 		Available online from *{mass:werk} -- media environments: {JS/UIX}} m \&}\ Demos: Legacy Demos: {JS/UIX} (2003)* at: https://www.masswerk.at/jsuix/}; June 10, 2022 was the last accessed date.
-
-		Problems:
-		+ "} as Version"
-		+ "} and \\url{"
-		+ "}; "
-		Available online from {\it {PyData}: pandas: Documentation} as Version 1.5.3 at: \\url{https://pandas.pydata.org/docs/} and \\url{https://pandas.pydata.org/pandas-docs/stable/index.html}; February 10, 2023 was the last accessed date
-		Available online from *{PyData}: pandas: Documentation} as Version 1.5.3 at: https://pandas.pydata.org/docs/} and \\url{https://pandas.pydata.org/pandas-docs/stable/index.html}; February 10, 2023 was the last accessed date.
-
-		Problems:
-		+ "}, \\url{"
-		+ "}, and \\url{"
-		+ "}; "
-		Available online at: \\url{http://hdl.handle.net/1721.1/111880}, \\url{https://dspace.mit.edu/handle/1721.1/111880}, and \\url{https://dspace.mit.edu/bitstream/handle/1721.1/111880/1004959482-MIT.pdf?sequence=1&isAllowed=y}; February 25, 2023 was the last accessed date
-		Available online at: http://hdl.handle.net/1721.1/111880}, \\url{https://dspace.mit.edu/handle/1721.1/111880}, and \\url{https://dspace.mit.edu/bitstream/handle/1721.1/111880/1004959482-MIT.pdf?sequence=1&isAllowed=y}; February 25, 2023 was the last accessed date.
-
-		Problems:
-		+ "} and {\it "
-		+ "}, \\url{"
-		+ "}, and \\url{"
-		+ "}; "
-		Available online from {\it The University of Utah: John and Marcia Price College of Engineering: Kahlert School of Computing: Prof. Erik Brunvand's Web page: Teaching\\dots: CS 5789 Embedded Systems and Kinetic Art: Embedded Systems and Kinetic Art: Other Information\\dots: From {SIGGRAPH} 2013, (Computer Graphics) July 2013: Arts/Tech Collaboration with Embedded Systems and Kinetic Art} and {\it The University of Utah: John and Marcia Price College of Engineering: Kahlert School of Computing: Prof. Erik Brunvand's Web page: Kinetic Art and Embedded Systems: From {SIGGRAPH} 2013, July 2013: Arts/Tech Collaboration with Embedded Systems and Kinetic Art} at: \\url{https://my.eng.utah.edu/~cs5789/misc/SIGGRAPH-Kinetic.pdf}, \\url{https://users.cs.utah.edu/~elb/Papers/SIGGRAPH-Kinetic.pdf}, and \\url{https://my.eng.utah.edu/~cs5789/}; March 18, 2023 was the last accessed date
-		Available online from *The University of Utah: John and Marcia Price College of Engineering: Kahlert School of Computing: Prof. Erik Brunvand's Web page: Teaching\\dots: CS 5789 Embedded Systems and Kinetic Art: Embedded Systems and Kinetic Art: Other Information\\dots: From {SIGGRAPH} 2013, (Computer Graphics) July 2013: Arts/Tech Collaboration with Embedded Systems and Kinetic Art} and *The University of Utah: John and Marcia Price College of Engineering: Kahlert School of Computing: Prof. Erik Brunvand's Web page: Kinetic Art and Embedded Systems: From {SIGGRAPH} 2013, July 2013: Arts/Tech Collaboration with Embedded Systems and Kinetic Art* at: https://my.eng.utah.edu/~cs5789/misc/SIGGRAPH-Kinetic.pdf}, \\url{https://users.cs.utah.edu/~elb/Papers/SIGGRAPH-Kinetic.pdf}, and \\url{https://my.eng.utah.edu/~cs5789/}; March 18, 2023 was the last accessed date.
-
-		Problems:
-		+ "} and \\url{"
-		Available online from {\it Brown University: Office of the Provost: Brown University Library: Brown Digital Repository: Discover: Browse Collections: {BDR} Collections: Department of Religious Studies: Religious Studies Theses and Dissertations} at: \\url{https://dx.doi.org/10.7301/Z0ZP44G3} and \\url{https://repository.library.brown.edu/studio/item/bdr:419480/}; May 2, 2022 was the last accessed date
-		Available online from *Brown University: Office of the Provost: Brown University Library: Brown Digital Repository: Discover: Browse Collections: {BDR} Collections: Department of Religious Studies: Religious Studies Theses and Dissertations* at: https://dx.doi.org/10.7301/Z0ZP44G3} and \\url{https://repository.library.brown.edu/studio/item/bdr:419480/}; May 2, 2022 was the last accessed date.
-
-		Problems:
-		+ "}; "
-		Available online from {\it Logic Poet} at: \\url{http://www.logicpoet.com/systemc/}; March 30, 2010 was the last accessed date
-		Available online from *Logic Poet* at: http://www.logicpoet.com/systemc/}; March 30, 2010 was the last accessed date.
-
-
-
-		
-
-		Available online from {\it Logic Poet} at: \\url{http://www.logicpoet.com/systemc/}; March 30, 2010 was the last accessed date
-		Available online from *Logic Poet} at: http://www.logicpoet.com/systemc/}; March 30, 2010 was the last accessed date.
 	"""
 	list_of_howpublished_field = ["Available online from {\it Logic Poet} at: \\url{http://www.logicpoet.com/systemc/}; March 30, 2010 was the last accessed date", "Available as Version 2.0-{Q}", "Available online from {\it Brown University: Office of the Provost: Brown University Library: Brown Digital Repository: Discover: Browse Collections: {BDR} Collections: Department of Religious Studies: Religious Studies Theses and Dissertations} at: \\url{https://dx.doi.org/10.7301/Z0ZP44G3} and \\url{https://repository.library.brown.edu/studio/item/bdr:419480/}; May 2, 2022 was the last accessed date", "Available online from {\it The University of Utah: John and Marcia Price College of Engineering: Kahlert School of Computing: Prof. Erik Brunvand's Web page: Teaching\dots: CS 5789 Embedded Systems and Kinetic Art: Embedded Systems and Kinetic Art: Other Information\dots: From {SIGGRAPH} 2013, (Computer Graphics) July 2013: Arts/Tech Collaboration with Embedded Systems and Kinetic Art} and {\it The University of Utah: John and Marcia Price College of Engineering: Kahlert School of Computing: Prof. Erik Brunvand's Web page: Kinetic Art and Embedded Systems: From {SIGGRAPH} 2013, July 2013: Arts/Tech Collaboration with Embedded Systems and Kinetic Art} at: \\url{https://my.eng.utah.edu/~cs5789/misc/SIGGRAPH-Kinetic.pdf}, \\url{https://users.cs.utah.edu/~elb/Papers/SIGGRAPH-Kinetic.pdf}, and \\url{https://my.eng.utah.edu/~cs5789/}; March 18, 2023 was the last accessed date", "Available online at: \\url{http://hdl.handle.net/1721.1/111880}, \\url{https://dspace.mit.edu/handle/1721.1/111880}, and \\url{https://dspace.mit.edu/bitstream/handle/1721.1/111880/1004959482-MIT.pdf?sequence=1&isAllowed=y}; February 25, 2023 was the last accessed date", "Available online from {\it {PyData}: pandas: Documentation} as Version 1.5.3 at: \\url{https://pandas.pydata.org/docs/} and \\url{https://pandas.pydata.org/pandas-docs/stable/index.html}; February 10, 2023 was the last accessed date", "Available online from {\it University of Illinois at Urbana-Champaign: University Library: {IDEALS} -- Illinois Digital Environment for Access to Learning and Scholarship: Graduate Dissertations and Theses at Illinois}, and {\it {ProQuest}: Dissertations {\rm \&}\ Theses} via {\it {ProQuest} Dissertations Publishing}, at: \\url{http://hdl.handle.net/2142/57454}, \\url{https://www.ideals.illinois.edu/handle/2142/57454}, and \\url{https://www.proquest.com/docview/302061118}; June 15, 2022 was the last accessed date", "Available online from {\it {mass:werk} -- media environments: {JS/UIX}} and {\it {mass:werk} -- media environments: Products {\rm \&}\ Demos: Legacy Demos: {JS/UIX} (2003)} at: \\url{https://www.masswerk.at/jsuix/}; June 10, 2022 was the last accessed date", "Available as: Companion {CD}", "Available as software version {TLM2.0.1} and document version {JA32}", "Available as Version 1.1 from the {\it Transaction Level Modeling Working Group}", "Also available from {\it Proceedings of the $2^{nd}$\ Annual International Symposium on Computer Architecture ({ISCA '75})}", "Self-published", "Available as the {\it Proceedings of the Conference on Iterative Methods for Large Linear Systems}", "{This book contains the `Proceedings of the {NATO} Advanced Study Institute on Software Systems Safety,' Summer School Marktoberdorf 2013, which was a summer program held in Marktoberdorf, Germany, July 30 -- August 11, 2013", "This chapter is part of a book containing the `Proceedings of the {NATO} Advanced Study Institute on Software Systems Safety,' Summer School Marktoberdorf 2013, which was a summer program held in Marktoberdorf, Germany, July 30 -- August 11, 2013", "Also published by Garland Publishing Company, New York, {NY}, 1979, in its {\it Outstanding Dissertations in the Computer Sciences Series}", "It is a modification of the Proceedings of the International Conference on Statistical Methods and Statistical Computing for Quality and Productivity Improvement ({ICSQP'95}), Seoul, South Korea, August 1995", "Available online from {\it Michigan State University: MSU College of Communication Arts and Sciences: School of Journalism}", "Received a copy of this report by email", "Reprinted with corrections", "Version 4.0", "Emailed course material for {\it ECEN 694 Nanobiotechnology}", "Available as Version {P2.0}, Second edition, on October 28, 2019", "Published again on January 12, 2012 by Lulu Enterprises"]
 	for cur_howpublished_field in list_of_howpublished_field:
