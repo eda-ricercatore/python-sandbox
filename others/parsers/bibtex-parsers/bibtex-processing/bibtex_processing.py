@@ -67,7 +67,8 @@ import datetime
 
 """
 	Method to format the list of authors names correctly.
-	@param list_of_authors - A list of names of author(s).
+	@param list_of_authors - A string containing the list of names
+		of author(s).
 	@return a string containing the list of names of author(s)
 		that are comma separated, rather than by " and ";
 		if list_of_authors refers to a None object, return an
