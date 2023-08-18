@@ -1,6 +1,26 @@
 #	List of *PIP*-based *Python* modules
 
 
+
+## Installing and Uninstalling
+
+
+To install a *PIP*-based *Python* module, try the following:
+
+	pip install [python-module]
+
+
+
+
+
+	pip uninstall [python-module]
+
+
+
+
+
+
+
 ##	For Boilerplate Code
 
 List of *PIP*-based *Python* modules to add to, or install in, my Google Colab
