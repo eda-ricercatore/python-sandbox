@@ -3,6 +3,9 @@
 
 Sandbox for trying out concepts in Python programming, and study notes.
 
+[Study notes](https://github.com/eda-ricercatore/python-sandbox/blob/main/notes/python.md)
++ Information about using [PIP-based Python modules](https://github.com/eda-ricercatore/python-sandbox/blob/main/notes/pip-modules.md)
+
 
 
 
