@@ -11,6 +11,8 @@ To install a *PIP*-based *Python* module, try the following:
 
 
 
+To uninstall a *PIP*-based *Python* module, try the following:
+
 
 
 	pip uninstall [python-module]
