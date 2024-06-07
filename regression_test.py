@@ -4,25 +4,31 @@
 ###	#!/Library/Frameworks/Python.framework/Versions/3.12/bin/python3
 
 
-# Commented out IPython magic to ensure Python compatibility.
 """
-	This Python script is written by Zhiyang Ong to DO BLAH.
+	This Python script is written by Zhiyang Ong to perform automated
+		regression testing.
 
 
 	Synopsis:
-	Blah-blah-bhal.
+	Perform automated regression testing of the common packages and
+		their Python modules.
 
 	This script can be executed as follows:
-		- [ ] /*Blah-Bhal.py*]
+		./regression_test.py
+
+
+
+	Commented out IPython magic to ensure Python compatibility.
 
 
 
 	Revision History:
 	September 6, 2019			Version 0.1	Script.
+	June 7, 2024				Version 0.2	Script.
 """
 
 __author__ = 'Zhiyang Ong'
-__version__ = '1.0'
+__version__ = '0.2'
 __date__ = 'September 6, 2019'
 
 #	The MIT License (MIT)
@@ -50,7 +56,10 @@ __date__ = 'September 6, 2019'
 #		OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH
 #		THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#	Email address: echo "cukj -wb- 23wU4X5M589 TROJANS cqkH wiuz2y 0f Mw Stanford" | awk '{ sub("23wU4X5M589","F.d_c_b. ") sub("Stanford","d0mA1n"); print $5, $2, $8; for (i=1; i<=1; i++) print "6\b"; print $9, $7, $6 }' | sed y/kqcbuHwM62z/gnotrzadqmC/ | tr 'q' ' ' | tr -d [:cntrl:] | tr -d 'ir' | tr y "\n"	Che cosa significa?
+#	Email address: echo "cukj -wb- 23wU4X5M589 TROJANS cqkH wiuz2y 0f Mw Stanford" | awk '{ sub("23wU4X5M589","F.d_c_b. ") sub("Stanford","d0mA1n"); print $5, $2, $8; print " "; for (i=1; i<=1; i++) print "6\b"; print $9, $7, $6 }' | sed y/kqcbuHwM62z/gnotrzadqmC/ | tr 'q' ' ' | tr -d "\n" | tr -d 'ir' | tr y "\n"
+#	Che cosa significa?
+
+
 
 ###############################################################
 """
