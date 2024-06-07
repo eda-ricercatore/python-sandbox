@@ -90,8 +90,8 @@ from utilities.custom_exceptions.graph_error import *
 	Test throwing/raising the graph_error exception.
 """
 #class my_graph_error_tester:
-#class graph_error_test:
-class graph_error_tester:
+class graph_error_test:
+#class graph_error_tester:
 	## =========================================================
 	#	Method to test throwing/raising the graph_error exception.
 	#	@param - Nothing
