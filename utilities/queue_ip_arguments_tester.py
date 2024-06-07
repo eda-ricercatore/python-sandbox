@@ -399,10 +399,10 @@ class queue_ip_args_tester:
 		statistical_analysis.increment_number_test_cases_used()
 		try:
 			op_fname = queue_ip_args.process_2nd_ip_arg()
-			print(prompt11 .format("				FAIL!!!"))
-		except:
 			print(prompt11 .format("				OK"))
 			statistical_analysis.increment_number_test_cases_passed()
+		except:
+			print(prompt11 .format("				FAIL!!!"))
 		prompt12 = "	... Invalid path to file, no JSON extension	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		current_2nd_ip_arg = "nonsense"
