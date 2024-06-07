@@ -264,5 +264,4 @@ class queue_ip_args:
 			raise Exception("End program to avoid overwritting file.")
 		else:
 			print(println.format("	Yes."))
-		
 		return ip_fname2
