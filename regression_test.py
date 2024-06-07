@@ -178,7 +178,16 @@ from utilities.generate_results_filename import generate_filename
 		time stamp.
 """
 from utilities.generate_results_filename_tester import generate_filename_tester
-
+"""
+	Package and module to perform methods in the miscellaneous
+		class.
+"""
+from utilities.miscellaneous import misc
+"""
+	Package and module to test methods that perform methods in the
+		miscellaneous class.
+"""
+from utilities.miscellaneous_tester import misc_tester
 
 
 
@@ -212,7 +221,7 @@ if __name__ == "__main__":
 	print("Testing module: utilities.configuration_manager.")
 	config_manager_tester.test_configure_sw_application_parameters()
 	print("")
-	print("Testing module: utilities.configuration_manager.")
+	print("Testing module: utilities.generate_results_filename.")
 	generate_filename_tester.test_filename_generation_methods()
 	print("==================================================")
 	print("==================================================")
