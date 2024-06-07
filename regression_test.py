@@ -154,7 +154,7 @@ from utilities.queue_ip_arguments_tester import queue_ip_args_tester
 
 
 
-statistical_analysis_tester
+
 
 
 
@@ -177,4 +177,4 @@ if __name__ == "__main__":
 	queue_ip_args_tester.test_queue_ip_args()
 	print("==================================================")
 	print("==================================================")
-	
+	statistical_analysis.print_statistics_of_software_testing()
