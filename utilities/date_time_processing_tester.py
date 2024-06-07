@@ -543,6 +543,17 @@ class date_time_operations_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 	## =========================================================
+	#	Method to test the method that generates a string containing
+	#		information about the current date and time in the
+	#		following format:
+	#		Month-Day-Year-Hour-Minute-Seconds
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_get_current_date_time():
+		print("	Testing date_time_operations.get_current_date_time() method.")
+	## =========================================================
 	#	Method to test the methods that perform date and time
 	#		operations.
 	#	@param - None.
