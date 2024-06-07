@@ -250,17 +250,5 @@ class queue_ip_args:
 			raise Exception("End program to avoid overwritting file.")
 		else:
 			print(println.format("	Yes."))
-		#	Get the filename and file extension of the 2nd input argument.
-		ip_fname2, ip_f_ext2 = os.path.splitext(queue_ip_args.second_input_argument)
-		#	Does 2nd input argument have a JSON file extension?
-		println = "==	Does 2nd input argument have a JSON file extension?"
-		if(ip_f_ext2 == queue_ip_args.json_f_ext):
-			print(println.format("	Yes."))
-			ip_fname2 = queue_ip_args.second_input_argument
-		else:
-			print(println.format("	No."))
-			#	Add JSON file extension to output filename.
-			ip_fname2 = queue_ip_args.second_input_argument
-			ip_fname2 += queue_ip_args.json_f_ext
-			print("	New output filename is: {}" .format(ip_fname2))
+		
 		return ip_fname2
