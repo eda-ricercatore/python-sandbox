@@ -203,8 +203,9 @@ from utilities.custom_exceptions.graph_error import graph_error
 	Package and module to test methods that throw/raise the custom
 		exception graph_exception.
 """
-from utilities.custom_exceptions.graph_error_tester import graph_error_tester
-
+#from utilities.custom_exceptions.graph_error_tester import graph_error_tester
+#from utilities.custom_exceptions.graph_error_tester import graph_error_test
+import utilities.custom_exceptions.graph_error_tester
 
 
 
@@ -242,7 +243,7 @@ if __name__ == "__main__":
 	date_time_operations_tester.test_date_time_operations()
 	print("")
 	print("Testing module: utilities.custom_exceptions.graph_error.")
-	date_time_operations_tester.test_date_time_operations()
+	graph_error_tester.test_raising_graph_error()
 	print("==================================================")
 	print("==================================================")
 	statistical_analysis.print_statistics_of_software_testing()
