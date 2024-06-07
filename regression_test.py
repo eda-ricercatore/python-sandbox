@@ -188,8 +188,10 @@ from utilities.miscellaneous import misc
 		miscellaneous class.
 """
 from utilities.miscellaneous_tester import misc_tester
-
-
+# Package and module to perform date and time operations.
+from utilities.date_time_processing import date_time_operations
+# Package and module that tests methods to perform date and time operations.
+from utilities.date_time_processing_tester import date_time_operations_tester
 
 
 
@@ -226,6 +228,9 @@ if __name__ == "__main__":
 	print("")
 	print("Testing module: utilities.miscellaneous.")
 	misc_tester.test_miscellaneous_methods()
+	print("")
+	print("Testing module: utilities.date_time_processing.")
+	date_time_operations_tester.test_date_time_operations()
 	print("==================================================")
 	print("==================================================")
 	statistical_analysis.print_statistics_of_software_testing()
