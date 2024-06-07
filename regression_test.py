@@ -206,6 +206,17 @@ from utilities.custom_exceptions.graph_error import graph_error
 #from utilities.custom_exceptions.graph_error_tester import graph_error_tester
 #import utilities.custom_exceptions.graph_error_tester
 from utilities.custom_exceptions.graph_error_tester import graph_error_test
+# Package and module that compute the factorial of a number.
+from utilities.timing_measurements.get_factorial import calculate_factorial
+# Package and module that test methods to compute the factorial of a number.
+from utilities.timing_measurements.get_factorial_tester import calculate_factorial_tester
+# Package and module with methods to measure the current time.
+from utilities.timing_measurements.performance_measurement_no_ns import execution_time_measurement_no_ns
+# Package and module that test methods to measure the current time.
+from utilities.timing_measurements.performance_measurement_no_ns_tester import execution_time_measurement_no_ns_tester
+
+
+
 
 
 
@@ -243,8 +254,13 @@ if __name__ == "__main__":
 	date_time_operations_tester.test_date_time_operations()
 	print("")
 	print("Testing module: utilities.custom_exceptions.graph_error.")
-	#graph_error_tester.test_raising_graph_error()
 	graph_error_test.test_raising_graph_error()
+	print("")
+	print("Testing module: utilities.timing_measurements.get_factorial.")
+	calculate_factorial_tester.test_get_factorial_methods()
+	print("")
+	print("Testing module: utilities.timing_measurements.execution_time_measurement_no_ns.")
+	execution_time_measurement_no_ns_tester.test_current_time_measurement_methods()
 	print("==================================================")
 	print("==================================================")
 	statistical_analysis.print_statistics_of_software_testing()
