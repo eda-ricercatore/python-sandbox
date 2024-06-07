@@ -1,4 +1,8 @@
-#!/usr/local/bin/python3
+#!/Users/zhiyang/anaconda3/bin/python3
+
+###	#!/usr/local/bin/python3
+###	#!/Library/Frameworks/Python.framework/Versions/3.12/bin/python3
+
 
 # Commented out IPython magic to ensure Python compatibility.
 """
@@ -120,7 +124,16 @@ from statistics_pkg.test_statistics import statistical_analysis
 		software testing results.
 """
 from statistics_pkg.test_statistics_tester import statistical_analysis_tester
-
+"""
+	Package and module to perform miscellaneous tasks in data
+		analysis.
+"""
+from statistics_pkg.data_analysis_tool import data_analysis
+"""
+	Package and module to test methods that perform miscellaneous
+		tasks in data analysis.
+"""
+from statistics_pkg.data_analysis_tool_tester import data_analysis_tester
 
 
 
@@ -167,8 +180,10 @@ if __name__ == "__main__":
 	print("==================================================")
 	print("Testing package: statistics_pkg.")
 	print("Testing module: statistics_pkg.test_statistics.")
-	print("")
 	statistical_analysis_tester.test_statistical_analysis()
+	print("")
+	print("Testing module: statistics_pkg.data_analysis_tool.")
+	data_analysis_tester.test_data_analysis()
 	print("==================================================")
 	print("==================================================")
 	print("Testing package: utilities.")
