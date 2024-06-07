@@ -238,18 +238,6 @@ class queue_ip_args:
 			warnings.warn("	2nd input argument isn't available!!!")
 			queue_ip_args.input_arguments_error()
 		queue_ip_args.second_input_argument = queue_ip_args.get_2nd_input_argument()
-		"""
-		The 2nd input argument shouldn't be a valid path to an existing file.
-		If it is, warn the user about overwritting the file & exit.
-		"""
-		println = "==	Is the 2nd input argument a valid path to a file?"
-		if (os.path.exists(queue_ip_args.second_input_argument) and os.path.isfile(queue_ip_args.second_input_argument)):
-			print("	2nd input argument is a valid path to a file!")
-			println = "	File would be overwritten:"
-			println += queue_ip_args.second_input_argument
-			raise Exception("End program to avoid overwritting file.")
-		else:
-			print(println.format("	Yes."))
 		#	Get the filename and file extension of the 2nd input argument.
 		ip_fname2, ip_f_ext2 = os.path.splitext(queue_ip_args.second_input_argument)
 		#	Does 2nd input argument have a JSON file extension?
@@ -263,4 +251,18 @@ class queue_ip_args:
 			ip_fname2 = queue_ip_args.second_input_argument
 			ip_fname2 += queue_ip_args.json_f_ext
 			print("	New output filename is: {}" .format(ip_fname2))
+			queue_ip_args.second_input_argument += queue_ip_args.json_f_ext
+		"""
+		The 2nd input argument shouldn't be a valid path to an existing file.
+		If it is, warn the user about overwritting the file & exit.
+		"""
+		println = "==	Is the 2nd input argument a valid path to a file?"
+		if (os.path.exists(queue_ip_args.second_input_argument) and os.path.isfile(queue_ip_args.second_input_argument)):
+			print("	2nd input argument is a valid path to a file!")
+			println = "	File would be overwritten:"
+			println += queue_ip_args.second_input_argument
+			raise Exception("End program to avoid overwritting file.")
+		else:
+			print(println.format("	Yes."))
+		
 		return ip_fname2
