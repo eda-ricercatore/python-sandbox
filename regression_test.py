@@ -139,17 +139,6 @@ from statistics_pkg.data_analysis_tool_tester import data_analysis_tester
 
 
 # From the utilities package.
-#import utilities.timing_measurements.get_factorial
-# From the utilities.timing_measurements subpackage of Python modules.
-import utilities.timing_measurements
-#from utilities.timing_measurements import get_factorial
-#from utilities.timing_measurements import calculate_factorial
-# Package and module to calculate the factorial of a given number.
-#from utilities.timing_measurements.get_factorial import calculate_factorial
-#	Package and subpackage to measure the current time.
-# Package and module to perform date and time operations.
-from utilities.timing_measurements.performance_measurement_no_ns import execution_time_measurement_no_ns
-from utilities.timing_measurements.performance_measurement import execution_time_measurement
 # Package and module to process input arguments to the script/program.
 from utilities.queue_ip_arguments import queue_ip_args
 """
@@ -192,12 +181,11 @@ from utilities.miscellaneous_tester import misc_tester
 from utilities.date_time_processing import date_time_operations
 # Package and module that tests methods to perform date and time operations.
 from utilities.date_time_processing_tester import date_time_operations_tester
+#	Packages and modules to throw/raise custom exceptions.
 """
 	Package and module to throw/raise the custom exception
 		graph_exception.
 """
-#from utilities.custom_exceptions.graph_error import graph_err
-#import utilities.custom_exceptions.graph_error
 from utilities.custom_exceptions.graph_error import graph_error
 """
 	Package and module to test methods that throw/raise the custom
@@ -206,15 +194,20 @@ from utilities.custom_exceptions.graph_error import graph_error
 #from utilities.custom_exceptions.graph_error_tester import graph_error_tester
 #import utilities.custom_exceptions.graph_error_tester
 from utilities.custom_exceptions.graph_error_tester import graph_error_test
+# From the utilities.timing_measurements subpackage of Python modules.
 # Package and module that compute the factorial of a number.
 from utilities.timing_measurements.get_factorial import calculate_factorial
 # Package and module that test methods to compute the factorial of a number.
 from utilities.timing_measurements.get_factorial_tester import calculate_factorial_tester
+#	Package and subpackage to measure the current time.
 # Package and module with methods to measure the current time.
 from utilities.timing_measurements.performance_measurement_no_ns import execution_time_measurement_no_ns
 # Package and module that test methods to measure the current time.
 from utilities.timing_measurements.performance_measurement_no_ns_tester import execution_time_measurement_no_ns_tester
-
+# Package and module with methods to measure the current time.
+from utilities.timing_measurements.performance_measurement import execution_time_measurement
+# Package and module that test methods to measure the current time.
+from utilities.timing_measurements.performance_measurement_tester import execution_time_measurement_tester
 
 
 
@@ -259,8 +252,11 @@ if __name__ == "__main__":
 	print("Testing module: utilities.timing_measurements.get_factorial.")
 	calculate_factorial_tester.test_get_factorial_methods()
 	print("")
-	print("Testing module: utilities.timing_measurements.execution_time_measurement_no_ns.")
+	print("Testing module: utilities.timing_measurements.performance_measurement_no_ns.")
 	execution_time_measurement_no_ns_tester.test_current_time_measurement_methods()
+	print("")
+	print("Testing module: utilities.timing_measurements.performance_measurement.")
+	execution_time_measurement_tester.test_current_time_measurement_methods()
 	print("==================================================")
 	print("==================================================")
 	statistical_analysis.print_statistics_of_software_testing()
