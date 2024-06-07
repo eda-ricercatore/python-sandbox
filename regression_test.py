@@ -192,9 +192,18 @@ from utilities.miscellaneous_tester import misc_tester
 from utilities.date_time_processing import date_time_operations
 # Package and module that tests methods to perform date and time operations.
 from utilities.date_time_processing_tester import date_time_operations_tester
-
-
-
+"""
+	Package and module to throw/raise the custom exception
+		graph_exception.
+"""
+#from utilities.custom_exceptions.graph_error import graph_err
+#import utilities.custom_exceptions.graph_error
+from utilities.custom_exceptions.graph_error import graph_error
+"""
+	Package and module to test methods that throw/raise the custom
+		exception graph_exception.
+"""
+from utilities.custom_exceptions.graph_error_tester import graph_error_tester
 
 
 
@@ -230,6 +239,9 @@ if __name__ == "__main__":
 	misc_tester.test_miscellaneous_methods()
 	print("")
 	print("Testing module: utilities.date_time_processing.")
+	date_time_operations_tester.test_date_time_operations()
+	print("")
+	print("Testing module: utilities.custom_exceptions.graph_error.")
 	date_time_operations_tester.test_date_time_operations()
 	print("==================================================")
 	print("==================================================")
