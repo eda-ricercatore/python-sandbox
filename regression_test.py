@@ -157,11 +157,27 @@ from utilities.queue_ip_arguments import queue_ip_args
 		script/program.
 """
 from utilities.queue_ip_arguments_tester import queue_ip_args_tester
-
-
-
-
-
+# Package and module to perform file I/O operations.
+from utilities.file_io import file_io_operations
+# Package and module to test methods that perform file I/O operations.
+from utilities.file_io_tester import file_io_operations_tester
+"""
+	Package and module to configure the software application's
+		parameters.
+"""
+from utilities.configuration_manager import config_manager
+"""
+	Package and module to test methods that configure the software
+		application's parameters.
+"""
+from utilities.configuration_manager_tester import config_manager_tester
+# Package and module to generate filename with time stamp.
+from utilities.generate_results_filename import generate_filename
+"""
+	Package and module to test methods that generate filename with
+		time stamp.
+"""
+from utilities.generate_results_filename_tester import generate_filename_tester
 
 
 
@@ -188,8 +204,16 @@ if __name__ == "__main__":
 	print("==================================================")
 	print("Testing package: utilities.")
 	print("Testing module: utilities.queue_ip_arguments.")
-	print("")
 	queue_ip_args_tester.test_queue_ip_args()
+	print("")
+	print("Testing module: utilities.file_io.")
+	file_io_operations_tester.test_file_io_operations()
+	print("")
+	print("Testing module: utilities.configuration_manager.")
+	config_manager_tester.test_configure_sw_application_parameters()
+	print("")
+	print("Testing module: utilities.configuration_manager.")
+	generate_filename_tester.test_filename_generation_methods()
 	print("==================================================")
 	print("==================================================")
 	statistical_analysis.print_statistics_of_software_testing()
