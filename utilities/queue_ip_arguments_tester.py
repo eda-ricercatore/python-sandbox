@@ -354,7 +354,7 @@ class queue_ip_args_tester:
 		print("	Test: queue_ip_args.process_1st_ip_arg()... ")
 		name_of_script_dumped = "name-of-the-script"
 		current_1st_ip_arg = "garbage.json"
-		current_2nd_ip_arg = "notes/guidelines/guidelines.tex"
+		current_2nd_ip_arg = "others/output-files/output.tex"
 		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
 		#	Assign input arguments to "set_input_arguments(...)" for processing.
 		queue_ip_args.set_input_arguments(new_list_ip_args)

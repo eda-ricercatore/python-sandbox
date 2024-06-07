@@ -68,7 +68,7 @@ import warnings
 
 
 ###############################################################
-##	Module with methods that clean BibTeX files.
+##	Module with methods that clean JSON files.
 class queue_ip_args:
 	#	List of input arguments
 	set_of_input_arguments = []
@@ -211,7 +211,7 @@ class queue_ip_args:
 			print(println .format("	Yes."))
 		else:
 			raise Exception("1st input argument isn't a valid path to a file!")
-		#	Does 1st input argument have a BibTeX file extension?
+		#	Does 1st input argument have a JSON file extension?
 		println = "==	Does 1st input argument have a JSON file extension?"
 		#	Get the filename and file extension of the 1st input argument.
 		ip_fname1, ip_f_ext1 = os.path.splitext(queue_ip_args.first_input_argument)
@@ -219,10 +219,10 @@ class queue_ip_args:
 #	print "==	File extension of 1st input argument:"+ip_f_ext
 		if(ip_f_ext1 == queue_ip_args.json_f_ext):
 			print(println .format("	Yes."))
-			#	Add BibTeX file extension back to input filename.
+			#	Add JSON file extension back to input filename.
 			ip_fname1 = queue_ip_args.first_input_argument
 		else:
-			#	Add BibTeX file extension to input filename.
+			#	Add JSON file extension to input filename.
 			ip_fname1 += queue_ip_args.json_f_ext
 			print("	New output filename is: {}" .format(ip_fname1))
 			raise Exception("1st input argument doesn't have JSON file extension!")
@@ -252,14 +252,14 @@ class queue_ip_args:
 			print(println.format("	Yes."))
 		#	Get the filename and file extension of the 2nd input argument.
 		ip_fname2, ip_f_ext2 = os.path.splitext(queue_ip_args.second_input_argument)
-		#	Does 2nd input argument have a BibTeX file extension?
+		#	Does 2nd input argument have a JSON file extension?
 		println = "==	Does 2nd input argument have a JSON file extension?"
 		if(ip_f_ext2 == queue_ip_args.json_f_ext):
 			print(println.format("	Yes."))
 			ip_fname2 = queue_ip_args.second_input_argument
 		else:
 			print(println.format("	No."))
-			#	Add BibTeX file extension to output filename.
+			#	Add JSON file extension to output filename.
 			ip_fname2 = queue_ip_args.second_input_argument
 			ip_fname2 += queue_ip_args.json_f_ext
 			print("	New output filename is: {}" .format(ip_fname2))
