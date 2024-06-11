@@ -16,11 +16,29 @@
 	Essentially, it assumes that the current directory allows for
 		file modification.
 
-
 	
 	This script can be executed as follows:
 		./copy_n_delete_files.py
+
+
+	This script requires files with Python modules from the custom
+		"utilities" Python package to generate a filename affix, using
+		the timestamp or date-timestamp.
 	
+
+
+
+
+
+
+	References:
+	+ [DrakeJr2023i, The Python Standard Library: File and Directory Access: shutil -- High-level file operations: Directory and files operations]
+		https://docs.python.org/3/library/shutil.html
+	+ [DrakeJr2023i, The Python Standard Library: Text Processing Services: string -- Common string operations: Helper functions]
+		https://docs.python.org/3/library/string.html#helper-functions
+	+ [DrakeJr2023i, The Python Standard Library: Built-in Types: Text Sequence Type -- str: String Methods]
+		https://docs.python.org/3/library/stdtypes.html#str.split
+
 
 
 	Revision History:
@@ -74,8 +92,7 @@ __date__ = 'June 9, 2024'
 ###############################################################
 
 #	Import packages and functions from the Python Standard Library.
-# Module to support file copying and file deletion [DrakeJr2023i, The Python Standard Library: File and Directory Access: shutil -- High-level file operations: Directory and file operations].
-#	https://docs.python.org/3/library/shutil.html
+# Module to support file copying and file deletion [DrakeJr2023i, The Python Standard Library: File and Directory Access: shutil -- High-level file operations: Directory and files operations].
 import shutil
 
 # OS module to enumerate the specified directory.
@@ -90,7 +107,7 @@ from pathlib import Path
 
 #	Import Custom Python Modules
 
-# Package and module to generate filename with time stamp.
+# Package and module to generate filename affix with timestamp.
 from utilities.generate_results_filename import generate_filename
 
 
@@ -103,6 +120,15 @@ from utilities.generate_results_filename import generate_filename
 
 source_file_path				= "./source-files/makefile"
 destination_directory			= "./destination-files/"
+"""
+	Use the str.split(sep=None, maxsplit=-1) function to tokenize the destination file path.
+	[DrakeJr2023i, The Python Standard Library: Built-in Types: Text Sequence Type -- str: String Methods]
+	[DrakeJr2023i, The Python Standard Library: Text Processing Services: string -- Common string operations: Helper functions]
+
+	Use negative list indexing to access the last element of the list
+		of string tokens obtained from the tokenization of strings.
+	[DrakeJr2023m, The Python Tutorial: 3. An Informal Introduction to Python: 3.1. Using Python as a Calculator: 3.1.2. Text and 3.1.3. Lists]
+"""
 destination_filename			= source_file_path.split("/")[-1]
 print("	Destination filename is:", destination_filename,"=")
 destination_file_path			= destination_directory + destination_filename
@@ -116,9 +142,23 @@ filename_extension				= ".md"
 print("	Generate a filename affix with the current date and time stamp.")
 filename_affix = generate_filename.create_filename("")
 # Add the filename affix and filename extension as a suffix to the filename.
-filename_suffix = filename_affix + filename_extension
+filename_suffix = "-" + filename_affix + filename_extension
 print("	Filename suffix is:",filename_suffix,"=")
 destination_file_path			= destination_file_path + filename_suffix
 print("	Updated destination file path with suffix is:", destination_file_path,"=")
-shutil.copyfile(source_file_path,destination_file_path)
 
+
+# ===================================================================
+
+"""
+	Copy the source file to the destination location with the appended filename suffix.
+	Method does not require the use of creating file objects for file copying.
+	Methid also does not copy metadata associated with the source file.
+"""
+shutil.copyfile(source_file_path,destination_file_path)
+"""
+	Method does not require the use of creating file objects for file copying.
+	Methid copies partial metadata associated with the source file for file's permission mode.
+
+"""
+shutil.copy(source_file_path,destination_file_path)
