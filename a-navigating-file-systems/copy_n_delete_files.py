@@ -138,25 +138,43 @@ filename_extension				= ".md"
 
 # ===================================================================
 
-
-
-print("	Generate a filename affix with the current date and time stamp.")
-filename_affix = generate_filename.create_filename("")
-# Add the filename affix and filename extension as a suffix to the filename.
-filename_suffix = "-" + filename_affix + filename_extension
-print("	Filename suffix is:",filename_suffix,"=")
-destination_file_path			= destination_file_path + filename_suffix
-print("	Updated destination file path with suffix is:", destination_file_path,"=")
+"""
+	Method to generate a filename affix and update the destination
+		file path with the filename affix.
+	@param None, since no paramaters or input arguments are needed.
+	@return updated destination file path with filename suffix.
+	O(1) method.
+"""
+def updated_destination_file_path_with_filename_suffix(destn_fpath, fname_extn):
+	print("	Generate a filename affix with the current date and time stamp.")
+	filename_affix = generate_filename.create_filename("")
+	# Add the filename affix and filename extension as a suffix to the filename.
+	filename_suffix = "-" + filename_affix + fname_extn
+	print("	Filename suffix is:",filename_suffix,"=")
+	destn_fpath		= destn_fpath + filename_suffix
+	print("	Updated destination file path with suffix is:", destn_fpath,"=")
+	return destn_fpath
 
 
 # ===================================================================
 
+
+# Create a destination file path with current time stamp.
+destination_file_path = updated_destination_file_path_with_filename_suffix(destination_file_path, filename_extension)
 """
+	Solution #1.
 	Copy the source file to the destination location with the appended filename suffix.
 	Method does not require the use of creating file objects for file copying.
 	Methid also does not copy metadata associated with the source file.
 """
 shutil.copyfile(source_file_path,destination_file_path)
+"""
+	Solution #2.
+	Create another destination file path with current time stamp,
+		so that we can distinguish the effects of trying the previous
+		method, Solution #1, and this current method, Solution #2.
+"""
+destination_file_path = updated_destination_file_path_with_filename_suffix(destination_file_path, filename_extension)
 """
 	Method does not require the use of creating file objects for file copying.
 	Methid copies partial metadata associated with the source file for file's permission mode.
