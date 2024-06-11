@@ -169,15 +169,29 @@ destination_file_path = updated_destination_file_path_with_filename_suffix(desti
 """
 shutil.copyfile(source_file_path,destination_file_path)
 """
-	Solution #2.
 	Create another destination file path with current time stamp,
 		so that we can distinguish the effects of trying the previous
 		method, Solution #1, and this current method, Solution #2.
 """
 destination_file_path = updated_destination_file_path_with_filename_suffix(destination_file_path, filename_extension)
 """
+	Solution #2.
 	Method does not require the use of creating file objects for file copying.
 	Methid copies partial metadata associated with the source file for file's permission mode.
 
 """
 shutil.copy(source_file_path,destination_file_path)
+"""
+	Create another destination file path with current time stamp,
+		so that we can distinguish the effects of trying the previous
+		methods, Solution #1 and Solution #2, and this current method,
+		Solution #3.
+"""
+destination_file_path = updated_destination_file_path_with_filename_suffix(destination_file_path, filename_extension)
+"""
+	Solution #3.
+	Method does not require the use of creating file objects for file copying.
+	Methid copies partial metadata associated with the source file for file's permission mode.
+
+"""
+shutil.copy2(source_file_path,destination_file_path)
