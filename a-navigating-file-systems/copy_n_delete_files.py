@@ -28,6 +28,10 @@
 
 
 	Notes:
+	[Welch2022] provides a summary of solutions in text, and in tables
+		[jezrael2021],
+		that summarize the similarities and differences between methods
+		from the shutil module.
 	[Welch2022] provides additional methods to copy files, particularly
 		those base on creating file objects for file input processing
 		and file output processing.
@@ -97,7 +101,7 @@ __date__ = 'June 9, 2024'
 
 ###############################################################
 
-#	Import packages and functions from the Python Standard Library.
+#	Import modules and functions from the Python Standard Library.
 # Module to support file copying and file deletion [DrakeJr2023i, The Python Standard Library: File and Directory Access: shutil -- High-level file operations: Directory and files operations].
 import shutil
 
@@ -164,7 +168,7 @@ def updated_destination_file_path_with_filename_suffix(destn_fpath, fname_extn):
 
 # ===================================================================
 
-
+print("Testing Solution #1.")
 # Create a destination file path with current time stamp.
 destination_file_path = updated_destination_file_path_with_filename_suffix(destination_file_path, filename_extension)
 """
@@ -174,6 +178,7 @@ destination_file_path = updated_destination_file_path_with_filename_suffix(desti
 	Methid also does not copy metadata associated with the source file.
 """
 shutil.copyfile(source_file_path,destination_file_path)
+print("Testing Solution #2.")
 # Reset destination file path.
 destination_file_path			= destination_directory + destination_filename
 """
@@ -189,6 +194,7 @@ destination_file_path = updated_destination_file_path_with_filename_suffix(desti
 
 """
 shutil.copy(source_file_path,destination_file_path)
+print("Testing Solution #3.")
 # Reset destination file path.
 destination_file_path			= destination_directory + destination_filename
 """
@@ -206,6 +212,7 @@ destination_file_path = updated_destination_file_path_with_filename_suffix(desti
 shutil.copy2(source_file_path,destination_file_path)
 
 
+print("Testing Solution #4.")
 # Reset destination file path.
 destination_file_path			= destination_directory + destination_filename
 """
