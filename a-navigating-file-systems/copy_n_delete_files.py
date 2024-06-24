@@ -28,15 +28,34 @@
 
 
 	Notes:
-	[Welch2022] provides a summary of solutions in text, and in tables
-		[jezrael2021],
-		that summarize the similarities and differences between methods
-		from the shutil module.
+	[Welch2022] provides a set of solutions in text and source code,
+		and in tables [jezrael2021] [Sauthoff2018], that summarize
+		the similarities and differences between methods from the
+		shutil module.
+	+ [jezrael2021] provides a comparison of the methods for the
+		following attributes/characteristics:
+		- copies metadata
+		- copies permissions
+		- uses file object
+		- destination may be directory
+	+ [Sauthoff2018] provides a comparison of the methods for the
+		following attributes/characteristics:
+		- preserves permissions
+		- supports directory destination
+		- accepts file objects
+		- copies other metadata
+
+
 	[Welch2022] provides additional methods to copy files, particularly
 		those base on creating file objects for file input processing
 		and file output processing.
 	+ [Sun2022] provides an interesting method via creating file objects
 		for file input processing and file output processing.
+	+ [Kalimuthu2020] uses commands for UNIX-like operating systems to
+		copy the files via the following options:
+		- os.popen()
+		- os.system()
+		- subprocess.call()
 
 
 
@@ -48,7 +67,9 @@
 		https://docs.python.org/3/library/string.html#helper-functions
 	+ [DrakeJr2023i, The Python Standard Library: Built-in Types: Text Sequence Type -- str: String Methods]
 		https://docs.python.org/3/library/stdtypes.html#str.split
-
+	+ [DrakeJr2023i, The Python Standard Library: File and Directory Access: os.path -- Common pathname manipulations]
+		https://docs.python.org/3/library/os.path.html#os.path.basename
+		https://docs.python.org/3/library/os.path.html#os.path.split
 
 
 	Revision History:
@@ -105,12 +126,14 @@ __date__ = 'June 9, 2024'
 # Module to support file copying and file deletion [DrakeJr2023i, The Python Standard Library: File and Directory Access: shutil -- High-level file operations: Directory and files operations].
 import shutil
 
+# OS module for functions to process the file path.
+import os
 # OS module to enumerate the specified directory.
-from os import walk
+#from os import walk
 # Glob module to use regular expressions to filter out files.
-import glob
+#import glob
 # Pathlib module for recursive enumeration of a specified directory.
-from pathlib import Path
+#from pathlib import Path
 
 
 #####################################################################
@@ -140,9 +163,32 @@ destination_directory			= "./destination-files/"
 	[DrakeJr2023m, The Python Tutorial: 3. An Informal Introduction to Python: 3.1. Using Python as a Calculator: 3.1.2. Text and 3.1.3. Lists]
 """
 destination_filename			= source_file_path.split("/")[-1]
-print("	Destination filename is:", destination_filename,"=")
+print("	Methd 1: Destination filename is:", destination_filename,"=")
 destination_file_path			= destination_directory + destination_filename
-print("	Destination file path is:", destination_file_path,"=")
+print("	Methd 1: Destination file path is:", destination_file_path,"=")
+"""
+	Another approach to get the filename.
+	[DrakeJr2023i, The Python Standard Library: File and Directory Access: os.path -- Common pathname manipulations]
+	https://docs.python.org/3/library/os.path.html#os.path.basename
+
+	IMPORTANT NOTE:
+	This is the preferred approach.
+	It is simple and does not require negative indexing of lists.
+"""
+destination_filename			= os.path.basename(source_file_path)
+print("	Methd 2: Destination filename is:", destination_filename,"=")
+destination_file_path			= destination_directory + destination_filename
+print("	Methd 2: Destination file path is:", destination_file_path,"=")
+"""
+	Yet another approach to get the filename.
+	[DrakeJr2023i, The Python Standard Library: File and Directory Access: os.path -- Common pathname manipulations]
+	https://docs.python.org/3/library/os.path.html#os.path.split
+"""
+destination_filename			= os.path.split(source_file_path)[-1]
+print("	Methd 3: Destination filename is:", destination_filename,"=")
+destination_file_path			= destination_directory + destination_filename
+print("	Methd 3: Destination file path is:", destination_file_path,"=")
+# File extension.
 filename_extension				= ".md"
 
 
@@ -223,7 +269,7 @@ destination_file_path			= destination_directory + destination_filename
 """
 destination_file_path = updated_destination_file_path_with_filename_suffix(destination_file_path, filename_extension)
 """
-	Solution #4.
+	Solution #4 [Sun2022].
 	Method does not require the use of creating file objects for file copying.
 	Methid copies metadata associated with the source file for file's permission mode.
 """

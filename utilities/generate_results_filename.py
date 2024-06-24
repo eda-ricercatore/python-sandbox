@@ -1,4 +1,11 @@
-#!/usr/local/bin/python3
+#!/opt/local/bin/python3.12
+
+###	#!/opt/homebrew/bin/python3
+###	#!/usr/local/bin/python3
+
+
+###	#!/opt/anaconda3/bin/python
+
 ###!/Users/zhiyang/anaconda3/bin/python3
 
 """
@@ -42,6 +49,9 @@
 
 	\cite[datetime module, \S8.1.4 datetime Objects, now() function]{DrakeJr2016b}
 
+	\cite[The Python Standard Library: Generic Operating System Services: time -- Time access and conversions: Functions]{DrakeJr2023i}
+		https://docs.python.org/3/library/time.html#time.strptime
+		https://docs.python.org/3/library/time.html#time.strftime
 
 
 	Revision History:
@@ -104,19 +114,70 @@ import datetime
 
 ###############################################################
 class generate_filename:
+	##	Method to generate a filename affix for the results of
+	#		the experimental/simulation run, or execution of
+	#		the automated regression testing (for software) or
+	#		automated regression verification.
+	#	@return - Affix/Suffix for the filename based on the
+	#		date-timestamp.
+	#	O(1) method.
+	@staticmethod
+	def create_filename_affix_strptime(file_extension = ".txt"):
+		"""
+			From \cite[The Python Standard Library: Generic Operating System Services: time -- Time access and conversions: Functions]{DrakeJr2023i}:
+			The format for the date-timestamp is provided for the
+				following fields:
+			+ month
+			+ date
+			+ year
+			+ hour
+			+ minute
+			+ second
+			+ microsecond
+
+			Additional Notes:
+			time.strptime() does not work with the "%f" directive
+				to obtain the current time with microsecond precision.
+		"""
+		current_time = time.strptime("%B-%d-%Y-%H-%M-%S-%f")
+		current_time = current_time + file_extension
+		return current_time
+	##	Method to generate a filename affix for the results of
+	#		the experimental/simulation run, or execution of
+	#		the automated regression testing (for software) or
+	#		automated regression verification.
+	#	@return - Affix/Suffix for the filename based on the
+	#		date-timestamp.
+	#	O(1) method.
+	@staticmethod
+	def create_filename_affix_strftime(file_extension = ".txt"):
+		"""
+			From \cite[The Python Standard Library: Generic Operating System Services: time -- Time access and conversions: Functions]{DrakeJr2023i}:
+			The format for the date-timestamp is provided for the
+				following fields:
+			+ month
+			+ date
+			+ year
+			+ hour
+			+ minute
+			+ second
+			+ microsecond
+		"""
+		current_time = time.strftime("%B-%d-%Y-%H-%M-%S-%f")
+		current_time = current_time + file_extension
+		return current_time
 	##	Method to generate a filename for the results of the
 	#		experimental/simulation run, or execution of the
 	#		automated regression testing (for software) or
 	#		automated regression verification.
-	#	@return - List of input arguments to the program.
+	#	@return - Affix/Suffix for the filename based on the
+	#		date-timestamp.
 	#	O(1) method.
 	@staticmethod
 	def create_filename(file_extension = ".txt"):
 		"""
 			Generate filename to store experimental/simulation
-				results, from characterizing the standard cell
-				library that uses noise-based logic
-				\cite{SaltyCrane2014}
+				results \cite{SaltyCrane2014}
 				\cite[datetime module, \S8.1.4 datetime Objects, now() function]{DrakeJr2016b}.
 		"""
 		now = datetime.datetime.now()
@@ -182,8 +243,17 @@ if __name__ == "__main__":
 	print("===================================================")
 	print("Generate filename to store experimental/simulation results.")
 	print("")
+	print("Create filename: datetime.datetime.now()")
 	filename = generate_filename.create_filename()
+	print("filename is:",filename,"=")
 	print("")
+	print("Create filename: time.strptime()")
+	filename = generate_filename.create_filename_affix_strptime()
+	print("filename is:",filename,"=")
+	print("")
+	print("Create filename: time.strftime()")
+	filename = generate_filename.create_filename_affix_strftime()
+	print("filename is:",filename,"=")
 	print("	= end =")
 
 

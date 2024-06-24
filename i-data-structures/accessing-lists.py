@@ -72,8 +72,15 @@ print("list_of_names_1 is:",list_of_names_1,"=")
 print("list_of_names_1[-1] is:",list_of_names_1[-1],"=")
 print("list_of_names_1[-2] is:",list_of_names_1[-2],"=")
 print("list_of_names_1[-3] is:",list_of_names_1[-3],"=")
-
-
+print("...............................................")
+print("list_of_names_1[len('Giuseppe Maruccia'):] is:",list_of_names_1[len("Giuseppe Maruccia"):],"=")
+print("list_of_names_1[:len('Giuseppe Maruccia')] is:",list_of_names_1[:len("Giuseppe Maruccia")],"=")
+print("list_of_names_1[len(list_of_names_1):] is:",list_of_names_1[len(list_of_names_1):],"=")
+print("list_of_names_1[len(list_of_names_1):] is:",list_of_names_1[len(list_of_names_1):],"=")
+print("...............................................")
+print("list_of_names_1[len('Riccardo Locatelli'):] is:",list_of_names_1[len("Riccardo Locatelli"):],"=")
+print("list_of_names_1[:len('Riccardo Locatelli')] is:",list_of_names_1[:len("Riccardo Locatelli")],"=")
+print("...............................................")
 
 
 list_of_names_2 = ["Jeff Sharpe", "Colleen Carlton", "Cristina Favretto", "Susan Parker", "Gary Strong", "Jamie Hoang", "Alyson Wieczorek", "Scott Miller", "Jutta Weimhoff", "Tom Hudgens", "Robin Chandler", "Ann Jensen", "Jae Mauthe", "Paul Nguyen", "Marcus Lucero", "Ian White", "Kris Brix", "Norma Layton", "James Hixon", "Kelly Critch", "Matt Smith", "Anne R. Kenney", "Oya Yildirim Rieger", "Callie Lamkin"]
