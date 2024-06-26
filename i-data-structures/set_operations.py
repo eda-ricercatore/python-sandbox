@@ -24,6 +24,13 @@
 
 
 
+	#### TO BE COMPLETED
+	Methods to check if a set is empty().
+		Compare the performance of such methods.
+	Methods to convert a list to a set.
+	Methods to convert a set to a list.
+
+
 	
 	References:
 	+  https://python-reference.readthedocs.io/en/latest/docs/comprehensions/set_comprehension.html   
