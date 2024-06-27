@@ -70,11 +70,17 @@
 	+ [DrakeJr2023i, The Python Standard Library: File and Directory Access: os.path -- Common pathname manipulations]
 		https://docs.python.org/3/library/os.path.html#os.path.basename
 		https://docs.python.org/3/library/os.path.html#os.path.split
+	+ [DrakeJr2023i, The Python Standard Library: File and Directory Access: filecmp -- File and Directory Comparisons]
+		https://docs.python.org/3/library/filecmp.html
 
 
 	Revision History:
 	September 6, 2019			Version 0.1	Script.
 	June 9, 2024				Version 0.2	Script.
+	June 27, 2024				Version 0.3	Script. Add file comparison
+									feature to check if copied file is
+									the same as the source file, in its
+									content.
 """
 
 
@@ -125,6 +131,10 @@ __date__ = 'June 9, 2024'
 #	Import modules and functions from the Python Standard Library.
 # Module to support file copying and file deletion [DrakeJr2023i, The Python Standard Library: File and Directory Access: shutil -- High-level file operations: Directory and files operations].
 import shutil
+
+# Module to compare files [DrakeJr2023i, The Python Standard Library: File and Directory Access: filecmp -- File and Directory Comparisons].
+import filecmp
+
 
 # OS module for functions to process the file path.
 import os
@@ -224,6 +234,11 @@ destination_file_path = updated_destination_file_path_with_filename_suffix(desti
 	Methid also does not copy metadata associated with the source file.
 """
 shutil.copyfile(source_file_path,destination_file_path)
+if filecmp.cmp(source_file_path, destination_file_path, shallow=False):
+	print("	Solution #1 works. Copied file and source file are the same.")
+else:
+	print("	Solution #1 fails. Copied file and source file differ.")
+#	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
 print("Testing Solution #2.")
 # Reset destination file path.
 destination_file_path			= destination_directory + destination_filename
@@ -240,6 +255,11 @@ destination_file_path = updated_destination_file_path_with_filename_suffix(desti
 
 """
 shutil.copy(source_file_path,destination_file_path)
+if filecmp.cmp(source_file_path, destination_file_path, shallow=False):
+	print("	Solution #2 works. Copied file and source file are the same.")
+else:
+	print("	Solution #2 fails. Copied file and source file differ.")
+#	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
 print("Testing Solution #3.")
 # Reset destination file path.
 destination_file_path			= destination_directory + destination_filename
@@ -256,8 +276,11 @@ destination_file_path = updated_destination_file_path_with_filename_suffix(desti
 	Methid copies metadata associated with the source file for file's permission mode.
 """
 shutil.copy2(source_file_path,destination_file_path)
-
-
+if filecmp.cmp(source_file_path, destination_file_path, shallow=False):
+	print("	Solution #3 works. Copied file and source file are the same.")
+else:
+	print("	Solution #3 fails. Copied file and source file differ.")
+#	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
 print("Testing Solution #4.")
 # Reset destination file path.
 destination_file_path			= destination_directory + destination_filename
@@ -274,6 +297,10 @@ destination_file_path = updated_destination_file_path_with_filename_suffix(desti
 	Methid copies metadata associated with the source file for file's permission mode.
 """
 open(destination_file_path, 'wb').write(open(source_file_path, 'rb').read())
+if filecmp.cmp(source_file_path, destination_file_path, shallow=False):
+	print("	Solution #4 works. Copied file and source file are the same.")
+else:
+	print("	Solution #4 fails. Copied file and source file differ.")
 
 
 

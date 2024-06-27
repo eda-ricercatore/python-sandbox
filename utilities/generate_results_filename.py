@@ -44,12 +44,12 @@
 
 
 	References:
-	\cite{SaltyCrane2014}
+	[SaltyCrane2014]
 		Eliot "Salty Crane", "How to get the current date and time in Python," from Salty Crane Blog, June 26, 2008. Available online from Salty Crane Blog at: https://www.saltycrane.com/blog/2008/06/how-to-get-current-date-and-time-in/; modified on October 22, 2014; self-published; August 31, 2018 was the last accessed date
 
-	\cite[datetime module, \S8.1.4 datetime Objects, now() function]{DrakeJr2016b}
+	[DrakeJr2016b, datetime module, Section 8.1.4 datetime Objects, now() function]
 
-	\cite[The Python Standard Library: Generic Operating System Services: time -- Time access and conversions: Functions]{DrakeJr2023i}
+	[DrakeJr2023i, The Python Standard Library: Generic Operating System Services: time -- Time access and conversions: Functions]
 		https://docs.python.org/3/library/time.html#time.strptime
 		https://docs.python.org/3/library/time.html#time.strftime
 
@@ -124,7 +124,7 @@ class generate_filename:
 	@staticmethod
 	def create_filename_affix_strptime(file_extension = ".txt"):
 		"""
-			From \cite[The Python Standard Library: Generic Operating System Services: time -- Time access and conversions: Functions]{DrakeJr2023i}:
+			From [DrakeJr2023i, The Python Standard Library: Generic Operating System Services: time -- Time access and conversions: Functions]:
 			The format for the date-timestamp is provided for the
 				following fields:
 			+ month
@@ -152,7 +152,7 @@ class generate_filename:
 	@staticmethod
 	def create_filename_affix_strftime(file_extension = ".txt"):
 		"""
-			From \cite[The Python Standard Library: Generic Operating System Services: time -- Time access and conversions: Functions]{DrakeJr2023i}:
+			From [DrakeJr2023i, The Python Standard Library: Generic Operating System Services: time -- Time access and conversions: Functions]:
 			The format for the date-timestamp is provided for the
 				following fields:
 			+ month
@@ -177,8 +177,8 @@ class generate_filename:
 	def create_filename(file_extension = ".txt"):
 		"""
 			Generate filename to store experimental/simulation
-				results \cite{SaltyCrane2014}
-				\cite[datetime module, \S8.1.4 datetime Objects, now() function]{DrakeJr2016b}.
+				results [SaltyCrane2014]
+				[DrakeJr2016b, datetime module, Section 8.1.4 datetime Objects, now() function].
 		"""
 		now = datetime.datetime.now()
 		"""
@@ -260,5 +260,5 @@ if __name__ == "__main__":
 #	Python database management
 #	Python: date, time, now, string
 #	Add references.
-#	\cite{Hetland2005,Lutz2010,Lutz2011,Sileika2010,Younker2008}.
-#	\cite[Chp. 17,25]{Beazley2009}
+#	[Hetland2005] [Lutz2010] [Lutz2011] [Sileika2010] [Younker2008].
+#	[Beazley2009, Chp. 17,25]
