@@ -301,8 +301,11 @@ if filecmp.cmp(source_file_path, destination_file_path, shallow=False):
 	print("	Solution #4 works. Copied file and source file are the same.")
 else:
 	print("	Solution #4 fails. Copied file and source file differ.")
-
-
+print("============================================================")
+if filecmp.cmp("recursively-enumerate-dir.py", "a_os_path_methods.py", shallow=False):
+	print("	'recursively-enumerate-dir.py' and 'a_os_path_methods.py' are the same.")
+else:
+	print("	'recursively-enumerate-dir.py' and 'a_os_path_methods.py' differ.")
 
 
 
