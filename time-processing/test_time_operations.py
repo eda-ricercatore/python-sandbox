@@ -25,6 +25,8 @@
 
 
 	References:
+	[DrakeJr2023i, from The Python Standard Library: Data Types: calendar — General calendar-related functions]
+
 	[SaltyCrane2014]
 		Eliot "Salty Crane", "How to get the current date and time in Python," from Salty Crane Blog, June 26, 2008. Available online from Salty Crane Blog at: https://www.saltycrane.com/blog/2008/06/how-to-get-current-date-and-time-in/; modified on October 22, 2014; self-published; August 31, 2018 was the last accessed date
 
@@ -70,6 +72,7 @@ import time
 #from datetime import date, datetime, tzinfo, timezone
 from datetime import date, datetime, timezone
 #import datetime
+import calendar
 
 #utctimestamp = datetime.utcfromtimestamp()
 utctimestamp = date.fromtimestamp(time.time())
@@ -156,3 +159,7 @@ date_timestamp = month_number_to_text[current_time.tm_mon] + "-" + str(current_t
 print("	processed date-timestamp is:", date_timestamp, "=")
 current_time = time.gmtime()
 print("	time.gmtime() is:",current_time,"=")
+
+
+current_time = calendar.timegm(time.gmtime())
+print("calendar.timegm() is:",current_time,"=")
