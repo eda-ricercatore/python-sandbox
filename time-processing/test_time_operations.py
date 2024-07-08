@@ -103,18 +103,25 @@ print("5) current time, int(round(time.time() * 1000)), is:",current_milli_time,
 		Use time.time() to measure time in seconds.
 """
 utctimestamp = time.time()
-print("current time, time.time(), is:",utctimestamp,"=")
+print("6) current time, time.time(), is:",utctimestamp,"=")
 current_date = date.fromtimestamp(utctimestamp)
-print("current date, date.fromtimestamp(time.time()), is:",current_date,"=")
+print("7) current date, date.fromtimestamp(time.time()), is:",current_date,"=")
 current_date_time = datetime.fromtimestamp(utctimestamp)
-print("current date, datetime.fromtimestamp(time.time()), is:",current_date_time,"=")
+print("8) current date, datetime.fromtimestamp(time.time()), is:",current_date_time,"=")
 current_date_time = datetime.utcfromtimestamp(utctimestamp)
-print("current date, datetime.utcfromtimestamp(time.time()), is:",current_date_time,"=")
+print("9) current date, datetime.utcfromtimestamp(time.time()), is:",current_date_time,"=")
 #current_date_time = datetime(tzinfo=timezone.utc).timestamp()
 #current_date_time = time.time()
 current_date_time = datetime.now()
+print("10) datetime.now() is:",current_date_time,"=")
+#current_date_time = datetime.datetime.now()
+#print("datetime.datetime.now() is:",current_date_time,"=")
+current_date_time = date.fromtimestamp()
+print("11) date.fromtimestamp() is:",current_date_time,"=")
+
+
 current_date_time = current_date_time.replace(tzinfo=timezone.utc)
-print("current date, datetime.now().replace(tzinfo=timezone.utc), is:",current_date_time,"=")
+print("12) current date, datetime.now().replace(tzinfo=timezone.utc), is:",current_date_time,"=")
 #utctimestamp = time.gmtime()
 #print("current time, time.gmtime(), is:",utctimestamp,"=")
 
@@ -145,21 +152,21 @@ print("============================================================")
 # Has no second feature.
 #current_time = time.strptime("%B-%d-%Y-%H-%M", gmtime())
 current_time = time.asctime()
-print("	time.asctime() is:",current_time,"=")
+print("13)	time.asctime() is:",current_time,"=")
 current_time = time.ctime()
-print("	time.ctime() is:",current_time,"=")
+print("14)	time.ctime() is:",current_time,"=")
 current_time = time.localtime()
-print("	time.localtime() is:",current_time,"=")
+print("15)	time.localtime() is:",current_time,"=")
 
 
 month_number_to_text = {1:"january", 2:"february", 3:"march", 4:"april", 5:"may", 6:"june", 7:"july", 8:"august", 9:"september", 10:"october", 11:"november", 12:"december"}
 print("month_number_to_text is:",month_number_to_text,"=")
 print("month_number_to_text[current_time.tm_mon] is:",month_number_to_text[current_time.tm_mon],"=")
 date_timestamp = month_number_to_text[current_time.tm_mon] + "-" + str(current_time.tm_mday) + "-" + str(current_time.tm_year) + "-" + str(current_time.tm_hour) + "-" + str(current_time.tm_min)
-print("	processed date-timestamp is:", date_timestamp, "=")
+print("16)	processed date-timestamp is:", date_timestamp, "=")
 current_time = time.gmtime()
-print("	time.gmtime() is:",current_time,"=")
+print("17)	time.gmtime() is:",current_time,"=")
 
 
 current_time = calendar.timegm(time.gmtime())
-print("calendar.timegm() is:",current_time,"=")
+print("18) calendar.timegm() is:",current_time,"=")

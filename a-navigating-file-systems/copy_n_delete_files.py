@@ -72,6 +72,8 @@
 		https://docs.python.org/3/library/os.path.html#os.path.split
 	+ [DrakeJr2023i, The Python Standard Library: File and Directory Access: filecmp -- File and Directory Comparisons]
 		https://docs.python.org/3/library/filecmp.html
+	+ [DrakeJr2023i, The Python Standard Library: Text Processing Services: difflib -- Helpers for computing deltas]
+		https://docs.python.org/3/library/difflib.html
 
 
 	Revision History:
@@ -144,6 +146,23 @@ import os
 #import glob
 # Pathlib module for recursive enumeration of a specified directory.
 #from pathlib import Path
+
+
+
+
+# Module to process delta differences in sequence or file comparison.
+import difflib
+
+
+
+
+
+"""
+	Import modules from the Python Standard Library concurrently
+		in a line.
+"""
+#import shutil, filecmp, os, difflib
+
 
 
 #####################################################################
@@ -308,8 +327,48 @@ else:
 	print("	'recursively-enumerate-dir.py' and 'a_os_path_methods.py' differ.")
 
 
+print("============================================================")
+
+print("=Implement file comparison approaches not yet explored.")
+
+a_file = "/Applications/apps/comune/scripts/bibtex-analytics/notes/LICENSE"
+another_file = "/Applications/apps/comune/scripts/bibtex-analytics/notes/mit-license.text"
+
+with open(a_file, 'r') as ip_file_obj:
+	ip_file_info = ip_file_obj.readlines()
+
+with open(another_file, 'r') as op_file_obj:
+	op_file_info = op_file_obj.readlines()
+
+#set_of_differences = difflib.unified_diff(ip_file_info, op_file_info, ip_file_obj, op_file_obj, lineterm="")
+set_of_differences = difflib.unified_diff(ip_file_info, op_file_info, a_file, another_file, lineterm="")
+# Generator object cannot be printed.
+#print("1) set_of_differences:",set_of_differences,"=")
+
+#print("	=set_of_differences:",set_of_differences,"=")
+#print(set_of_differences)
+# Print each line in the generator object from the file comparison.
+for current_line in set_of_differences:
+	print("	=line is:",current_line,"=")
+	#print(current_line)
 
 
+print("============================================================")
 
+with open(source_file_path, 'r') as ip_file_obj:
+	ip_file_info = ip_file_obj.readlines()
 
+with open(destination_file_path, 'r') as op_file_obj:
+	op_file_info = op_file_obj.readlines()
 
+#set_of_differences = difflib.unified_diff(ip_file_info, op_file_info, ip_file_obj, op_file_obj, lineterm="")
+set_of_differences = difflib.unified_diff(ip_file_info, op_file_info, source_file_path, destination_file_path, lineterm="")
+# Generator object cannot be printed.
+#print("1) set_of_differences:",set_of_differences,"=")
+#print(set_of_differences)
+
+# Print each line in the generator object from the file comparison.
+for current_line in set_of_differences:
+	print("	=line is:",current_line,"=")
+
+print("=Size of 'set_of_differences' is:",set_of_differences,"=")

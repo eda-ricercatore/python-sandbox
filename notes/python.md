@@ -2016,7 +2016,7 @@ Similarly, a **generator expression** implicitly creates an iterable object to
 	\cite[Chapter 6, section on "Generator Expressions," pp. 109]{Beazley2009}.
 + Use parentheses for **generator expression**s
 	\cite[Chapter 6, section on "Generator Expressions," pp. 109]{Beazley2009}.
-+ **It creates a generator object to iteratively prodice values on demand**,
++ **It creates a generator object to iteratively produce values on demand**,
 	so that it does not have to create a list or immediately evaluate the expression
 	inside the parentheses
 	\cite[Chapter 6, section on "Generator Expressions," pp. 110]{Beazley2009}.
