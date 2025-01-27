@@ -68,29 +68,10 @@ __date__ = 'January 6, 2025'
 	time	To obtain information about the current time.
 """
 
-import sys
-# [Loreto2019]
-import os
-import os.path
-#from pathlib import Path
-from subprocess import call
-import time
-import warnings
-import re
-import datetime
-import time
 # For random number generation.
-import random
-from random import random
+#import random
 from random import randrange
 from random import choice
-# [Loreto2019]
-from subprocess import call
-# [DrakeJr2016b]
-from subprocess import run
-
-
-
 
 
 # ===================================================================
@@ -98,16 +79,22 @@ from subprocess import run
 
 """
 	Python method to generate a sequence/category of integers.
-	The default size of the generated sequence/category is: 10.
+	The default size of the generated sequence/category is: 20.
 """
 def generate_category(default_size=20):
 	# Allow for the maximum integer size, which is bounded by the main/physical memory subsystem that the computer has.
 	#category_1_size = randrange(sys.maxsize)
-	# Assume a "reasonable" default value.
-	category_i_size = randrange(default_size)
+	# Pseudo-randomly generate the positive-value size of the category.
+	category_i_size = 0
+	while 0 == category_i_size:
+		category_i_size = randrange(default_size)
 	print("Size of 'category i':",category_i_size,"=")
 	category_i = [ randrange(category_i_size) for i in range(category_i_size) ]
 	#print("'category i' is:",category_i,"=")
+	# Create a set from the list/category.
+	set_list_i = set(category_i)
+	# Create a list/category from the set/category.
+	category_i = list(set_list_i)
 	return category_i
 
 
@@ -116,14 +103,15 @@ def generate_category(default_size=20):
 
 #	If this is executed as a Python script,
 if __name__ == "__main__":
+	print("================================================")
 	# Simulate two categories of members via pseudo-random number generation.
 	# Create a list/sequence/category of members.
 	category_1 = generate_category(15)
 	print("'category 1' is:",category_1,"=")
 	# Create another list/sequence/category of members.
-	category_2 = generate_category(20)
+	category_2 = generate_category(21)
 	print("'category 2' is:",category_2,"=")
-	print("================================================")
+	print("................................................")
 	print("Perform randomized bipartite matching.")
 	# Select a member from 'category 1'.
 	chosen_category_1_member = choice(category_1)
