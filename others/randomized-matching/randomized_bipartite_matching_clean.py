@@ -1,6 +1,5 @@
 #!/Library/Frameworks/Python.framework/Versions/Current/bin/python3
 ###	#!/opt/anaconda3/bin/python
-
 ###	#!/usr/local/bin/python3
 
 
@@ -14,7 +13,7 @@
 	Perform randomized bipartite matching.
 
 	This script can be executed as follows:
-	./randomized_bipartite_matching.py
+	./randomized_bipartite_matching_clean.py
 
 
 	Notes:
@@ -27,15 +26,13 @@
 	References from my BibTeX database.
 	+ [Loreto2019]
 
-
-
-
 	Revision History:
-	January 6, 2025			Version 0.1	Script.
+	January 6, 2025			Version 1.0	Script.
+	January 6, 2025			Version 1.1	Script. Cleaned version.
 """
 
 __author__ = 'Zhiyang Ong'
-__version__ = '1.0'
+__version__ = '1.1'
 __date__ = 'January 6, 2025'
 
 #	The MIT License (MIT)
